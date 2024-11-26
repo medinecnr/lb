@@ -1,41 +1,45 @@
 "use client";
 import "@/styles/globals.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button  } from "@nextui-org/react";
-import { carouselItems, tireProducts, tireSizes, brandLogos } from "@/components/items/pageitems";
-import { useRef } from "react";
+import { carouselItems, tireProducts, tireSizes, brandLogos, cardData,selectOptions, renderOptions } from "@/components/items/pageitems";
 
 export default function Home() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState("lastik"); 
+  const [activeTab, setActiveTab] = useState("lastik");
+  const [currentIndex, setCurrentIndex] = useState(0);  // Burada currentIndex ve setCurrentIndex tanımlanıyor
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollCarousel = (scrollAmount: number) => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth', 
-      });
-    }
-  };
-
+  // Tab seçme fonksiyonu
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 
+  // Carousel kaydırma fonksiyonu
+  const scrollCarousel = (scrollAmount: number) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   useEffect(() => {
+    // Carousel kaydırmasını belirli aralıklarla yapacak interval
     const intervalId = setInterval(() => {
-      scrollCarousel(250); 
+      scrollCarousel(250); // Her 5 saniyede bir 250px kaydırma
     }, 5000);
 
+    // Component unmount olduğunda interval'i temizliyoruz
     return () => clearInterval(intervalId);
   }, []);
-  
+
   return (
     <div className="bg-white text-black">
 
+      {/* Carousel (HALLEDİLDİ)*/}
       <div className="mb-10">
         <div className="carousel-container relative w-full bg-[#006969] flex justify-center items-center m-0 py-10">
           <Carousel
@@ -49,20 +53,23 @@ export default function Home() {
             swipeable={true}
             emulateTouch={true}
             className="w-full h-full"
-            interval={4000} 
+            interval={4000}
             transitionTime={1000}
           >
             {carouselItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-center w-full h-full px-8 md:px-16">
-                <div className="flex-1 text-white p-6 md:p-10 text-left flex flex-col justify-center h-full">
+              <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full px-8 md:px-16">
+                {/* Text and button section */}
+                <div className="flex-1 text-white p-6 md:p-10 text-center md:text-left flex flex-col justify-center h-full">
                   <h1 className="mb-4 text-3xl md:text-4xl">{item.title}</h1>
                   <p className="mb-6 text-lg">{item.description}</p>
                   <a href="#">
-                    <Button color="primary" className="bg-[#FFB45F] text-white" size="lg">
+                    <Button color="primary" className="bg-[#FFB45F] text-white mx-auto md:mx-0" size="lg">
                       {item.buttonText}
                     </Button>
                   </a>
                 </div>
+
+                {/* Image section */}
                 <div className="flex-1 pl-4">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl" />
                 </div>
@@ -72,91 +79,99 @@ export default function Home() {
         </div>
       </div>
 
+
+      {/* Hizmetler (HALLEDİLDİ)*/}
       <div className="pb-6 mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
-          
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
-            <div className="w-full h-32 overflow-hidden">
-              <img src="/images/fiyat.jpg" alt="" className="w-full h-full object-contain" />
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {cardData.map(card => (
+            <div key={card.id} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+              <div className="w-full h-32 overflow-hidden">
+                <img src={card.imageSrc} alt={card.title} className="w-full h-full object-contain" />
+              </div>
+              <div className="p-6 flex flex-col justify-center items-center">
+                <h2 className="font-bold mb-4 text-center">{card.title}</h2>
+                <p className="text-gray-600 text-center">{card.description}</p>
+              </div>
             </div>
-            <div className="p-6 flex flex-col justify-center items-center">
-              <h2 className="mb-4 font-bold">Uygun Fiyat Garantisi</h2>
-              <p className="text-gray-600 text-center">Yapacağınız alışverişler için en uygun fiyat garantisi vermekteyiz.</p>
-            </div>
-          </div>
-         
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
-            <div className="w-full h-32 overflow-hidden">
-              <img src="/images/kargo.jpg" alt="" className="w-full h-full object-contain" />
-            </div>
-            <div className="p-6 flex flex-col justify-center items-center">
-              <h2 className="font-bold mb-4">Uygun Fiyat Garantisi</h2>
-              <p className="text-gray-600">Yapacağınız alışverişler için en uygun fiyat garantisi vermekteyiz.</p>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
-            <div className="w-full h-32 overflow-hidden">
-              <img src="/images/odeme.jpg" alt="" className="w-full h-full object-contain" />
-            </div>
-            <div className="p-6 flex flex-col justify-center items-center">
-              <h2 className="font-bold mb-4">Uygun Fiyat Garantisi</h2>
-              <p className="text-gray-600">Yapacağınız alışverişler için en uygun fiyat garantisi vermekteyiz.</p>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
-            <div className="w-full h-32 overflow-hidden">
-              <img src="/images/destek.jpg" alt="" className="w-full h-full object-contain" />
-            </div>
-            <div className="p-6 flex flex-col justify-center items-center">
-              <h2 className="font-bold mb-4">Uygun Fiyat Garantisi</h2>
-              <p className="text-gray-600 text-center">Yapacağınız alışverişler için en uygun fiyat garantisi vermekteyiz.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
       
-      <div className="container mx-auto  p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
-        <div>
-          <h1>Aracınıza En Uygun Lastiği Bulun!</h1>
-          <p>Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.</p>
-        </div>
-        
-        <div className="pt-2 ">
-          <ul className="flex space-x-2 text-white text-sm font gap-2">
-            <li
-              onClick={() => handleTabClick("lastik")}
-              className={` px-5 py-3 rounded-t-lg cursor-pointer ${activeTab === "lastik" ? "bg-white text-black font-bold" : "bg-[#FFB45F] text-white"}`}
-            >
-              <i className="fa-solid fa-truck-monster me-1"></i> Lastik Bulucu
-            </li>
-            <li
-              onClick={() => handleTabClick("jant")}
-              className={` px-5 py-3  rounded-t-lg cursor-pointer ${activeTab === "jant" ? "bg-white text-black font-bold" : "bg-[#FFB45F] text-white"}`}
-            >
-              <i className="fa-solid fa-sun me-1"></i> Jant Bulucu
-            </li>
-            <li
-              onClick={() => handleTabClick("aku")}
-              className={` px-5 py-3  rounded-t-lg cursor-pointer ${activeTab === "aku" ? "bg-white text-black font-bold" : "bg-[#FFB45F] text-white"}`}
-            >
-              <i className="fa-solid fa-car-battery me-1"></i> Akü Bulucu
-            </li>
-            <li
-              onClick={() => handleTabClick("yag")}
-              className={` px-5 py-3 rounded-t-lg cursor-pointer ${activeTab === "yag" ? "bg-white text-black font-bold" : "bg-[#FFB45F] text-white"}`}
-            >
-              <i className="fa-solid fa-oil-can me-1"></i> Yağ Bulucu
-            </li>
-          </ul>
-        </div>
-       
-        <div className="bg-white text-black p-10 rounded-b-lg rounded-e-large">
-          {activeTab === "lastik" && 
-            <div className="flex flex-wrap gap-4">
-          
-            <div className="flex-1 min-w-[150px]">
+      {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
+      <div className="container mx-auto p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
+      <div>
+        <h1>Aracınıza En Uygun Lastiği Bulun!</h1>
+        <p>
+          Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz
+          lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.
+        </p>
+      </div>
+
+      <div className="pt-2">
+        <ul className="flex space-x-2 text-white text-sm font gap-2">
+          <li
+            key="lastik"
+            onClick={() => handleTabClick("lastik")}
+            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              activeTab === "lastik"
+                ? "bg-white text-black font-bold"
+                : "bg-[#FFB45F] text-white"
+            }`}
+          >
+            <i className="fa-solid fa-truck-monster me-1"></i>
+            Lastik Ebatı
+          </li>
+
+          <li
+            key="jant"
+            onClick={() => handleTabClick("jant")}
+            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              activeTab === "jant"
+                ? "bg-white text-black font-bold"
+                : "bg-[#FFB45F] text-white"
+            } 
+            hidden sm:block`} 
+          >
+            <i className="fa-solid fa-sun me-1"></i>
+            Jant Bulucu
+          </li>
+
+          <li
+            key="aku"
+            onClick={() => handleTabClick("aku")}
+            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              activeTab === "aku"
+                ? "bg-white text-black font-bold"
+                : "bg-[#FFB45F] text-white"
+            } 
+            hidden sm:block`} 
+          >
+            <i className="fa-solid fa-car-battery me-1"></i>
+            Akü Bulucu
+          </li>
+
+          <li
+            key="yag"
+            onClick={() => handleTabClick("yag")}
+            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              activeTab === "yag"
+                ? "bg-white text-black font-bold"
+                : "bg-[#FFB45F] text-white"
+            } 
+            hidden sm:block`} 
+          >
+            <i className="fa-solid fa-oil-can me-1"></i>
+            Yağ Bulucu
+          </li>
+        </ul>
+      </div>
+
+      {/* İçerikler */}
+      <div className="bg-white text-black p-10 rounded-b-lg rounded-e-large">
+        {activeTab === "lastik" && (
+          <div className="flex flex-wrap gap-4 justify-between">
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="carBrand"
                 id="carBrand"
@@ -164,14 +179,11 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Araç Markası</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Volkswagen</option>
+                {renderOptions(selectOptions.carBrand)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px]">
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="carModel"
                 id="carModel"
@@ -179,14 +191,11 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Araç Modeli</option>
-                <option value="1">A3</option>
-                <option value="2">3 Serisi</option>
-                <option value="3">C Serisi</option>
-                <option value="4">Passat</option>
+                {renderOptions(selectOptions.carModel)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px]">
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="carYear"
                 id="carYear"
@@ -194,14 +203,11 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Model Yılı</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
+                {renderOptions(selectOptions.carYear)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px]">
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="carSubModel"
                 id="carSubModel"
@@ -209,14 +215,11 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Alt Model</option>
-                <option value="1">Sport</option>
-                <option value="2">Sedan</option>
-                <option value="3">Hatchback</option>
-                <option value="4">Coupe</option>
+                {renderOptions(selectOptions.carSubModel)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px]">
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="tireSize"
                 id="tireSize"
@@ -224,14 +227,11 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Lastik Ebatı</option>
-                <option value="1">205/55 R16</option>
-                <option value="2">225/45 R17</option>
-                <option value="3">195/65 R15</option>
-                <option value="4">215/55 R18</option>
+                {renderOptions(selectOptions.tireSize)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px]">
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
               <select
                 name="rimSize"
                 id="rimSize"
@@ -239,25 +239,25 @@ export default function Home() {
                 defaultValue=""
               >
                 <option value="" disabled hidden>Jant Ölçüsü</option>
-                <option value="1">16 inch</option>
-                <option value="2">17 inch</option>
-                <option value="3">18 inch</option>
-                <option value="4">19 inch</option>
+                {renderOptions(selectOptions.rimSize)}
               </select>
             </div>
-          
-            <div className="flex-1 min-w-[150px] flex items-end">
-              <Button className="bg-[#FFB45F] text-white w-full md:w-auto" size="lg">Ara</Button>
+
+            <div className="flex-1 min-w-[120px] max-w-[200px] w-full flex items-end">
+              <Button className="bg-[#FFB45F] text-white w-full md:w-auto" size="lg">
+                Ara
+              </Button>
             </div>
           </div>
-          }
-          {activeTab === "jant" && <div>Jant içeriği</div>}
-          {activeTab === "aku" && <div>Akü içeriği</div>}
-          {activeTab === "yag" && <div>Yağ içeriği</div>}
-        </div>
+        )}
 
+        {activeTab === "jant" && <div>Jant içeriği</div>}
+        {activeTab === "aku" && <div>Akü içeriği</div>}
+        {activeTab === "yag" && <div>Yağ içeriği</div>}
       </div>
+    </div>
 
+      {/* Çok Satanlar */}
       <div className="container mx-auto p-6 flex-grow ">
           <div className="flex flex-col justify-center items-center py-8">
             <h1 className="text-3xl font-bold text-center relative group text-black">
@@ -325,6 +325,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Popüler Markalar  (HALLEDİLDİ)*/}
       <div className="bg-[#053C50]">
         <div className="container mx-auto flex-grow rounded-lg pt-16">
           <div className="flex flex-col justify-center items-center py-8">
@@ -354,6 +355,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Popüler Lastik Ebatları (HALLEDİLDİ)*/}
       <div className="mt-16">
           <div className="container mx-auto flex-grow">
             <div className="flex flex-col justify-center items-center py-8">
@@ -388,13 +390,13 @@ export default function Home() {
             </div>
 
             <button
-              className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-[#FA8728]  rounded-full transition-all z-10"
+              className="absolute left-[0px] top-1/2 transform -translate-y-1/2 text-[#FA8728]  rounded-full transition-all z-5"
               onClick={() => scrollCarousel(-250)}
             >
               ◀
             </button>
             <button
-              className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-[#FA8728] rounded-full transition-all z-10"
+              className="absolute right-[0px] top-1/2 transform -translate-y-1/2 text-[#FA8728] rounded-full transition-all z-5"
               onClick={() => scrollCarousel(250)} 
             >
               ▶
@@ -403,7 +405,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container mx-auto felx-grow flex gap-6 py-6">
+      {/* Hakkımızda (HALLEDİLDİ)*/}
+      <div className="container mx-auto flex-grow flex flex-col md:flex-row gap-6 py-6">
+  
         <div className="flex-1 p-4">
           <div>
             <img src="https://via.placeholder.com/200x100" alt="Image 1" className="w-full h-full object-cover rounded-xl" />
@@ -479,6 +483,8 @@ export default function Home() {
 
       </div>
 
+
+      {/* Uygulama İndir (EN SON TEKRAR BAK AMA HALLEDİLDİ) */}
       <div className="resimm">
         <div className="container mx-auto py-20 ">
           

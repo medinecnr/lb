@@ -18,6 +18,89 @@ export const carouselItems = [
       image: 'https://via.placeholder.com/600x400',
     },
   ];
+
+
+export const selectOptions = {
+  carBrand: [
+    { value: "1", label: "Audi" },
+    { value: "2", label: "BMW" },
+    { value: "3", label: "Mercedes" },
+    { value: "4", label: "Volkswagen" },
+    { value: "5", label: "Renault" },
+    { value: "6", label: "Fiat" },
+    { value: "7", label: "Ford" },
+    { value: "8", label: "Toyota" },
+  ],
+  carModel: [
+    { value: "1", label: "A3" },
+    { value: "2", label: "3 Serisi" },
+    { value: "3", label: "C Serisi" },
+    { value: "4", label: "Passat" },
+  ],
+  carYear: [
+    { value: "2022", label: "2022" },
+    { value: "2021", label: "2021" },
+    { value: "2020", label: "2020" },
+    { value: "2019", label: "2019" },
+  ],
+  carSubModel: [
+    { value: "1", label: "Sport" },
+    { value: "2", label: "Sedan" },
+    { value: "3", label: "Hatchback" },
+    { value: "4", label: "Coupe" },
+  ],
+  tireSize: [
+    { value: "1", label: "205/55 R16" },
+    { value: "2", label: "225/45 R17" },
+    { value: "3", label: "195/65 R15" },
+    { value: "4", label: "215/55 R18" },
+  ],
+  rimSize: [
+    { value: "1", label: "16 inch" },
+    { value: "2", label: "17 inch" },
+    { value: "3", label: "18 inch" },
+    { value: "4", label: "19 inch" },
+  ],
+};
+
+export const renderOptions = (options) => {
+  return options.map((option) => (
+    <option key={option.value} value={option.value}>
+      {option.label}
+    </option>
+  ));
+};
+
+
+
+  
+export const cardData = [
+  {
+    id: 1,
+    imageSrc: '/images/fiyat.jpg',
+    title: 'Uygun Fiyat Garantisi',
+    description: 'Yapacağınız alışverişler için en uygun fiyat garantisi vermekteyiz.'
+  },
+  {
+    id: 2,
+    imageSrc: '/images/kargo.jpg',
+    title: 'Ücretsiz Kargo',
+    description: 'Tüm alışverişlerde ücretsiz kargo avantajından yararlanabilirsiniz.'
+  },
+  {
+    id: 3,
+    imageSrc: '/images/odeme.jpg',
+    title: 'Kolay Ödeme Seçenekleri',
+    description: 'Farklı ödeme seçenekleri ile alışverişi daha kolay hale getirin.'
+  },
+  {
+    id: 4,
+    imageSrc: '/images/destek.jpg',
+    title: '7/24 Müşteri Destek',
+    description: '7/24 aktif destek hizmetimizle her zaman yanınızdayız.'
+  }
+];
+
   
 export const tireProducts = [
     {
