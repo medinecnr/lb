@@ -8,15 +8,13 @@ import { carouselItems, tireProducts, tireSizes, brandLogos, cardData,selectOpti
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
-  const [currentIndex, setCurrentIndex] = useState(0);  // Burada currentIndex ve setCurrentIndex tanımlanıyor
+  const [currentIndex, setCurrentIndex] = useState(0);  
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
-  // Tab seçme fonksiyonu
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 
-  // Carousel kaydırma fonksiyonu
   const scrollCarousel = (scrollAmount: number) => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
@@ -27,12 +25,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Carousel kaydırmasını belirli aralıklarla yapacak interval
     const intervalId = setInterval(() => {
-      scrollCarousel(250); // Her 5 saniyede bir 250px kaydırma
+      scrollCarousel(250); 
     }, 5000);
 
-    // Component unmount olduğunda interval'i temizliyoruz
     return () => clearInterval(intervalId);
   }, []);
 
@@ -58,7 +54,7 @@ export default function Home() {
           >
             {carouselItems.map((item, index) => (
               <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full px-8 md:px-16">
-                {/* Text and button section */}
+                
                 <div className="flex-1 text-white p-6 md:p-10 text-center md:text-left flex flex-col justify-center h-full">
                   <h1 className="mb-4 text-3xl md:text-4xl">{item.title}</h1>
                   <p className="mb-6 text-lg">{item.description}</p>
@@ -69,7 +65,7 @@ export default function Home() {
                   </a>
                 </div>
 
-                {/* Image section */}
+             
                 <div className="flex-1 pl-4">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl" />
                 </div>
@@ -262,7 +258,6 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center py-8">
             <h1 className="text-3xl font-bold text-center relative group text-black">
             Çok Satanar
-              {/* Çizgi */}
               <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
             </h1>
           </div>
