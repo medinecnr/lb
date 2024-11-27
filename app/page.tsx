@@ -4,19 +4,21 @@ import { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button  } from "@nextui-org/react";
-import { carouselItems, tireProducts, tireSizes, brandLogos, cardData,selectOptions, renderOptions } from "@/components/items/pageitems";
+import { carouselItems, tireSizes, brandLogos, cardData,selectOptions, renderOptions, tireCategories, productData } from "@/components/items/pageitems";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
-  const [currentIndex, setCurrentIndex] = useState(0);  // Burada currentIndex ve setCurrentIndex tanımlanıyor
+  const [selectedCategory, setSelectedCategory] = useState("yazLastigi");  
+  const [currentIndex, setCurrentIndex] = useState(0); 
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
-  // Tab seçme fonksiyonu
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);  
+  };
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 
-  // Carousel kaydırma fonksiyonu
   const scrollCarousel = (scrollAmount: number) => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
@@ -27,14 +29,46 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Carousel kaydırmasını belirli aralıklarla yapacak interval
     const intervalId = setInterval(() => {
-      scrollCarousel(250); // Her 5 saniyede bir 250px kaydırma
+      scrollCarousel(250); 
     }, 5000);
-
-    // Component unmount olduğunda interval'i temizliyoruz
     return () => clearInterval(intervalId);
   }, []);
+
+  const getProducts = (tab: string) => {
+    switch (tab) {
+      case "yazLastigi":
+        return productData.yazLastikleri; 
+      case "kisLastigi":
+        return productData.kisLastikleri; 
+      case "jantlar":
+        return productData.jantlar; 
+      case "aku2":
+        return productData.aku2;
+      case "yag2":
+        return productData.yag2;
+      default:
+        return [];
+    }
+  };
+
+  const renderCard = (product: any) => (
+    <div key={product.id} className="group relative w-60 h-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105">
+      <div>
+        <img src={product.imageUrl} alt={product.title} className="object-contain w-full h-40" />
+      </div>
+      <div className="flex flex-col justify-center items-center text-center gap-3 p-4">
+        <h4 className="text-[#FA8728] text-lg font-semibold">{product.title}</h4>
+        <p className="text-sm text-gray-600">{product.description}</p>
+        <h3 className="font-bold text-xl text-gray-800">{product.price}</h3>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full p-4">
+        <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
+          SEPETE EKLE
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="bg-white text-black">
@@ -57,28 +91,25 @@ export default function Home() {
             transitionTime={1000}
           >
             {carouselItems.map((item, index) => (
-              <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full px-8 md:px-16">
-                {/* Text and button section */}
-                <div className="flex-1 text-white p-6 md:p-10 text-center md:text-left flex flex-col justify-center h-full">
-                  <h1 className="mb-4 text-3xl md:text-4xl">{item.title}</h1>
-                  <p className="mb-6 text-lg">{item.description}</p>
+              <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full ">
+                <div className="flex-1 text-white p-8 text-center md:text-left flex flex-col justify-center h-full gap-4">
+                  <h1 className=" text-3xl md:text-4xl">{item.title}</h1>
+                  <p className="text-lg">{item.description}</p>
                   <a href="#">
-                    <Button color="primary" className="bg-[#FFB45F] text-white mx-auto md:mx-0" size="lg">
+                    <Button color="primary" className="bg-[#FFB45F] mx-auto px-4" size="lg">
                       {item.buttonText}
                     </Button>
                   </a>
                 </div>
 
-                {/* Image section */}
-                <div className="flex-1 pl-4">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl" />
+                <div className="flex-1 pl-4 p-8 ">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl " />
                 </div>
               </div>
             ))}
           </Carousel>
         </div>
       </div>
-
 
       {/* Hizmetler (HALLEDİLDİ)*/}
       <div className="pb-6 mx-auto max-w-screen-xl">
@@ -96,233 +127,188 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-      
+ 
       {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
       <div className="container mx-auto p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
-      <div>
-        <h1>Aracınıza En Uygun Lastiği Bulun!</h1>
-        <p>
-          Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz
-          lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.
-        </p>
+        <div>
+          <h1>Aracınıza En Uygun Lastiği Bulun!</h1>
+          <p>
+            Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz
+            lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.
+          </p>
+        </div>
+
+        <div className="pt-2">
+          <ul className="flex space-x-2 text-white text-sm font gap-2">
+            <li
+              key="lastik"
+              onClick={() => handleTabClick("lastik")}
+              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+                activeTab === "lastik"
+                  ? "bg-white text-black font-bold"
+                  : "bg-[#FFB45F] text-white"
+              }`}>
+              <i className="fa-solid fa-truck-monster me-1"></i>
+              Lastik Ebatı
+            </li>
+
+            <li
+              key="jant"
+              onClick={() => handleTabClick("jant")}
+              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+                activeTab === "jant"
+                  ? "bg-white text-black font-bold"
+                  : "bg-[#FFB45F] text-white"
+              } hidden sm:block`}>
+              <i className="fa-solid fa-sun me-1"></i>
+              Jant Bulucu
+            </li>
+
+            <li
+              key="aku"
+              onClick={() => handleTabClick("aku")}
+              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+                activeTab === "aku"
+                  ? "bg-white text-black font-bold"
+                  : "bg-[#FFB45F] text-white"
+              } hidden sm:block`}>
+              <i className="fa-solid fa-car-battery me-1"></i>
+              Akü Bulucu
+            </li>
+
+            <li
+              key="yag"
+              onClick={() => handleTabClick("yag")}
+              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+                activeTab === "yag"
+                  ? "bg-white text-black font-bold"
+                  : "bg-[#FFB45F] text-white"
+              } hidden sm:block`}>
+              <i className="fa-solid fa-oil-can me-1"></i>
+              Yağ Bulucu
+            </li>
+          </ul>
+        </div>
+
+        {/* İçerikler */}
+        <div className="bg-white text-black p-10 rounded-b-lg rounded-e-large">
+          {activeTab === "lastik" && (
+            <div className="flex flex-wrap gap-4 justify-center items-center">
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="carBrand"
+                  id="carBrand"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Araç Markası</option>
+                  {renderOptions(selectOptions.carBrand)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="carModel"
+                  id="carModel"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Araç Modeli</option>
+                  {renderOptions(selectOptions.carModel)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="carYear"
+                  id="carYear"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Model Yılı</option>
+                  {renderOptions(selectOptions.carYear)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="carSubModel"
+                  id="carSubModel"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Alt Model</option>
+                  {renderOptions(selectOptions.carSubModel)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="tireSize"
+                  id="tireSize"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Lastik Ebatı</option>
+                  {renderOptions(selectOptions.tireSize)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
+                <select
+                  name="rimSize"
+                  id="rimSize"
+                  className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
+                  defaultValue="">
+                  <option value="" disabled hidden>Jant Ölçüsü</option>
+                  {renderOptions(selectOptions.rimSize)}
+                </select>
+              </div>
+
+              <div className="flex-1 min-w-[120px] max-w-[200px] w-full flex items-end">
+                <Button className="bg-[#FFB45F] text-white w-full md:w-auto" size="lg">
+                  Ara
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "jant" && <div>Jant içeriği</div>}
+          {activeTab === "aku" && <div>Akü içeriği</div>}
+          {activeTab === "yag" && <div>Yağ içeriği</div>}
+        </div>
+
       </div>
-
-      <div className="pt-2">
-        <ul className="flex space-x-2 text-white text-sm font gap-2">
-          <li
-            key="lastik"
-            onClick={() => handleTabClick("lastik")}
-            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
-              activeTab === "lastik"
-                ? "bg-white text-black font-bold"
-                : "bg-[#FFB45F] text-white"
-            }`}
-          >
-            <i className="fa-solid fa-truck-monster me-1"></i>
-            Lastik Ebatı
-          </li>
-
-          <li
-            key="jant"
-            onClick={() => handleTabClick("jant")}
-            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
-              activeTab === "jant"
-                ? "bg-white text-black font-bold"
-                : "bg-[#FFB45F] text-white"
-            } 
-            hidden sm:block`} 
-          >
-            <i className="fa-solid fa-sun me-1"></i>
-            Jant Bulucu
-          </li>
-
-          <li
-            key="aku"
-            onClick={() => handleTabClick("aku")}
-            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
-              activeTab === "aku"
-                ? "bg-white text-black font-bold"
-                : "bg-[#FFB45F] text-white"
-            } 
-            hidden sm:block`} 
-          >
-            <i className="fa-solid fa-car-battery me-1"></i>
-            Akü Bulucu
-          </li>
-
-          <li
-            key="yag"
-            onClick={() => handleTabClick("yag")}
-            className={`px-5 py-3 rounded-t-lg cursor-pointer ${
-              activeTab === "yag"
-                ? "bg-white text-black font-bold"
-                : "bg-[#FFB45F] text-white"
-            } 
-            hidden sm:block`} 
-          >
-            <i className="fa-solid fa-oil-can me-1"></i>
-            Yağ Bulucu
-          </li>
-        </ul>
-      </div>
-
-      {/* İçerikler */}
-      <div className="bg-white text-black p-10 rounded-b-lg rounded-e-large">
-        {activeTab === "lastik" && (
-          <div className="flex flex-wrap gap-4 justify-between">
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="carBrand"
-                id="carBrand"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Araç Markası</option>
-                {renderOptions(selectOptions.carBrand)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="carModel"
-                id="carModel"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Araç Modeli</option>
-                {renderOptions(selectOptions.carModel)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="carYear"
-                id="carYear"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Model Yılı</option>
-                {renderOptions(selectOptions.carYear)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="carSubModel"
-                id="carSubModel"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Alt Model</option>
-                {renderOptions(selectOptions.carSubModel)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="tireSize"
-                id="tireSize"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Lastik Ebatı</option>
-                {renderOptions(selectOptions.tireSize)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
-              <select
-                name="rimSize"
-                id="rimSize"
-                className="w-full p-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:border-[#FFB45F] placeholder:text-gray-400"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>Jant Ölçüsü</option>
-                {renderOptions(selectOptions.rimSize)}
-              </select>
-            </div>
-
-            <div className="flex-1 min-w-[120px] max-w-[200px] w-full flex items-end">
-              <Button className="bg-[#FFB45F] text-white w-full md:w-auto" size="lg">
-                Ara
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "jant" && <div>Jant içeriği</div>}
-        {activeTab === "aku" && <div>Akü içeriği</div>}
-        {activeTab === "yag" && <div>Yağ içeriği</div>}
-      </div>
-    </div>
 
       {/* Çok Satanlar */}
       <div className="container mx-auto p-6 flex-grow ">
           <div className="flex flex-col justify-center items-center py-8">
             <h1 className="text-3xl font-bold text-center relative group text-black">
             Çok Satanar
-              {/* Çizgi */}
               <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
             </h1>
           </div>
-          
-          <div className="flex justify-between gap-4 overflow-x-auto p-6 ">
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-            <i className="fa-solid fa-truck-monster me-1"></i>
-            <p className="font-semibold">Yaz Lastikleri</p>
-            </Card>
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-              <i className="fa-solid fa-truck-monster me-1"></i>
-              <p className="font-semibold">Kış Lastikleri</p>
-            </Card>
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-              <i className="fa-solid fa-truck-monster me-1"></i>
-              <p className="font-semibold">Jantlar</p>
-            </Card>
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-              <i className="fa-solid fa-truck-monster me-1"></i>
-              <p className="font-semibold">Aküler</p>
-            </Card>
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-              <i className="fa-solid fa-truck-monster me-1"></i>
-              <p className="font-semibold">Yağlar</p>
-            </Card>
-            <Card className="w-60 p-4 shadow-lg flex items-center justify-center gap-3 border border-transparent hover:border-[#FA8728] bg-white text-black">
-              <i className="fa-solid fa-truck-monster me-1"></i>
-              <p className="font-semibold">İnovasyon Ürünleri</p>
-            </Card>
-          </div>
 
-        <div>
-          <div className="overflow-x-auto py-6">
-            <div className="flex gap-6 w-max">
-              {tireProducts.map((product) => (
-                <a href="#" key={product.id}>
-                  <div className="group relative w-60 h-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105">
-                    <div>
-                      <img
-                        src={product.imageUrl}
-                        alt={product.title}
-                        className="object-contain w-full h-40"
-                      />
+          <div>
+            {/* Tab menüsü */}
+            <div className="overflow-x-auto p-6">
+              <div className="flex gap-4 justify-between items-center">
+                {tireCategories.map((category) => (
+                  <Button
+                    key={category.id}
+                    onClick={() => handleCategoryClick(category.id)}
+                    className={`min-w-[150px] px-5 py-10 rounded-xl cursor-pointer border hover:border-[#FA8728] ${selectedCategory === category.id ? "border-[#FA8728] bg-white" : "bg-white text-black"}`}>
+                    <div className="flex flex-col items-center justify-center text-center h-full">
+                      <i className={`${category.icon} mb-2 text-2xl`}></i>
+                      <span className="text-sm">{category.name}</span>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-center gap-3 p-4">
-                      <h4 className="text-[#FA8728] text-lg font-semibold">{product.title}</h4>
-                      <p className="text-sm text-gray-600">{product.description}</p>
-                      <h3 className="font-bold text-xl text-gray-800">{product.price}</h3>
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-full p-4">
-                      <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
-                        SEPETE EKLE
-                      </button>
-                    </div>
-                  </div>
-                </a>
-              ))}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Seçilen kategoriye göre içerik */}
+            <div className="overflow-x-auto py-6">
+              <div className="flex gap-6 w-max">
+                {getProducts(selectedCategory).map((product) => renderCard(product))}
+              </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Popüler Markalar  (HALLEDİLDİ)*/}
@@ -341,8 +327,7 @@ export default function Home() {
                 <img
                   src={brand.imageUrl}
                   alt={brand.name}
-                  className="w-28 sm:w-32 md:w-36 lg:w-40 bg-white p-2 rounded-lg transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                />
+                  className="w-20 sm:w-28 md:w-32 lg:w-36 bg-white p-2 rounded-lg transition-transform duration-300 group-hover:scale-105 cursor-pointer"/>
               </a>
             ))}
           </div>
@@ -356,7 +341,7 @@ export default function Home() {
       </div>
 
       {/* Popüler Lastik Ebatları (HALLEDİLDİ)*/}
-      <div className="mt-16">
+      <div className=" bg-[#FAFAFA] py-16">
           <div className="container mx-auto flex-grow">
             <div className="flex flex-col justify-center items-center py-8">
               <h1 className="text-3xl font-bold text-center relative group">
@@ -377,8 +362,7 @@ export default function Home() {
                         <img
                           src={tire.image}
                           alt={tire.size}
-                          className="w-full h-[180px] object-contain"
-                        />
+                          className="w-full h-[180px] object-contain"/>
                       </div>
                       <div className="card-body text-center py-5 px-10">
                         <h2 className="font-semibold text-gray-800">{tire.size}</h2>
@@ -391,14 +375,12 @@ export default function Home() {
 
             <button
               className="absolute left-[0px] top-1/2 transform -translate-y-1/2 text-[#FA8728]  rounded-full transition-all z-5"
-              onClick={() => scrollCarousel(-250)}
-            >
+              onClick={() => scrollCarousel(-250)} >
               ◀
             </button>
             <button
               className="absolute right-[0px] top-1/2 transform -translate-y-1/2 text-[#FA8728] rounded-full transition-all z-5"
-              onClick={() => scrollCarousel(250)} 
-            >
+              onClick={() => scrollCarousel(250)}  >
               ▶
             </button>
           </div>
@@ -406,7 +388,7 @@ export default function Home() {
       </div>
 
       {/* Hakkımızda (HALLEDİLDİ)*/}
-      <div className="container mx-auto flex-grow flex flex-col md:flex-row gap-6 py-6">
+      <div className="container mx-auto flex-grow flex flex-col md:flex-row gap-6 py-3">
   
         <div className="flex-1 p-4">
           <div>
@@ -422,9 +404,11 @@ export default function Home() {
         </div>
 
         <div className="flex-1 p-4">
-          <div className="flex flex-col">
-            <h1 className="">Sık Sorulan Sorular</h1>
-            <div className="border-t-3 rounded-lg border-[#FA8728] w-[75px] my-2"></div>
+          <div className="flex flex-col mb-6">
+          <h1 className="text-3xl font-bold text-center relative group text-black">
+            Sık Sorulanlar
+              <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
+            </h1>
           </div>
           <div>
             <Accordion
@@ -483,8 +467,7 @@ export default function Home() {
 
       </div>
 
-
-      {/* Uygulama İndir (EN SON TEKRAR BAK AMA HALLEDİLDİ) */}
+      {/* Uygulama İndir (RESPONSİVE SIKINTILI) */}
       <div className="resimm">
         <div className="container mx-auto py-20 ">
           
@@ -517,6 +500,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+    
+        
+   
 
     </div>
   );

@@ -6,7 +6,7 @@ export const carouselItems = [
       image: 'https://via.placeholder.com/600x400',
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Lorem ipsum dolor sit amet, .',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
       image: 'https://via.placeholder.com/600x400',
@@ -254,3 +254,32 @@ export const brandLogos = [
   { id: 11, name: 'Bridgestone', imageUrl: './images/bridgestone.png', url: '#' },
   { id: 12, name: 'Lassa', imageUrl: './images/lassa.png', url: '#' },
 ];
+
+
+
+export const tireCategories = [
+  { id: "yazLastigi", name: "Yaz Lastikleri", icon: "fa-solid fa-sun" },
+  { id: "kisLastigi", name: "Kış Lastikleri", icon: "fa-solid fa-snowflake" },
+  { id: "jantlar", name: "Jantlar", icon: "fa-solid fa-circle" },
+  { id: "aku2", name: "Aküler", icon: "fa-solid fa-battery-half" },
+  { id: "yag2", name: "Yağlar", icon: "fa-solid fa-oil-can" },
+  { id: "inevasyon", name: "İnovasyon Ürünleri", icon: "fa-solid fa-lightbulb" }
+];
+
+export const productData = {
+  yazLastikleri: [
+    { id: 1, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 2, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 3, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 4, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 5, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 6, title: "Lassa", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "1.796,00 ₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+  ],
+  kisLastikleri: [
+    { id: 1, title: "Bridgestone", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "550₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+    { id: 2, title: "Bridgestone", description: "205/55R16 91V Goodyear Eagle Sport 2 583930", price: "650₺", imageUrl: "./images/4ac0de6eCROSSCLIMATE.jpg" },
+  ],
+  jantlar: [ /* Jant ürünleri */ ],
+  aku2: [ /* Akü ürünleri */ ],
+  yag2: [ /* Yağlar ürünleri */ ]
+};

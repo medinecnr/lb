@@ -26,7 +26,6 @@ p {
   box-shadow: none !important; 
 }
 
-
 .carousel-container .control-arrow:hover {
   opacity: 1 !important;  
   background: none !important;
@@ -52,12 +51,10 @@ p {
   transform: scale(1.05); 
 }
 
-
-
-
-
-
-
+.px-6 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 
 

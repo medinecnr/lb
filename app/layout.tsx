@@ -1,16 +1,29 @@
-
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-
-import { Providers } from "./providers";
-
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import  Footer  from "@/components/footer";
+import { ThemeProvider } from 'next-themes';
+import { ReactNode } from 'react';
+import Altpanel from "@/components/altpanel";
 
+interface ProvidersProps {
+  themeProps: {
+    attribute: string;
+  };
+  children: ReactNode;
+}
+
+export function Providers({ themeProps, children }: ProvidersProps) {
+  return (
+    <ThemeProvider {...themeProps}>
+      {children} 
+    </ThemeProvider>
+  );
+}
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +57,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class"}} >
           <div className="relative flex flex-col h-screen">
             <div className="bg-[#053C50]">
-              <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto max-w-7xl px-6 bg-[#053C50]">
+              <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto max-w-7xl px-3 bg-[#053C50]">
                 <div className="hidden lg:flex justify-center items-center py-2">
                   <ul className="flex space-x-2 text-white text-sm font gap-2">
                     <li>
@@ -93,7 +106,7 @@ export default function RootLayout({
                 <a href="#"><img src="/images/logoDark.jpg" alt="Logo" className="w-28 h-auto" /></a>
               </div>
             </div>
-
+             <Altpanel />
 
           </div>
         </Providers>
