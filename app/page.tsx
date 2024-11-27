@@ -8,6 +8,7 @@ import { carouselItems, tireSizes, brandLogos, cardData,selectOptions, renderOpt
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
+<<<<<<< HEAD
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");  
   const [currentIndex, setCurrentIndex] = useState(0); 
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -15,6 +16,11 @@ export default function Home() {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);  
   };
+=======
+  const [currentIndex, setCurrentIndex] = useState(0);  
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+>>>>>>> c89159aae91a6eefd0c461f33ad3be0b6a8f09b4
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
@@ -32,6 +38,10 @@ export default function Home() {
     const intervalId = setInterval(() => {
       scrollCarousel(250); 
     }, 5000);
+<<<<<<< HEAD
+=======
+
+>>>>>>> c89159aae91a6eefd0c461f33ad3be0b6a8f09b4
     return () => clearInterval(intervalId);
   }, []);
 
@@ -91,10 +101,18 @@ export default function Home() {
             transitionTime={1000}
           >
             {carouselItems.map((item, index) => (
+<<<<<<< HEAD
               <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full ">
                 <div className="flex-1 text-white p-8 text-center md:text-left flex flex-col justify-center h-full gap-4">
                   <h1 className=" text-3xl md:text-4xl">{item.title}</h1>
                   <p className="text-lg">{item.description}</p>
+=======
+              <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full px-8 md:px-16">
+                
+                <div className="flex-1 text-white p-6 md:p-10 text-center md:text-left flex flex-col justify-center h-full">
+                  <h1 className="mb-4 text-3xl md:text-4xl">{item.title}</h1>
+                  <p className="mb-6 text-lg">{item.description}</p>
+>>>>>>> c89159aae91a6eefd0c461f33ad3be0b6a8f09b4
                   <a href="#">
                     <Button color="primary" className="bg-[#FFB45F] mx-auto px-4" size="lg">
                       {item.buttonText}
@@ -102,8 +120,14 @@ export default function Home() {
                   </a>
                 </div>
 
+<<<<<<< HEAD
                 <div className="flex-1 pl-4 p-8 ">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl " />
+=======
+             
+                <div className="flex-1 pl-4">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-xl" />
+>>>>>>> c89159aae91a6eefd0c461f33ad3be0b6a8f09b4
                 </div>
               </div>
             ))}
