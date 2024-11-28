@@ -67,7 +67,7 @@ export const Navbar = () => {
               >
                 <DropdownSection aria-label="Preferences" showDivider>
                   <DropdownItem key="login">
-                    <NextLink href="#" className="text-default-600 font-bold">
+                    <NextLink href="/giris-yap" className="text-default-600 font-bold">
                       Giriş Yap
                     </NextLink>
                   </DropdownItem>
@@ -146,10 +146,10 @@ export const Navbar = () => {
         </NavbarMenu>
       </NextUINavbar>
 
-      <div className="mt-1 bg-[#FAFAFA] ">
-        <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto max-w-7xl px-4 bg-[#FAFAFA] py-3 ">
+      <div className="bg-[#FAFAFA]">
+        <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto max-w-7xl px-4 bg-[#FAFAFA]  ">
           <div className="hidden sm:flex">
-            <ul className="flex space-x-2 text-xs font gap-2 ">
+            <ul className="flex space-x-2 text-xs font gap-2 py-3">
               <li><a href="#">LASTİK</a></li>
               <li><a href="#">JANT</a></li>
               <li><a href="#">AKÜ</a></li>

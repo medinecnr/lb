@@ -22,7 +22,7 @@ function Altpanel() {
             ></i>
           </div>
         </Link>
-        <Link href="#" onClick={() => handleClick(1)}>
+        <Link href="/search" onClick={() => handleClick(1)}>
           <div className="p-4 rounded-lg">
             <i
               className={`fa-solid fa-search text-xl ${
@@ -49,7 +49,7 @@ function Altpanel() {
             ></i>
           </div>
         </Link>
-        <Link href="#" onClick={() => handleClick(4)}>
+        <Link href="/category" onClick={() => handleClick(4)}>
           <div className="p-4 rounded-lg">
             <i
               className={`fa-solid fa-bars text-xl ${
