@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover-text {
+    @apply hover:text-[#FFB45F];
+  }
+  
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.carousel-container .control-arrow {
+  opacity: 1 !important;  
+  pointer-events: auto !important; 
+  background: none !important;  
+  box-shadow: none !important; 
+}
+
+.carousel-container .control-arrow:hover {
+  opacity: 1 !important;  
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.resimm {
+  background-image: url("/images/telefon2.jpg"); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  width: 100%; 
+  height: auto;
+}
+.resimm a img {
+  width: 160px;   
+  height: 60px;   
+  object-fit: contain; 
+  transition: transform 0.3s ease;
+}
+
+.resimm a img:hover {
+  transform: scale(1.05); 
+}
+
+.px-6 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.relative::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.relative::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+.relative::-webkit-scrollbar-thumb {
+  background-color: #FA8728; 
+  border-radius: 50px; 
+}
+
+.relative::-webkit-scrollbar-thumb:hover {
+  background-color: #f56a00;
+}
+
+
+
+
