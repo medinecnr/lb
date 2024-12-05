@@ -176,7 +176,7 @@ export const Navbar = () => {
                   className="cursor-pointer hover:text-[#FA8728]"
                   onMouseEnter={() => handleMenuClick(item.id)}
                 >
-                  {item.label}
+                  <NextLink href={`${item.id}`}>{item.label}</NextLink>
                 </li>
               ))}
             </ul>
