@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { SearchIcon } from "@/components/icons";
 import { Input } from "@nextui-org/input";
+import Altpanel from '@/components/altpanel';
 
 export default function SearchPage() {
   const [mounted, setMounted] = useState(false);
@@ -39,6 +40,7 @@ export default function SearchPage() {
           fullWidth
         />
       </div>
+      <Altpanel />
     </div>
   );
 }

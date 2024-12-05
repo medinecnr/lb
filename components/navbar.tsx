@@ -87,12 +87,12 @@ export const Navbar = () => {
               >
                 <DropdownSection aria-label="Preferences" showDivider>
                   <DropdownItem key="login">
-                    <NextLink href="#" className="text-default-600 font-bold">
+                    <NextLink href="login" className="text-default-600 font-bold">
                       Giriş Yap
                     </NextLink>
                   </DropdownItem>
                   <DropdownItem key="signup">
-                    <NextLink href="/signup" className="text-default-600 font-bold">
+                    <NextLink href="/create-acount" className="text-default-600 font-bold">
                       Hesap Oluştur
                     </NextLink>
                   </DropdownItem>

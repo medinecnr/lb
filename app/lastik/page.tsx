@@ -4,6 +4,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { categories } from "@/components/items/lastik";
+import Altpanel from "@/components/altpanel";
 
 export default function LastikPage() {
   const router = useRouter();
@@ -43,6 +44,7 @@ export default function LastikPage() {
           ))}
         </ul>
       </div>
+      <Altpanel />
     </div>
   );
 }

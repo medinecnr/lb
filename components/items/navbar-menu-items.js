@@ -15,7 +15,7 @@ export const menuItems = [
     label: "LASTİK",
     content: (
       <div className="flex justify-between items-start space-x-6">
-        <div className="flex justify-between items-center space-x-10 ps-20">
+        <div className="flex justify-between items-start space-x-10 ps-20 ">
           <div className="flex py-4 ">
             <ul className="space-y-1">
               {generateListItems([
@@ -33,7 +33,7 @@ export const menuItems = [
             </ul>
           </div>
 
-          <div className="flex justify-between items-start gap-6">
+          <div className="flex justify-between items-start gap-x-4 pt-4">
             <div>
               <h6 className="font-semibold text-lg">Popüler Markalar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
@@ -90,7 +90,7 @@ export const menuItems = [
     label: "JANT",
     content: (
       <div className="flex justify-between items-start space-x-6">
-        <div className="flex justify-between items-center space-x-10 ps-20">
+        <div className="flex justify-between items-start space-x-10 ps-20">
           <div className="flex py-4">
             <ul className="space-y-1">
               {generateListItems([
@@ -105,7 +105,7 @@ export const menuItems = [
 
           <div className="flex justify-center items-start gap-6">
             <div>
-              <h6 className="font-semibold text-lg">Popüler Markalar</h6>
+              <h6 className="font-semibold text-lg pt-4">Popüler Markalar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -116,7 +116,7 @@ export const menuItems = [
             </div>
 
             <div>
-              <h6 className="font-semibold text-lg">Popüler Ebatlar</h6>
+              <h6 className="font-semibold text-lg pt-4">Popüler Ebatlar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -150,7 +150,7 @@ export const menuItems = [
     label: "AKÜ",
     content: (
         <div className="flex justify-between items-start space-x-6">
-        <div className="flex justify-between items-center space-x-10 ps-20">
+        <div className="flex justify-between items-start space-x-10 ps-20">
           <div className="flex py-4">
             <ul className="space-y-1">
               {generateListItems([

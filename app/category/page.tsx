@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Altpanel from '@/components/altpanel';
 
 const categories = [
   { name: "Lastik", slug: "lastik" },
@@ -40,6 +41,7 @@ export default function CategoryPage() {
           ))}
         </ul>
       </div>
+      <Altpanel />
     </div>
   );
 }

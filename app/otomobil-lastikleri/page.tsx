@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';  
 import { lastikCategories, ebatCategories } from '@/components/items/otomobil-lastikleri';
+import Altpanel from '@/components/altpanel';
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
@@ -60,6 +61,7 @@ export default function OtomobilLastikPage() {
           ))}
         </ul>
       </div>
+          <Altpanel />
     </div>
   );
 }
