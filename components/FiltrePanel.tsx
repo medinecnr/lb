@@ -1,9 +1,11 @@
+"use client"
 import React, { useState } from 'react';
-import { Select, SelectItem } from "@nextui-org/react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import { Checkbox } from "@nextui-org/react";
+import { Input, Select, SelectItem, Accordion, AccordionItem, Checkbox, CheckboxGroup, ScrollShadow } from "@nextui-org/react";
 import { countries } from "@/components/items/countries";
 import { cars } from "@/components/items/cars";
+import { SearchIcon } from "@/components/icons";
+import { Marka, Jant, Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
+
 
 const RenderSelect = ({ label, value, onChange, options }: { label: string, value: string | null, onChange: (value: string) => void, options: string[] }) => (
   <Select
@@ -182,10 +184,13 @@ const FiltrePanel = ({
       <div className='border rounded-t-xl flex justify-start flex-col mt-4'>
         <div className='bg-[#E6E6E6] p-4 rounded-t-xl'>
           {/* sayfada kaç ürün gösteriliyorsa şu kadar ürün var yazacak */}
-          <p> <span className='font-bold text-2xl'>...</span> Ürün Listeleniyor</p>
+          <p><span className='font-bold text-2xl'>...</span> Ürün Listeleniyor</p>
         </div>
         <div className='m-2'>
           <p>Seçili Filtreler</p>
+          <div >
+            {/* g */}
+          </div>
         </div>
       </div>
       <div className='flex  items-center border p-4'>
@@ -195,6 +200,60 @@ const FiltrePanel = ({
       <div className='flex  items-center border p-4'>
         <Checkbox color="warning" checked={false} />
         <p>4 Adet ve Üzeri</p>
+      </div>
+      <div className='flex flex-col p-4 gap-2 border'>
+        <p>Marka</p>
+        <Input
+              aria-label="Search"
+              classNames={{
+                inputWrapper: "bg-default-100",
+                input: "text-sm",
+              }}
+              labelPlacement="outside"
+              placeholder="Ara"
+              type="search"
+              fullWidth
+              startContent={
+                <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+              }
+            />
+          <ScrollShadow className="w-full h-[200px]">
+            <Marka />
+          </ScrollShadow>
+
+      </div>
+      <div className='flex flex-col p-4 gap-2 border' >
+        <p>Jant</p>
+        <ScrollShadow className="w-full h-[200px]">
+          <Jant />
+        </ScrollShadow>
+      </div>
+
+      <div className='flex flex-col  border '>
+        <Accordion selectionMode="multiple">
+          <AccordionItem key="1" aria-label="kesitOrani" title="Kesit Oranı">
+            <ScrollShadow className="w-full h-[120px]">
+              <KesitOrani />
+            </ScrollShadow>
+          </AccordionItem>
+          <AccordionItem key="2" aria-label="Mevsim" title="Mevsim">
+            <ScrollShadow className="w-full h-[120px]">
+              <Mevsim />
+            </ScrollShadow>
+          </AccordionItem>
+          <AccordionItem key="3" aria-label="UretimYili" title="Üretim Yılı">
+            <ScrollShadow className="w-full h-[120px]">
+              <UretimYili />
+            </ScrollShadow>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+
+      <div>
+        <div className='flex justify-center items-center mt-4'>
+          <button className='bg-[#FA8728] text-white py-2 w-full rounded-lg'>Filtreleri Uygula</button>
+        </div>
       </div>
 
     </div>
