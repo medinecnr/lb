@@ -12,7 +12,6 @@ import React, { useState, useEffect } from 'react';
 import { Pagination } from '@nextui-org/react';
 
 function Page() {
-  // State'ler
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -43,13 +42,13 @@ function Page() {
     setSelectedCar(value);
   };
 
-  // İndirimli fiyat hesaplama fonksiyonu
+  // İndirimli fiyat hesaplama 
   const calculateDiscountedPrice = (price: string, discount: number) => {
-    const priceNumber = parseFloat(price.replace('₺', '').trim()); // ₺ işaretini ve boşlukları temizle
+    const priceNumber = parseFloat(price.replace('₺', '').trim()); 
     if (isNaN(priceNumber)) {
-      return 0; // Geçerli bir fiyat değilse 0 döndür
+      return 0; 
     }
-    return priceNumber - (priceNumber * (discount / 100)); // İndirimli fiyatı hesapla
+    return priceNumber - (priceNumber * (discount / 100)); 
   };
 
   // Ürünleri sayfalara ayırma
@@ -59,7 +58,7 @@ function Page() {
 
   const totalPages = Math.ceil(products.length / productsPerPage);
 
-  // Pagination handler
+  // Pagination 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
