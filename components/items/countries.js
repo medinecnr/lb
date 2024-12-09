@@ -1,0 +1,20 @@
+export const countries = [
+    { key: "turkey", label: "Türkiye", districts: ["İstanbul", "Ankara", "İzmir", "Antalya"] },
+    { key: "usa", label: "Amerika", districts: ["New York", "Los Angeles", "Chicago", "Miami"] },
+    { key: "germany", label: "Almanya", districts: ["Berlin", "Hamburg", "Munich", "Frankfurt"] },
+    { key: "france", label: "Fransa", districts: ["Paris", "Marseille", "Lyon", "Toulouse"] },
+    { key: "england", label: "İngiltere", districts: ["London", "Manchester", "Liverpool", "Birmingham"] },
+    { key: "italy", label: "İtalya", districts: ["Roma", "Milano", "Napoli", "Torino"] },
+    { key: "spain", label: "İspanya", districts: ["Madrid", "Barcelona", "Valencia", "Sevilla"] },
+    { key: "netherlands", label: "Hollanda", districts: ["Amsterdam", "Rotterdam", "Utrecht", "Eindhoven"] },
+    { key: "belgium", label: "Belçika", districts: ["Brussels", "Antwerp", "Ghent", "Bruges"] },
+    { key: "switzerland", label: "İsviçre", districts: ["Zurich", "Geneva", "Basel", "Bern"] },
+    { key: "austria", label: "Avusturya", districts: ["Vienna", "Graz", "Linz", "Salzburg"] },
+    { key: "russia", label: "Rusya", districts: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg"] },
+    { key: "china", label: "Çin", districts: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen"] },
+    { key: "japan", label: "Japonya", districts: ["Tokyo", "Osaka", "Nagoya", "Yokohama"] },
+    { key: "southkorea", label: "Güney Kore", districts: ["Seoul", "Busan", "Incheon", "Daegu"] },
+    { key: "india", label: "Hindistan", districts: ["New Delhi", "Mumbai", "Bangalore", "Kolkata"] },
+    { key: "brazil", label: "Brezilya", districts: ["Sao Paulo", "Rio de Janeiro", "Brasilia", "Salvador"] },
+    
+  ];

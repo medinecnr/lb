@@ -127,10 +127,10 @@ export const Navbar = () => {
               variant="ghost"
               disableRipple
               as={NextLink} 
-              href="/giris-yap"
+              href="/login"
               className="border-none"
             >
-              <i className="fa-regular fa-user text-xl text-orange-500"></i>
+              <i className="fa-regular fa-user text-xl text-[#FA8728]"></i>
             </Button>
           </NavbarItem>
 

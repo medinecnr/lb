@@ -150,6 +150,7 @@ function CreateAcountPage() {
           {activeButton === 'filo' && (
             <div>
               <div className="mb-4">
+                
                 <span className="text-sm text-gray-500 ">
                   <i className="fa-solid fa-circle-info text-[#FA8728] me-2"></i> Filonuzdaki araç adedi minimum 10 olmalıdır.
                 </span>
