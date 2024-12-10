@@ -24,7 +24,7 @@ export default function LoginLayout({ children }: { children: ReactNode }) {
           </NextLink>
         </div>
 
-        <main className="flex-grow flex justify-center items-center bg-[#FAFAFA] p-20">
+        <main className="flex-grow flex justify-center items-center bg-[#FAFAFA]">
           {children}
         </main>
 

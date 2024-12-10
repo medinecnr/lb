@@ -24,7 +24,7 @@ export default function LastikPage() {
             className="fa-solid fa-chevron-left cursor-pointer" 
             onClick={handleBackClick}
           ></i>
-          <h1 className="p-4 text-2xl font-bold">Lastik</h1>
+          <h2 className="p-4 font-bold">Lastik</h2>
         </div>
         <div className="border-b-2 border-gray-200"></div>
       </div>
@@ -37,7 +37,7 @@ export default function LastikPage() {
               className="flex justify-between items-center p-3 cursor-pointer"
               onClick={() => handleCategoryClick(category.slug)}  
             >
-              <span className="text-lg">{category.name}</span>
+              <span>{category.name}</span>
               <i className="fa-solid fa-chevron-right text-gray-600"></i>
             </li>
           ))}

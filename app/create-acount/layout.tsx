@@ -5,6 +5,8 @@ import { Button } from "@nextui-org/button";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { slides } from "@/components/items/signup";
+import Altpanel from "@/components/altpanel";
+
 
 export default function CreateAcountLayout({
   children,
@@ -58,7 +60,7 @@ export default function CreateAcountLayout({
           </NextLink>
         </div>
 
-        <main className="flex-grow flex justify-center items-center bg-[#FAFAFA] p-20">
+        <main className="flex-grow flex justify-center items-center bg-[#FAFAFA] sm:p-0 md:p-20">
           {children}
         </main>
 
@@ -69,7 +71,7 @@ export default function CreateAcountLayout({
 
       {/* Sağ Panel: Slaytlar */}
       {isClient && (
-        <div className="w-full sm:w-1/2 bg-[#053C50] flex flex-col items-center justify-center h-screen sticky top-0">
+        <div className="w-full sm:w-1/2 bg-[#053C50] flex-col items-center justify-center h-screen sticky top-0 hidden sm:block">
           <div className="w-full p-6 flex flex-col justify-center items-center h-full text-white">
             <h2 className="text-3xl font-bold text-center relative group">
               {slides[currentIndex].title}
@@ -79,7 +81,7 @@ export default function CreateAcountLayout({
             <div className="w-full flex flex-col justify-center items-center mt-8 text-white text-center">
               <div className="transition-transform duration-500 ease-in-out transform">
                 <i className={`fa-solid ${slides[currentIndex].icon} text-[#FA8728] text-7xl py-3`} />
-                <h2 className="text-2xl pb-3">{slides[currentIndex].subtitle}</h2>
+                <h2 className="py-3">{slides[currentIndex].subtitle}</h2>
                 <p className="p-3">{slides[currentIndex].description}</p>
               </div>
             </div>
@@ -98,6 +100,7 @@ export default function CreateAcountLayout({
           </div>
         </div>
       )}
+      <Altpanel />
     </section>
   );
 }

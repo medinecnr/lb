@@ -127,7 +127,7 @@ export const Navbar = () => {
               variant="ghost"
               disableRipple
               as={NextLink} 
-              href="/login"
+              href="/user"
               className="border-none"
             >
               <i className="fa-regular fa-user text-xl text-[#FA8728]"></i>

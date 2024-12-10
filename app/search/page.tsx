@@ -20,7 +20,7 @@ export default function SearchPage() {
   return (
     <div>
       <div>
-        <h1 className="p-4 text-2xl font-bold">Arama</h1>
+        <h2 className="p-4 font-bold">Arama</h2>
         <div className="border-b-1 border-gray-200"></div>
       </div>
 

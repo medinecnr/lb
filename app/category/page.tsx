@@ -24,7 +24,7 @@ export default function CategoryPage() {
 
   return (
     <div>
-      <h1 className="p-4 text-2xl font-bold">Kategoriler</h1>
+      <h2 className="p-4 font-bold">Kategoriler</h2>
       <div className="border-b-2 border-gray-200"></div>
 
       <div className="p-4">
@@ -35,7 +35,7 @@ export default function CategoryPage() {
               className="flex justify-between items-center p-3 cursor-pointer"
               onClick={() => handleCategoryClick(category.slug)}
             >
-              <span className="text-lg">{category.name}</span>
+              <span>{category.name}</span>
               <i className="fa-solid fa-chevron-right text-gray-600"></i>
             </li>
           ))}

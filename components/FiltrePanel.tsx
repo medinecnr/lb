@@ -47,7 +47,7 @@ const FiltrePanel = ({
 
 
   return (
-    <div className="w-1/4">
+    <div className="w-1/4 sm:block hidden">
       <div className="bg-[#FA8728] rounded-xl flex justify-start flex-col">
         <Accordion>
           <AccordionItem key="1" aria-label="Accordion 1" title={

@@ -96,7 +96,7 @@ function Page() {
           />
 
           {/* Sağ Kısım Ürün Listesi */}
-          <div className="w-3/4 rounded-xl">
+          <div className="rounded-xl w-full sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 p-2">
             <div className="flex justify-between items-center w-full">
               <h1 className="text-xl font-semibold">SUV 4x4 Lastikleri</h1>
               <div className="flex justify-end min-w-[120px]">
@@ -152,7 +152,7 @@ function Page() {
             </div>
 
             {/* Ürün Kartları */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-6">
               {currentProducts.map((product) => {
                 const discountedPrice = typeof product.discount === 'number'
                   ? calculateDiscountedPrice(product.price, product.discount)
@@ -171,24 +171,24 @@ function Page() {
                       />
                     </div>
                     <div className="flex flex-col justify-between items-center text-center gap-3 p-6">
-                      <h3 className="text-[#FA8728] text-lg font-semibold">
+                      <h3 className="text-[#FA8728]  font-semibold">
                         {product.title}
                       </h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">
+                      <p className=" text-gray-600 line-clamp-2">
                         {product.description}
                       </p>
 
                       {discountedPrice ? (
                         <div className="flex justify-center items-center gap-2 w-full">
-                          <div className="text-xl font-bold text-gray-800">
+                          <div className=" font-bold text-gray-800">
                             {discountedPrice.toFixed(2)} ₺
                           </div>
-                          <div className="text-sm text-gray-400 line-through">
+                          <div className="text-tiny text-gray-400 line-through">
                             {product.price}₺
                           </div>
                         </div>
                       ) : (
-                        <h4 className="font-bold text-xl text-gray-800">{product.price}₺</h4>
+                        <h4 className="font-bold  text-gray-800">{product.price}₺</h4>
                       )}
                     </div>
 
@@ -227,6 +227,7 @@ function Page() {
             <div className="flex justify-center mt-6">
               <Pagination
                 color="warning"
+                className='z-0 mt-2'
                 initialPage={currentPage}
                 total={totalPages}
                 onChange={handlePageChange}

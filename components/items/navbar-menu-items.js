@@ -20,7 +20,7 @@ export const menuItems = [
             <ul className="space-y-1">
               {generateListItems([
                 { label: "Otomobil Lastikleri", href: "#" },
-                { label: "SUV 4x4 Lastikleri", href: "#" },
+                { label: "SUV 4x4 Lastikleri", href: "suv" },
                 { label: "Hafif Ticari Araç Lastikleri", href: "#" },
                 { label: "Otobüs, Kamyon Lastikleri", href: "#" },
                 { label: "Motosiklet Lastikleri", href: "#" },

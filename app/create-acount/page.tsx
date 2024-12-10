@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { Checkbox } from "@nextui-org/react";
 
 function CreateAcountPage() {
   const [activeButton, setActiveButton] = useState<'bireysel' | 'bayi' | 'filo'>('bireysel');
@@ -41,35 +42,37 @@ function CreateAcountPage() {
   return (
     <div className="container flex-grow">
       <div className="flex flex-col justify-center items-center py-4">
-        <h1 className="text-3xl font-bold text-center relative group text-black">
+        <h1 className="font-bold text-center relative group text-black">
           Hesap Oluştur
           <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
         </h1>
       </div>
 
       <div>
-        <div className="gap-4 flex justify-between items-center mt-8">
+        <div className="gap-4 flex justify-between items-center mt-8 mx-2">
           <button
-            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 ${getButtonClass('bireysel')}`}
+            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 sm:w-auto min-w-[90px] flex justify-center items-center ${getButtonClass('bireysel')}`}
             onClick={() => handleButtonClick('bireysel')}
           >
-            <i className="fa-regular fa-user"></i> Bireysel
+            <i className="fa-regular fa-user"></i> 
+            <span className="ml-2">Bireysel</span>
           </button>
           <button
-            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 ${getButtonClass('bayi')}`}
+            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 sm:w-auto min-w-[90px] flex justify-center items-center ${getButtonClass('bayi')}`}
             onClick={() => handleButtonClick('bayi')}
           >
-            <i className="fa-solid fa-city"></i> Bayi/B2B
+            <i className="fa-solid fa-city"></i>             
+            <span className="ml-2">Bayi/B2B</span>
           </button>
           <button
-            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 ${getButtonClass('filo')}`}
+            className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 sm:w-auto min-w-[90px] flex justify-center items-center ${getButtonClass('filo')}`}
             onClick={() => handleButtonClick('filo')}
           >
-            <i className="fa-solid fa-car-side"></i> Filo
+            <i className="fa-solid fa-car-side"></i>             <span className="ml-2">Filo</span>
           </button>
         </div>
 
-        <div className="flex flex-col justify-center bg-white p-8 gap-6 rounded-2xl border-small border-gray-100 mt-3 ">
+        <div className="flex flex-col justify-center bg-white p-8 gap-6 rounded-2xl border-small border-gray-100 mt-3 mx-2">
           {activeButton === 'bireysel' && (
             <div>
               <div className="mb-4">
@@ -188,45 +191,30 @@ function CreateAcountPage() {
           )}
         </div>
 
-        <div className="flex flex-col gap-4 mt-6">
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              checked={newsletterChecked}
-              onChange={handleNewsletterChange}
-              className="mr-2 accent-[#FA8728] " 
-            />
+        <div className="flex flex-col gap-4 mt-6 p-4">
+          <div className="flex items-center justify-between">
+            <Checkbox color="warning" checked={false} />
             <span>
               Lastik Borsası'nın özel kampanya ve avantajlarıyla ilgili e-posta ve sms yoluyla bilgilendirilmek istiyorum.
             </span>
           </div>
 
           <div className="flex items-center">
-            <input
-              type="checkbox"
-              checked={termsChecked}
-              onChange={handleTermsChange}
-              className="mr-2 accent-[#FA8728]" 
-            />
+            <Checkbox color="warning" checked={false} />
             <span>
               <a href="#" className="text-[#FA8728]">Üyelik Sözleşmesi</a> 'ni okudum, onaylıyorum.
             </span>
           </div>
 
           <div className="flex items-center">
-            <input
-              type="checkbox"
-              checked={privacyChecked}
-              onChange={handlePrivacyChange}
-              className="mr-2 accent-[#FA8728]" 
-            />
+            <Checkbox color="warning" checked={false} />
             <span>
               <a href="#" className="text-[#FA8728]">Tedarikçi Satış ve Gizlilik Sözleşmesi</a> 'ni okudum ve onaylıyorum.
             </span>
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 mx-2">
           <button
             disabled={!newsletterChecked || !termsChecked || !privacyChecked}
             className="bg-[#FA8728] text-white rounded-lg py-2 px-4 w-full "

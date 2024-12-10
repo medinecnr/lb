@@ -1,6 +1,6 @@
 export const categories = [
     { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
-    { name: "SUV 4x4 Lastikleri", slug: "suvk" },
+    { name: "SUV 4x4 Lastikleri", slug: "suv" },
     { name: "Hafif Ticari Araç Lastikleri", slug: "#" },
     { name: "Otobüs, Kamyon Lastikleri", slug: "#" },
     { name: "İş Makinası Lastikleri", slug: "#" },
