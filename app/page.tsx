@@ -3,32 +3,11 @@ import "@/styles/globals.css";
 import { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-  Accordion,
-  AccordionItem,
-  Tabs,
-  Tab,
-  Button,
-} from "@nextui-org/react";
-import {
-  carouselItems,
-  tireSizes,
-  brandLogos,
-  cardData,
-  selectOptions,
-  renderOptions,
-  tireCategories,
-  productData,
-} from "@/components/items/pageitems";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button,} from "@nextui-org/react";
+import { carouselItems, tireSizes, brandLogos, selectOptions, renderOptions, tireCategories, productData,} from "@/components/items/pageitems";
 import Ustpanel from "@/components/ustpanel";
 import { Navbar } from "@/components/navbar";
+import  Hizmetler  from "@/components/hizmetler";
 import Dowloand from "@/components/dowloand";
 import Footer from "@/components/footer";
 import Enalt from "@/components/enalt";
@@ -181,28 +160,7 @@ export default function Home() {
       </div>
 
       {/* Hizmetler (HALLEDİLDİ)*/}
-      <div className="pb-6 mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {cardData.map((card) => (
-            <div
-              key={card.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
-            >
-              <div className="w-full h-32 overflow-hidden">
-                <img
-                  src={card.imageSrc}
-                  alt={card.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6 flex flex-col justify-center items-center">
-                <h2 className="font-bold mb-4 text-center">{card.title}</h2>
-                <p className="text-gray-600 text-center">{card.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Hizmetler />
 
       {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
       <div className="container mx-auto p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
