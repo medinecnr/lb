@@ -1,7 +1,8 @@
 "use client";
-import Footer from '@/components/footer';
-import { Navbar } from '@/components/navbar';
 import Ustpanel from '@/components/ustpanel';
+import { Navbar } from '@/components/navbar';
+import Dowloand from '@/components/dowloand';
+import Footer from '@/components/footer';
 import Enalt from '@/components/enalt';
 import Altpanel from '@/components/altpanel';
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
@@ -10,6 +11,8 @@ import { Select, SelectItem } from "@nextui-org/react";
 import { products } from '@/components/items/SUVurunler'; 
 import React, { useState, useEffect } from 'react';
 import { Pagination } from '@nextui-org/react';
+import Link from 'next/link';  // Link bileşenini import et
+
 
 function Page() {
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
@@ -73,6 +76,13 @@ function Page() {
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto pb-10">
+        <div className='mt-6'>
+          <Breadcrumbs>
+            <BreadcrumbItem href="#">Lastik</BreadcrumbItem>
+            <BreadcrumbItem href="#">Otomobil Lastikleri</BreadcrumbItem>
+            <BreadcrumbItem href="/suv">SUV 4x4 Lastikleri</BreadcrumbItem>
+          </Breadcrumbs>
+        </div>
         <div className="py-6 flex gap-4">
           {/* Filtre Paneli */}
           <FiltrePanel
@@ -159,66 +169,67 @@ function Page() {
                   : null;
 
                 return (
-                  <div
-                    key={product.id}
-                    className="group relative w-full h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small"
-                  >
-                    <div>
-                      <img
-                        src={product.imageUrl}
-                        alt={product.title}
-                        className="object-contain w-full h-40"
-                      />
-                    </div>
-                    <div className="flex flex-col justify-between items-center text-center gap-3 p-6">
-                      <h3 className="text-[#FA8728]  font-semibold">
-                        {product.title}
-                      </h3>
-                      <p className=" text-gray-600 line-clamp-2">
-                        {product.description}
-                      </p>
+                  <Link key={product.id} href={`/product/${product.id}`} passHref>
+                    <div
+                      className="group relative w-full h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small"
+                    >
+                      <div>
+                        <img
+                          src={product.imageUrl}
+                          alt={product.title}
+                          className="object-contain w-full h-40"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-between items-center text-center gap-3 p-6">
+                        <h3 className="text-[#FA8728] font-semibold">
+                          {product.title}
+                        </h3>
+                        <p className=" text-gray-600 line-clamp-2">
+                          {product.description}
+                        </p>
 
-                      {discountedPrice ? (
-                        <div className="flex justify-center items-center gap-2 w-full">
-                          <div className=" font-bold text-gray-800">
-                            {discountedPrice.toFixed(2)} ₺
+                        {discountedPrice ? (
+                          <div className="flex justify-center items-center gap-2 w-full">
+                            <div className="font-bold text-gray-800">
+                              {discountedPrice.toFixed(2)} ₺
+                            </div>
+                            <div className="text-tiny text-gray-400 line-through">
+                              {product.price}₺
+                            </div>
                           </div>
-                          <div className="text-tiny text-gray-400 line-through">
-                            {product.price}₺
-                          </div>
-                        </div>
-                      ) : (
-                        <h4 className="font-bold  text-gray-800">{product.price}₺</h4>
-                      )}
-                    </div>
-
-                    {/* Özel ikonlar ve etiketler */}
-                    {(product.hasSpecialIcon || product.discount || product.tamir) && (
-                      <div className="absolute top-2 right-2 flex flex-col gap-2">
-                        {product.discount && (
-                          <div className="flex items-center justify-center bg-[#006969] w-9 h-9 rounded-lg">
-                            <span className="text-white font-bold text-sm">%{product.discount}</span>
-                          </div>
-                        )}
-                        {product.hasSpecialIcon && (
-                          <div className="flex items-center justify-center bg-[#FFB45F] w-9 h-9 rounded-lg">
-                            <i className="fa-solid fa-truck-fast text-white text-xl"></i>
-                          </div>
-                        )}
-                        {product.tamir && (
-                          <div className="flex items-center justify-center bg-[#FA8728] w-9 h-9 rounded-lg">
-                            <i className="fa-solid fa-screwdriver-wrench text-white"></i>
-                          </div>
+                        ) : (
+                          <h4 className="font-bold text-gray-800">{product.price}₺</h4>
                         )}
                       </div>
-                    )}
 
-                    <div className="absolute bottom-0 left-0 w-full p-4">
-                      <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
-                        SEPETE EKLE
-                      </button>
+                      {/* Özel ikonlar ve etiketler */}
+                      {(product.hasSpecialIcon || product.discount || product.tamir) && (
+                        <div className="absolute top-2 right-2 flex flex-col gap-2">
+                          {product.discount && (
+                            <div className="flex items-center justify-center bg-[#006969] w-9 h-9 rounded-lg">
+                              <span className="text-white font-bold text-sm">%{product.discount}</span>
+                            </div>
+                          )}
+                          {product.hasSpecialIcon && (
+                            <div className="flex items-center justify-center bg-[#FFB45F] w-9 h-9 rounded-lg">
+                              <i className="fa-solid fa-truck-fast text-white text-xl"></i>
+                            </div>
+                          )}
+                          {product.tamir && (
+                            <div className="flex items-center justify-center bg-[#FA8728] w-9 h-9 rounded-lg">
+                              <i className="fa-solid fa-screwdriver-wrench text-white"></i>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      <div className="absolute bottom-0 left-0 w-full p-4">
+                        <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
+                          SEPETE EKLE
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -237,6 +248,7 @@ function Page() {
         </div>
       </div>
 
+      <Dowloand />
       <Footer />
       <Enalt />
       <Altpanel />
