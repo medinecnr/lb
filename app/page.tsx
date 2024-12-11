@@ -206,15 +206,15 @@ export default function Home() {
       {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
       <div className="container mx-auto p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
         <div>
-          <h2 className="font-bold">Aracınıza En Uygun Lastiği Bulun!</h2>
-          <p>
+          <h2 className="font-bold text-2xl">Aracınıza En Uygun Lastiği Bulun!</h2>
+          <p className="text-lg">
             Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz
             lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.
           </p>
         </div>
 
         <div className="pt-2">
-          <ul className="flex space-x-2 text-white text-sm font gap-2">
+          <ul className="flex space-x-2 text-white font gap-2">
             <li
               key="lastik"
               onClick={() => handleTabClick("lastik")}
