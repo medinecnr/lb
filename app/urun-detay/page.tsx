@@ -8,6 +8,8 @@ import Enalt from '@/components/enalt';
 import React, { useState } from 'react';
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import {Tooltip, Button} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
+
 
 
 function Page() {
@@ -65,7 +67,7 @@ function Page() {
           </Breadcrumbs>
         </div>
 
-        <div className="flex justify-between items-start relative gap-4">
+        <div className="flex justify-between items-start relative gap-6">
           {/* Sol Div */}
           <div className="w-1/2">
             <div>
@@ -74,7 +76,7 @@ function Page() {
                 <img
                   src={images[currentImageIndex]}
                   alt="Lastik Görseli"
-                  className="w-full h-72 object-contain rounded-xl"
+                  className="w-full h-96 object-contain rounded-xl"
                 />
                 <button
                   onClick={handlePrevious}
@@ -293,6 +295,83 @@ function Page() {
           </div>
           <div>
             {/* card yapısı*/}
+          </div>
+
+          <div className="flex w-full flex-col py-6">
+            <Tabs aria-label="Options" variant='underlined'>
+              <Tab key="urunozellikleri" title="Ürün Özellikleri">
+                <Card>
+                  <CardBody className='p-6'>
+                    <div>
+                      <p className='pb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat natus animi alias nisi odit debitis, obcaecati esse, praesentium ipsum iusto voluptates rem expedita commodi mollitia reprehenderit sapiente aperiam, exercitationem nam dolorum quis provident magnam! Eius, dolore, nisi fugiat, perferendis doloribus assumenda labore voluptate ipsam illum nostrum dolorum laboriosam incidunt numquam.</p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="table-auto w-1/3 border-separate border-spacing-0">
+                        <tbody>
+                          <tr>
+                            <td className=" py-2">Mevsim</td>
+                            <td className=" py-2 font-semibold ">Yaz</td>
+                          </tr>
+                          <tr>
+                            <td className=" py-2 ">Jant Çapı</td>
+                            <td className="py-2 font-semibold">16</td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 ">Kesit Oranı</td>
+                            <td className="py-2 font-semibold">55</td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 ">Taban Genişliği</td>
+                            <td className="py-2 font-semibold">205mm</td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 ">Yüz Endeksi</td>
+                            <td className="py-2 font-semibold">91</td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 ">Üretim Yılı</td>
+                            <td className="py-2 font-semibold">2023</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="degerlendirmeler" title="Değerlendirmeler">
+                <Card>
+                  <CardBody>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur.
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="taksit" title="Taksik Seçenekleri">
+                <Card>
+                  <CardBody>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum.
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="iptal" title="İptal ve İade Koşulları">
+                <Card>
+                  <CardBody>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum.
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="satici" title="Tüm Satıcılar">
+                <Card>
+                  <CardBody>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum.
+                  </CardBody>
+                </Card>
+              </Tab>
+            </Tabs>
           </div>
         </div>
       </div>
