@@ -3,7 +3,7 @@ import {cardData} from "@/components/items/pageitems";
 
 function hizmetler() {
   return (
-    <div className="pb-6 mx-auto max-w-screen-xl">
+    <div className="pb-6 mx-auto max-w-screen-xl bg-white">
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
       {cardData.map((card) => (
         <div
