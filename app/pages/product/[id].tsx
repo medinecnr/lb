@@ -1,19 +1,16 @@
-// pages/product/[id].tsx
+
 import { useRouter } from 'next/router';
-import { products } from '@/components/items/SUVurunler';  // Örnek ürünler
+import { products } from '@/components/items/SUVurunler';
 
 const ProductPage = () => {
   const router = useRouter();
-  const { id } = router.query;  // URL'den gelen id parametresi
-
-  // Eğer id parametresi henüz alınmamışsa (ilk render)
+  const { id } = router.query;  
   if (!id) return <div>Yükleniyor...</div>;
 
-  // id parametresine göre ürün verisini bul
   const product = products.find(p => p.id.toString() === id);
 
   if (!product) {
-    return <div>Ürün bulunamadı!</div>;  // Eğer ürün bulunamazsa
+    return <div>Ürün bulunamadı!</div>;  
   }
 
   return (
@@ -24,7 +21,7 @@ const ProductPage = () => {
           <img src={product.imageUrl} alt={product.title} className="w-full" />
         </div>
         <div className="w-2/3">
-          <p>{product.description}</p> {/* Ürünün description'ı */}
+          <p>{product.description}</p>
           <p className="text-lg font-semibold">{product.price} ₺</p>
           {product.discount && (
             <p className="text-red-600">İndirim: %{product.discount}</p>
