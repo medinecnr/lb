@@ -16,21 +16,21 @@ function dowloand() {
           <img
             src="/images/tr-tr.svg"
             alt="App Store"
-            className=" hover:scale-105 transition-transform"
+            className=" hover:scale-105 transition-transform "
           />
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.lastikborsasi.mobile&hl=tr&gl=US">
           <img
             src="/images/tr_badge_web_generic.png"
             alt="Google Play"
-            className=" hover:scale-105 transition-transform"
+            className=" hover:scale-105 transition-transform "
           />
         </a>
         <a href="https://appgallery.huawei.com/app/C108110243">
           <img
-            src="/images/huawei-app-gallery.jpg"
+            src="/images/huawei.jpg"
             alt="AppGallery"
-            className=" hover:scale-105 transition-transform"
+            className=" hover:scale-105 transition-transform  "
           />
         </a>
       </div>
