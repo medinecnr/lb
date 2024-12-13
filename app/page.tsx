@@ -12,7 +12,6 @@ import Dowloand from "@/components/dowloand";
 import Footer from "@/components/footer";
 import Enalt from "@/components/enalt";
 import Altpanel from "@/components/altpanel";
-import Head from "next/head";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
@@ -64,7 +63,7 @@ export default function Home() {
   const renderCard = (product: any) => (
     <div
       key={product.id}
-      className="group relative w-60 h-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105"
+      className="group relative w-60 h-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105" 
     >
       <div>
         <img
@@ -88,26 +87,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Lastik ve Araç Parçaları - E-Ticaret Sitesi</title>
-        <meta
-          name="description"
-          content="En kaliteli lastik ve araç parçalarını uygun fiyatlarla online satın alabilirsiniz."
-        />
-        <meta
-          name="keywords"
-          content="lastik, yaz lastiği, kış lastiği, araç parçaları, jant, akü, e-ticaret"
-        />
-        <meta
-          property="og:title"
-          content="Lastik ve Araç Parçaları - E-Ticaret Sitesi"
-        />
-        <meta
-          property="og:description"
-          content="En kaliteli lastik ve araç parçalarını uygun fiyatlarla online satın alabilirsiniz."
-        />
-      </Head>
-
       <Ustpanel />
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}

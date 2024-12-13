@@ -203,7 +203,7 @@ function Page() {
                 <p className="text-slate-500">
                   Stok: <span className="font-semibold text-black">{stockQuantity} adet</span>
                 </p>
-                <p className="text-[#FA8728]">
+                <p className="text-[#FA8728]  hidden sm:block">
                   Taksit Seçenekleri
                   <i className="fa-solid fa-chevron-down ms-1 font-mono"></i>
                 </p>
@@ -234,7 +234,7 @@ function Page() {
                   </div>
                 </div>
 
-                <p className="text-[#FA8728]">
+                <p className="text-[#FA8728]  hidden sm:block">
                   Tüm Satıcılar
                   <i className="fa-solid fa-chevron-down ms-1 font-mono"></i>
                 </p>
