@@ -108,7 +108,7 @@ function Page() {
                   </div>
                 ))}
               </div>
-              <div className="border rounded-xl mt-6 p-6 hidden sm:block">
+              {/* <div className="border rounded-xl mt-6 p-6 hidden sm:block">
                 <div className="overflow-x-auto">
                   <table className="table-auto w-full border-separate border-spacing-0 ">
                     <tbody>
@@ -147,7 +147,7 @@ function Page() {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -301,69 +301,9 @@ function Page() {
         </div>
 
 
-        <div className='py-6 bg-white'>
-          <div className="flex flex-col justify-center items-center pt-8 ">
-            <h2 className="text-2xl font-bold text-center relative group">
-              Benzer Ürünler
-              <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
-            </h2>
-          </div>
-          <div className="flex overflow-x-auto mt-4 space-x-6 py-6 bg-white">
-            {products.map((product) => (
-              <Link key={product.id} href={`/product/${product.id}`} passHref>
-                <div className="group relative w-56 h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small">
-                  {/* Ürün Görseli */}
-                  <div>
-                    <img
-                      src={product.imageUrl}
-                      alt={product.title}
-                      className="object-contain w-full h-40"/>
-                  </div>
-                  
-                  {/* Ürün Bilgileri */}
-                  <div className="flex flex-col justify-between items-center text-center gap-3 p-6">
-                    <h3 className="text-[#FA8728] font-semibold">{product.title}</h3>
-                    <p className="text-gray-600 line-clamp-2">{product.description}</p>
 
-                    {/* Fiyat Bilgisi */}
-                    <h4 className="font-bold text-gray-800">{product.price}₺</h4>
-                  </div>
-
-                  {/* Özel İkonlar ve Etiketler */}
-                  {(product.discount || product.hasSpecialIcon || product.tamir) && (
-                    <div className="absolute top-2 right-2 flex flex-col gap-2">
-                      {product.discount && (
-                        <div className="flex items-center justify-center bg-[#006969] w-9 h-9 rounded-lg">
-                          <span className="text-white font-bold text-sm">%{product.discount}</span>
-                        </div>
-                      )}
-                      {product.hasSpecialIcon && (
-                        <div className="flex items-center justify-center bg-[#FFB45F] w-9 h-9 rounded-lg">
-                          <i className="fa-solid fa-truck-fast text-white text-xl"></i>
-                        </div>
-                      )}
-                      {product.tamir && (
-                        <div className="flex items-center justify-center bg-[#FA8728] w-9 h-9 rounded-lg">
-                          <i className="fa-solid fa-screwdriver-wrench text-white"></i>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Sepete Ekle Butonu */}
-                  <div className="absolute bottom-0 left-0 w-full p-4">
-                    <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
-                      SEPETE EKLE
-                    </button>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Ürün Özellikleri, Değerlendirmeler, Taksit Seçenekleri, İptal ve İade Koşulları, Tüm Satıcılar */}
-        <div className="py-6 bg-white">
+ {/* Ürün Özellikleri, Değerlendirmeler, Taksit Seçenekleri, İptal ve İade Koşulları, Tüm Satıcılar */}
+ <div className="py-6 bg-white">
           <div className="flex w-full flex-col py-6 bg-white">
             <Tabs aria-label="Options" variant='underlined'>
               <Tab key="urunozellikleri" title="Ürün Özellikleri">
@@ -441,6 +381,71 @@ function Page() {
             </Tabs>
           </div>
         </div>
+
+
+
+        <div className='py-6 bg-white'>
+          <div className="flex flex-col justify-center items-center pt-8 ">
+            <h2 className="text-2xl font-bold text-center relative group">
+              Benzer Ürünler
+              <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
+            </h2>
+          </div>
+          <div className="flex overflow-x-auto mt-4 space-x-6 py-6 bg-white">
+            {products.map((product) => (
+              <Link key={product.id} href={`/product/${product.id}`} passHref>
+                <div className="group relative w-56 h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small">
+                  {/* Ürün Görseli */}
+                  <div>
+                    <img
+                      src={product.imageUrl}
+                      alt={product.title}
+                      className="object-contain w-full h-40"/>
+                  </div>
+                  
+                  {/* Ürün Bilgileri */}
+                  <div className="flex flex-col justify-between items-center text-center gap-3 p-6">
+                    <h3 className="text-[#FA8728] font-semibold">{product.title}</h3>
+                    <p className="text-gray-600 line-clamp-2">{product.description}</p>
+
+                    {/* Fiyat Bilgisi */}
+                    <h4 className="font-bold text-gray-800">{product.price}₺</h4>
+                  </div>
+
+                  {/* Özel İkonlar ve Etiketler */}
+                  {(product.discount || product.hasSpecialIcon || product.tamir) && (
+                    <div className="absolute top-2 right-2 flex flex-col gap-2">
+                      {product.discount && (
+                        <div className="flex items-center justify-center bg-[#006969] w-9 h-9 rounded-lg">
+                          <span className="text-white font-bold text-sm">%{product.discount}</span>
+                        </div>
+                      )}
+                      {product.hasSpecialIcon && (
+                        <div className="flex items-center justify-center bg-[#FFB45F] w-9 h-9 rounded-lg">
+                          <i className="fa-solid fa-truck-fast text-white text-xl"></i>
+                        </div>
+                      )}
+                      {product.tamir && (
+                        <div className="flex items-center justify-center bg-[#FA8728] w-9 h-9 rounded-lg">
+                          <i className="fa-solid fa-screwdriver-wrench text-white"></i>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Sepete Ekle Butonu */}
+                  <div className="absolute bottom-0 left-0 w-full p-4">
+                    <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
+                      SEPETE EKLE
+                    </button>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+       
       </div>
 
       <Hizmetler />
