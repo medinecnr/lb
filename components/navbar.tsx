@@ -204,6 +204,7 @@ export const Navbar = () => {
           </div>
         )}
       </div>
+      <div className="border-t "></div>
     </div>
   );
 };

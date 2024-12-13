@@ -169,7 +169,9 @@ function Page() {
                   : null;
 
                 return (
-                  <Link key={product.id} href={`/product/${product.id}`} passHref>
+                  // <Link key={product.id} href={`/product/${product.id}`} passHref>
+                  <Link key={product.id} href="/urun-detay" passHref>
+
                     <div
                       className="group relative w-full h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small"
                     >

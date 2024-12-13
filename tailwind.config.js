@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        inter: ["Inter", "sans-serif"],
+      },
+      container: {
+        center: true,
+        padding: '0.5rem',
       },
     },
   },
