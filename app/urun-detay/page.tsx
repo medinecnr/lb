@@ -384,7 +384,7 @@ function Page() {
 
 
 
-        <div className='py-6 bg-white'>
+        <div className='pt-6 bg-white pb-8'>
           <div className="flex flex-col justify-center items-center pt-8 ">
             <h2 className="text-2xl font-bold text-center relative group">
               Benzer Ürünler
@@ -447,7 +447,7 @@ function Page() {
 
        
       </div>
-
+      
       <Hizmetler />
       <Dowload />
       <Footer />
