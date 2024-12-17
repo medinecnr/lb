@@ -11,7 +11,7 @@ import { Select, SelectItem } from "@nextui-org/react";
 import { products } from '@/components/items/SUVurunler'; 
 import React, { useState, useEffect } from 'react';
 import { Pagination } from '@nextui-org/react';
-import Link from 'next/link';  // Link bileşenini import et
+import Link from 'next/link'; 
 
 
 function Page() {
