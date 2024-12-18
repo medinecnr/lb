@@ -15,13 +15,12 @@ export default function CreateAcountLayout({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [loading, setLoading] = useState(true); // Loading state for handling hydration
+  const [loading, setLoading] = useState(true); 
   const totalItems = slides.length;
 
-  // Simulate loading of categories and set client flag to true
   useEffect(() => {
-    setIsClient(true);  // Set client to true once the component has mounted
-    setLoading(false);  // Hide loading once everything is ready
+    setIsClient(true); 
+    setLoading(false);  
   }, []);
 
   useEffect(() => {

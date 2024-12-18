@@ -41,14 +41,13 @@ export default function Home() {
     const intervalId = setInterval(() => {
       scrollCarousel(250);
     }, 5000);
-    // Simulating loading delay (remove in production)
     const loadingTimer = setTimeout(() => {
-      setLoading(false); // Set loading to false after a delay
-    }, ); // Simulating 1 second delay
+      setLoading(false); 
+    }, ); 
 
     return () => {
       clearInterval(intervalId);
-      clearTimeout(loadingTimer); // Clean up the timer
+      clearTimeout(loadingTimer); 
     };
   }, []);
 
