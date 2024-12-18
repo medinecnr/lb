@@ -12,7 +12,8 @@ import { products } from '@/components/items/SUVurunler';
 import React, { useState, useEffect } from 'react';
 import { Pagination } from '@nextui-org/react';
 import Link from 'next/link'; 
-
+import { useRouter } from 'next/navigation';
+import {Spinner} from "@nextui-org/react";
 
 function Page() {
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
@@ -66,11 +67,29 @@ function Page() {
     setCurrentPage(page);
   };
 
-  // Sayfa değiştikçe sayfanın en üstüne kaydırmak için useEffect
+  
   useEffect(() => {
     window.scrollTo(0, 0); // Sayfa üstüne kaydır
   }, [currentPage]); // currentPage değiştiğinde çalışır
 
+  const router = useRouter();
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      setLoading(false);
+    }, []);
+  
+    const handleCategoryClick = (slug: string) => {
+      router.push(`/${slug}`);
+    };
+  
+    if (loading) {
+      return 
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner color="warning" label="" />
+      </div>
+    } 
+    
   return (
     <section>
       <Ustpanel />

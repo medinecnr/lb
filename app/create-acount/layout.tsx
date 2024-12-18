@@ -6,7 +6,7 @@ import clsx from "clsx";
 import NextLink from "next/link";
 import { slides } from "@/components/items/signup";
 import Altpanel from "@/components/altpanel";
-
+import {Spinner} from "@nextui-org/react"
 
 export default function CreateAcountLayout({
   children,
@@ -15,10 +15,13 @@ export default function CreateAcountLayout({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true); // Loading state for handling hydration
   const totalItems = slides.length;
 
+  // Simulate loading of categories and set client flag to true
   useEffect(() => {
-    setIsClient(true);
+    setIsClient(true);  // Set client to true once the component has mounted
+    setLoading(false);  // Hide loading once everything is ready
   }, []);
 
   useEffect(() => {
@@ -33,6 +36,14 @@ export default function CreateAcountLayout({
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner color="warning" label="Loading..." />      
+      </div>
+    );
+  }
 
   return (
     <section className="flex h-screen overflow-hidden">

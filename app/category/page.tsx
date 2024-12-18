@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Altpanel from '@/components/altpanel';
+import {Spinner} from "@nextui-org/react";
 
 const categories = [
   { name: "Lastik", slug: "lastik" },
@@ -17,10 +18,22 @@ const categories = [
 
 export default function CategoryPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const handleCategoryClick = (slug: string) => {
-    router.push(`/${slug}`);  
+    router.push(`/${slug}`);
   };
+
+  if (loading) {
+    return 
+    <div className="flex justify-center items-center min-h-screen">
+      <Spinner color="warning" label="" />
+    </div>
+  }
 
   return (
     <div>

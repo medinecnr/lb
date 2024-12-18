@@ -1,12 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  
 import { lastikCategories, ebatCategories } from '@/components/items/otomobil-lastikleri';
 import Altpanel from '@/components/altpanel';
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false); 
+  }, []);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);  
@@ -16,11 +21,18 @@ export default function OtomobilLastikPage() {
     router.back();  
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full"></div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div>
         <div className='flex justify-start items-center px-4 gap-2'>
-         
           <i 
             className="fa-solid fa-chevron-left cursor-pointer" 
             onClick={handleBackClick}
@@ -61,7 +73,8 @@ export default function OtomobilLastikPage() {
           ))}
         </ul>
       </div>
-          <Altpanel />
+
+      <Altpanel />
     </div>
   );
 }

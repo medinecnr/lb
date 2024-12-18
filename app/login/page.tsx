@@ -1,6 +1,10 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NextLink from "next/link";
+import {Spinner} from "@nextui-org/react";
+import { useRouter } from 'next/navigation';
+
+
 
 function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -10,6 +14,20 @@ function Page() {
   };
 
   const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
+
+    const router = useRouter();
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      setLoading(false);
+    }, []);
+  
+    if (loading) {
+      return 
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner color="warning" label="Loading..." />
+      </div>
+    }
 
   return (
     <>

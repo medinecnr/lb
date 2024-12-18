@@ -5,10 +5,12 @@ import Hizmetler from '@/components/hizmetler';
 import Dowload from '@/components/dowloand';
 import Footer from '@/components/footer';
 import Enalt from '@/components/enalt';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Breadcrumbs, BreadcrumbItem, Tabs, Tab, Card, CardBody, Tooltip, Button } from "@nextui-org/react";
 import Link from 'next/link';
 import { products } from '@/components/items/SUVurunler';
+import { useRouter } from 'next/navigation';
+import {Spinner} from "@nextui-org/react";
 
 function Page() {
   const images = [
@@ -48,6 +50,24 @@ function Page() {
       setQuantity((prev) => prev - 1);
     }
   };
+
+  const router = useRouter();
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      setLoading(false);
+    }, []);
+  
+    const handleCategoryClick = (slug: string) => {
+      router.push(`/${slug}`);
+    };
+  
+    if (loading) {
+      return 
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner color="warning" label="" />
+      </div>
+    } 
 
   return (
     <section>

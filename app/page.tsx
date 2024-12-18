@@ -17,6 +17,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const handleCategoryClick = (category: string) => {
@@ -40,7 +41,15 @@ export default function Home() {
     const intervalId = setInterval(() => {
       scrollCarousel(250);
     }, 5000);
-    return () => clearInterval(intervalId);
+    // Simulating loading delay (remove in production)
+    const loadingTimer = setTimeout(() => {
+      setLoading(false); // Set loading to false after a delay
+    }, ); // Simulating 1 second delay
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(loadingTimer); // Clean up the timer
+    };
   }, []);
 
   const getProducts = (tab: string) => {
@@ -59,6 +68,13 @@ export default function Home() {
         return [];
     }
   };
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full"></div>
+      </div>
+    );
+  }
 
   const renderCard = (product: any) => (
     <div
