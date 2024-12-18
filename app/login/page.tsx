@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import NextLink from "next/link";
 import {Spinner} from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
-
-
+import Altpanel from '@/components/altpanel';
 
 function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -31,7 +30,6 @@ function Page() {
 
   return (
     <>
-
       <section className="container flex justify-center items-center">
         <div className="flex flex-col justify-center items-center w-full max-w-md">
           <h1 className="text-3xl font-bold text-center relative group text-black mb-6">
@@ -84,6 +82,7 @@ function Page() {
             </NextLink>
           </div>
         </div>
+        <Altpanel />
       </section>
     </>
   );

@@ -2,11 +2,36 @@
 import Altpanel from "@/components/altpanel";
 import { Navbar } from "@/components/navbar";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from 'next/navigation';
+import {Spinner} from "@nextui-org/react";
+import React, { useState, useEffect } from 'react';
+
 
 type Props = {};
 
 function Page({}: Props) {
+  const router = useRouter();
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      setLoading(false); 
+    }, []);
+  
+    const handleCategoryClick = (slug: string) => {
+      router.push(`/${slug}`);  
+    };
+  
+    const handleBackClick = () => {
+      router.back();  
+    };
+  
+    if (loading) {
+      return (
+        <div className="flex justify-center items-center min-h-screen">
+          <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full"></div>
+        </div>
+      );
+    }
   return (
     <div className="relative min-h-screen flex flex-col">
       <Navbar />

@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  
 import { lastikCategories, ebatCategories } from '@/components/items/otomobil-lastikleri';
@@ -73,7 +72,6 @@ export default function OtomobilLastikPage() {
           ))}
         </ul>
       </div>
-
       <Altpanel />
     </div>
   );
