@@ -42,7 +42,7 @@ function CreateAcountPage() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Yeni Hesap Oluştur - Lastik Borsası</title>
         <meta
           name="description"
@@ -79,7 +79,8 @@ function CreateAcountPage() {
               className={`border rounded-3xl p-2 hover:border-[#FA8728] w-36 sm:w-auto min-w-[90px] flex justify-center items-center ${getButtonClass('filo')}`}
               onClick={() => handleButtonClick('filo')}
             >
-              <i className="fa-solid fa-car-side"></i>             <span className="ml-2">Filo</span>
+              <i className="fa-solid fa-car-side"></i>             
+              <span className="ml-2">Filo</span>
             </button>
           </div>
 
@@ -96,21 +97,21 @@ function CreateAcountPage() {
                   <input type="tel" className={inputClass} placeholder="Telefon Numarası" />
                 </div>
                 <div className="mb-4 relative">
-                <input
-                  type={passwordVisible ? 'text' : 'password'}
-                  className={inputClass}
-                  placeholder="Şifre"
-                  aria-label="Şifre"
-                />
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
-                >
-                  <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
-                </button>
-              </div>
+                  <input
+                    type={passwordVisible ? 'text' : 'password'}
+                    className={inputClass}
+                    placeholder="Şifre"
+                    aria-label="Şifre"
+                  />
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
+                  >
+                    <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                  </button>
+                </div>
               </div>
             )}
 
@@ -140,21 +141,21 @@ function CreateAcountPage() {
                   <input type="text" className={inputClass} placeholder="Vergi Numarası" />
                 </div>
                 <div className="mb-4 relative">
-                <input
-                  type={passwordVisible ? 'text' : 'password'}
-                  className={inputClass}
-                  placeholder="Şifre"
-                  aria-label="Şifre"
-                />
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
-                >
-                  <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
-                </button>
-              </div>
+                  <input
+                    type={passwordVisible ? 'text' : 'password'}
+                    className={inputClass}
+                    placeholder="Şifre"
+                    aria-label="Şifre"
+                  />
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
+                  >
+                    <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                  </button>
+                </div>
                 <div className="mb-4">
                   <input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" />
                 </div>
@@ -164,8 +165,7 @@ function CreateAcountPage() {
             {activeButton === 'filo' && (
               <div>
                 <div className="mb-4">
-                  
-                  <span className="text-sm text-gray-500 ">
+                  <span className="text-sm text-gray-500">
                     <i className="fa-solid fa-circle-info text-[#FA8728] me-2"></i> Filonuzdaki araç adedi minimum 10 olmalıdır.
                   </span>
                 </div>
@@ -204,34 +204,31 @@ function CreateAcountPage() {
 
           <div className="flex flex-col gap-4 mt-6 p-4">
             <div className="flex items-center justify-between">
-              <Checkbox color="warning" checked={false} />
+              <Checkbox checked={newsletterChecked} onChange={handleNewsletterChange} color="warning" />
               <span>
                 Lastik Borsası'nın özel kampanya ve avantajlarıyla ilgili e-posta ve sms yoluyla bilgilendirilmek istiyorum.
               </span>
             </div>
 
             <div className="flex items-center">
-              <Checkbox color="warning" checked={false} />
+              <Checkbox checked={termsChecked} onChange={handleTermsChange} color="warning" />
               <span>
                 <a href="#" className="text-[#FA8728]">Üyelik Sözleşmesi</a> 'ni okudum, onaylıyorum.
               </span>
             </div>
 
             <div className="flex items-center">
-              <Checkbox color="warning" checked={false} />
+              <Checkbox checked={privacyChecked} onChange={handlePrivacyChange} color="warning" />
               <span>
                 <a href="#" className="text-[#FA8728]">Tedarikçi Satış ve Gizlilik Sözleşmesi</a> 'ni okudum ve onaylıyorum.
               </span>
             </div>
-          </div>
 
-          <div className="mt-4 mx-2">
-            <button
-              disabled={!newsletterChecked || !termsChecked || !privacyChecked}
-              className="bg-[#FA8728] text-white rounded-lg py-2 px-4 w-full "
-            >
-              Hesap Oluştur
-            </button>
+            <div className="w-full">
+              <button className="w-full p-3 bg-[#FA8728] text-white rounded-lg hover:bg-[#FA8728] disabled:bg-warning" disabled={!termsChecked || !privacyChecked}>
+                Hesap Oluştur
+              </button>
+            </div>
           </div>
         </div>
       </div>
