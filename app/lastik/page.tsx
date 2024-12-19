@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Head from 'next/head';
 import Altpanel from "@/components/altpanel";
-
-
- const categories = [
+const categories = [
   { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
   { name: "SUV 4x4 Lastikleri", slug: "suv" },
   { name: "Hafif Ticari Araç Lastikleri", slug: "hafif-ticari-arac-lastikleri" },
@@ -19,10 +18,10 @@ import Altpanel from "@/components/altpanel";
 
 export default function LastikPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false); 
+    setLoading(false);
   }, []);
 
   const handleCategoryClick = (slug: string) => {
@@ -36,39 +35,58 @@ export default function LastikPage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full"></div>
+        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full" aria-label="Yükleniyor"
+        ></div>
       </div>
     );
   }
 
   return (
-    <div>
-      <div>
-        <div className="flex justify-start items-center px-4 gap-2">
-          <i
-            className="fa-solid fa-chevron-left cursor-pointer"
-            onClick={handleBackClick}
-          ></i>
-          <h2 className="p-4 font-bold">Lastik</h2>
-        </div>
-        <div className="border-b-2 border-gray-200"></div>
-      </div>
+    <>
+      <Head>
+        <title>Lastik Çeşitleri | Lastik Borsası</title>
+        <meta
+          name="description"
+          content="Otomobil, SUV, hafif ticari, otobüs ve iş makinası lastikleri dahil birçok lastik türünü keşfedin. Lastik Borsası ile doğru lastik seçimini yapın."
+        />
+        <meta
+          name="keywords"
+          content="lastik çeşitleri, otomobil lastikleri, SUV lastikleri, ticari araç lastikleri, iş makinası lastikleri, yaz lastiği, kış lastiği"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-      <div className="p-4">
-        <ul>
-          {categories.map((category) => (
-            <li
-              key={category.slug}
-              className="flex justify-between items-center p-3 cursor-pointer"
-              onClick={() => handleCategoryClick(category.slug)}
-            >
-              <span>{category.name}</span>
-              <i className="fa-solid fa-chevron-right text-gray-600"></i>
-            </li>
-          ))}
-        </ul>
+      <div>
+        <div>
+          <div className="flex justify-start items-center px-4 gap-2">
+            <i
+              className="fa-solid fa-chevron-left cursor-pointer"
+              onClick={handleBackClick}
+              aria-label="Geri Dön"
+            ></i>
+            <h2 className="p-4 font-bold">Lastik</h2>
+          </div>
+          <div className="border-b-2 border-gray-200"></div>
+        </div>
+
+        <div className="p-4">
+          <ul>
+            {categories.map((category) => (
+              <li
+                key={category.slug}
+                className="flex justify-between items-center p-3 cursor-pointer"
+                onClick={() => handleCategoryClick(category.slug)}
+              >
+                <span>{category.name}</span>
+                <i className="fa-solid fa-chevron-right text-gray-600"
+                  aria-hidden="true"
+                ></i>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Altpanel />
       </div>
-      <Altpanel />
-    </div>
+    </>
   );
 }
