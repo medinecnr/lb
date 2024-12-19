@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useState, useEffect } from 'react';
-import Head from "next/head"; // Head bileşeni import edildi
+import Head from "next/head";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
 import NextLink from "next/link";
