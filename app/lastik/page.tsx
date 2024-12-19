@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Head from 'next/head';
 import Altpanel from "@/components/altpanel";
+import { Spinner } from "@nextui-org/react";
+
 const categories = [
   { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
   { name: "SUV 4x4 Lastikleri", slug: "suv" },
@@ -35,8 +37,7 @@ export default function LastikPage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full" aria-label="Yükleniyor"
-        ></div>
+        <Spinner color="warning" />
       </div>
     );
   }
@@ -53,7 +54,6 @@ export default function LastikPage() {
           name="keywords"
           content="lastik çeşitleri, otomobil lastikleri, SUV lastikleri, ticari araç lastikleri, iş makinası lastikleri, yaz lastiği, kış lastiği"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div>

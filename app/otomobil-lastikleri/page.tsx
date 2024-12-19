@@ -26,7 +26,7 @@ export default function OtomobilLastikPage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="Yükleniyor..." />
+        <Spinner color="warning" />
       </div>
     );
   }
@@ -34,7 +34,7 @@ export default function OtomobilLastikPage() {
   return (
     <>
       <Head>
-        <title>Otomobil Lastikleri | Lastikborsasi.com</title>
+        <title>Otomobil Lastikleri | Lastik Borsası</title>
         <meta
           name="description"
           content="Otomobil lastiklerini keşfedin. Popüler markalar ve ebat seçenekleri ile en uygun lastik modelleri burada!"
