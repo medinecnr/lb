@@ -13,6 +13,8 @@ import Dowloand from "@/components/dowloand";
 import Footer from "@/components/footer";
 import Enalt from "@/components/enalt";
 import Altpanel from "@/components/altpanel";
+import { Spinner } from "@nextui-org/react";
+
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
@@ -71,7 +73,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-600 w-16 h-16 rounded-full"></div>
+        <Spinner color="warning" label="Yükleniyor..." />
       </div>
     );
   }
