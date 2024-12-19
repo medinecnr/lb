@@ -4,8 +4,16 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ReactNode } from 'react';
+import exp from "constants";
+
 
 export const metadata: Metadata = {
+  // title: {
+  //   absolute: "",
+  //   default: "| Lastik Borsası",
+  //   template: "",
+  // },
+  
   icons: {
     icon: "/images/dowloandlogo.png",
   },

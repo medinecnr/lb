@@ -1,9 +1,10 @@
 "use client";
 import "@/styles/globals.css";
 import { useState, useEffect, useRef } from "react";
+import Head from "next/head";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button,} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button, Checkbox} from "@nextui-org/react";
 import { carouselItems, tireSizes, brandLogos, selectOptions, renderOptions, tireCategories, productData,} from "@/components/items/pageitems";
 import Ustpanel from "@/components/ustpanel";
 import { Navbar } from "@/components/navbar";
@@ -101,7 +102,12 @@ export default function Home() {
   );
 
   return (
-    <div>
+    <>
+    <Head>
+        <title>Ana Sayfa | Lastik Borsası</title>
+        <meta name="description" content="Lastik Borsası ana sayfası." />
+        <link rel="icon" href="/images/dowloandlogo.png" />
+      </Head>
       <Ustpanel />
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}
@@ -593,6 +599,6 @@ export default function Home() {
       <Footer />
       <Enalt />
       <Altpanel />
-    </div>
+    </>
   );
 }

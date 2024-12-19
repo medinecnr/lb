@@ -11,7 +11,7 @@ const generateListItems = (items) => {
 export const menuItems = [
     // 1. Kategori
   {
-    id: "lastik-urunleri",
+    id: "suv",
     label: "LASTİK",
     content: (
       <div className="flex justify-between items-start space-x-6">

@@ -187,7 +187,7 @@ export const Navbar = () => {
           <div>
             <ul className="flex space-x-4 text-xs font-semibold">
               <li className="cursor-pointer hover:text-[#FA8728]">
-                <NextLink href="#">MARKALAR</NextLink>
+                <NextLink href="#" aria-label="Markalar sayfasına git">MARKALAR</NextLink>
               </li>
               <li className="cursor-pointer hover:text-[#FA8728]">
                 <NextLink href="#">KAMPANYALAR</NextLink>
