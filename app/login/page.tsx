@@ -1,36 +1,50 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import NextLink from "next/link";
-import {Spinner} from "@nextui-org/react";
+import Head from "next/head";
+import { Spinner } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import Altpanel from '@/components/altpanel';
 
-function Page() {
+export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
+  const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
+   useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 0); 
+    return () => clearTimeout(timer);
+  }, []);
 
-    const router = useRouter();
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      setLoading(false);
-    }, []);
-  
-    if (loading) {
-      return 
+  if (loading) {
+    return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="Loading..." />
+        <Spinner color="warning" label="Yükleniyor..." />
       </div>
-    }
+    );
+  }
 
   return (
     <>
-      <section className="container flex justify-center items-center">
+      <Head>
+        <title>Giriş Yap | Lastik Borsası</title>
+        <meta
+          name="description"
+          content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Güvenli bir şekilde giriş yaparak lastik çeşitlerini keşfedin."
+        />
+        <meta
+          name="keywords"
+          content="lastik borsası, giriş yap, lastik fiyatları, online lastik alışverişi"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+
+      <section className="container flex justify-center items-center bg-[#FAFAFA]">
         <div className="flex flex-col justify-center items-center w-full max-w-md">
           <h1 className="text-3xl font-bold text-center relative group text-black mb-6">
             Giriş Yap
@@ -38,7 +52,6 @@ function Page() {
           </h1>
 
           <div className="w-full bg-white p-6 gap-4 rounded-2xl border-small border-gray-100 mt-5">
-            
             <div className="mb-4">
               <input
                 type="email"
@@ -58,26 +71,30 @@ function Page() {
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#FA8728] transition-colors"
                 aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
               >
                 <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
               </button>
             </div>
 
-            <button className="bg-[#FA8728] text-white rounded-lg py-2 px-4 w-full">
+            <button
+              type="submit"
+              className="bg-warning-500 text-white rounded-lg py-2 px-4 w-full hover:bg-[#FA8728] transition-colors"
+              aria-label="Giriş Yap"
+            >
               Giriş Yap
             </button>
 
-            <div className="mt-5">
-              <NextLink href="#" className="text-[#FA8728]">
+            <div className="mt-5 text-center">
+              <NextLink href="#" className="text-[#FA8728]" aria-label="Şifremi unuttum">
                 <i className="fa-solid fa-lock me-2"></i> Şifremi Unuttum
               </NextLink>
             </div>
           </div>
 
           <div className="mt-6">
-            <NextLink href="/create-acount" className="font-bold">
+            <NextLink href="/create-acount" className="font-bold" aria-label="Hesap Oluştur">
               <i className="fa-solid fa-user-plus me-2"></i> Hesap Oluştur
             </NextLink>
           </div>
@@ -87,5 +104,3 @@ function Page() {
     </>
   );
 }
-
-export default Page;

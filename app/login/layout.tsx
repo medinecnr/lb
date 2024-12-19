@@ -8,7 +8,16 @@ export default function LoginLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
-        <title>Giriş Yap | Lastikborsasi.com</title>
+        <title>Giriş Yap | Lastik Borsası</title>
+        <meta 
+          name="description" 
+          content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Lastik çeşitlerini keşfedin ve en iyi fiyatlarla alışveriş yapın."
+        />
+        <meta 
+          name="keywords" 
+          content="lastik borsası, giriş yap, lastik fiyatları, online lastik alışverişi, en uygun lastikler"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head> 
 
       <section
@@ -20,7 +29,11 @@ export default function LoginLayout({ children }: { children: ReactNode }) {
       >
         <div className="flex justify-center items-center px-4 py-2 border-b">
           <NextLink href="/" className="flex justify-start items-center">
-            <img src="/images/logoLight.jpg" alt="Lastik Borsası Logo" className="w-28 h-auto" />
+            <img 
+              src="/images/logoLight.jpg" 
+              alt="Lastik Borsası Logo" 
+              className="w-28 h-auto" 
+            />
           </NextLink>
         </div>
 
