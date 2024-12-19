@@ -13,7 +13,8 @@ import React, { useState, useEffect } from 'react';
 import { Pagination } from '@nextui-org/react';
 import Link from 'next/link'; 
 import { useRouter } from 'next/navigation';
-import {Spinner} from "@nextui-org/react";
+import { Spinner } from "@nextui-org/react";
+import Head from 'next/head';
 
 function Page() {
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
@@ -67,31 +68,37 @@ function Page() {
     setCurrentPage(page);
   };
 
-  
   useEffect(() => {
     window.scrollTo(0, 0); // Sayfa üstüne kaydır
   }, [currentPage]); // currentPage değiştiğinde çalışır
 
   const router = useRouter();
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      setLoading(false);
-    }, []);
-  
-    const handleCategoryClick = (slug: string) => {
-      router.push(`/${slug}`);
-    };
-  
-    if (loading) {
-      return 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  const handleCategoryClick = (slug: string) => {
+    router.push(`/${slug}`);
+  };
+
+  if (loading) {
+    return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="" />
+        <Spinner color="warning"/>
       </div>
-    } 
-    
+    );
+  }
+
   return (
     <section>
+      <Head>
+        <title>SUV 4x4 Lastikleri | Lastik Borsası</title>
+        <meta name="description" content="SUV 4x4 lastikleri kategorisindeki çeşitli ürünleri keşfedin. Fiyatları karşılaştırın, indirimli ürünleri görün ve sepete ekleyin." />
+        <meta property="og:title" content="SUV 4x4 Lastikleri - Ürün Listesi" />
+        <meta property="og:description" content="SUV 4x4 lastikleri kategorisindeki çeşitli ürünleri keşfedin. Fiyatları karşılaştırın, indirimli ürünleri görün ve sepete ekleyin." />
+      </Head>
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto pb-10">
@@ -190,7 +197,6 @@ function Page() {
                 return (
                   // <Link key={product.id} href={`/product/${product.id}`} passHref>
                   <Link key={product.id} href="/urun-detay" passHref>
-
                     <div
                       className="group relative w-full h-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 border-small"
                     >
@@ -238,12 +244,11 @@ function Page() {
                           )}
                           {product.tamir && (
                             <div className="flex items-center justify-center bg-[#FA8728] w-9 h-9 rounded-lg">
-                              <i className="fa-solid fa-screwdriver-wrench text-white"></i>
+                              <i className="fa-solid fa-wrench text-white text-xl"></i>
                             </div>
                           )}
                         </div>
                       )}
-
                       <div className="absolute bottom-0 left-0 w-full p-4">
                         <button className="bg-[#FFB45F] text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg py-2 hover:bg-[#FF9E42]">
                           SEPETE EKLE
@@ -258,23 +263,23 @@ function Page() {
             {/* Pagination */}
             <div className="flex justify-center mt-6">
               <Pagination
+                onChange={handlePageChange}
+                total={totalPages}
+                initialPage={currentPage}
                 color="warning"
                 className='z-0 mt-2'
-                initialPage={currentPage}
-                total={totalPages}
-                onChange={handlePageChange}
               />
             </div>
           </div>
         </div>
       </div>
-
       <Dowloand />
       <Footer />
       <Enalt />
       <Altpanel />
-
-      <style jsx>{`
+      
+      <style jsx>
+        {`
         .no-scrollbar {
           overflow: hidden; 
         }
@@ -289,7 +294,8 @@ function Page() {
           -ms-overflow-style: none; 
           scrollbar-width: none; 
         }
-      `}</style>
+      `}
+      </style>
     </section>
   );
 }

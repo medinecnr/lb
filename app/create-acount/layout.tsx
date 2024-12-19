@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactNode, useState, useEffect } from 'react';
-import Head from "next/head";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
 import NextLink from "next/link";
@@ -47,11 +46,6 @@ export default function CreateAcountLayout({
 
   return (
     <>
-      <Head>
-        <title>Kayıt Ol - Lastik Borsası</title>
-        <meta name="description" content="Lastik Borsası ile hızlı ve kolay kayıt ol. Güvenli alışveriş deneyimi." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
 
       <section className="flex h-screen overflow-hidden">
         {/* Sol Panel */}

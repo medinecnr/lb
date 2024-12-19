@@ -43,7 +43,7 @@ function CreateAcountPage() {
   return (
     <>
       <Head>
-        <title>Yeni Hesap Oluştur - Lastik Borsası</title>
+        <title>Yeni Hesap Oluştur | Lastik Borsası</title>
         <meta
           name="description"
           content="Lastik Borsası'nda yeni hesap oluşturun. Avantajlardan yararlanın ve hızlı bir şekilde kayıt olun."
