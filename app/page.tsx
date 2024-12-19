@@ -1,7 +1,7 @@
 "use client";
+import Head from "next/head";
 import "@/styles/globals.css";
 import { useState, useEffect, useRef } from "react";
-import Head from "next/head";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Accordion, AccordionItem, Tabs, Tab, Button, Checkbox} from "@nextui-org/react";
@@ -101,12 +101,13 @@ export default function Home() {
     </div>
   );
 
+  
+
   return (
     <>
-    <Head>
+      <Head>
         <title>Ana Sayfa | Lastik Borsası</title>
-        <meta name="description" content="Lastik Borsası ana sayfası." />
-        <link rel="icon" href="/images/dowloandlogo.png" />
+        <meta name="description" content="Ana sayfanın açıklaması" />
       </Head>
       <Ustpanel />
       <Navbar />
@@ -599,6 +600,6 @@ export default function Home() {
       <Footer />
       <Enalt />
       <Altpanel />
-    </>
+      </>
   );
 }

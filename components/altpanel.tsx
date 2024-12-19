@@ -11,8 +11,8 @@ function Altpanel() {
   };
 
   return (
-    <div className="sm:hidden block container mx-auto justify-center items-center gap-4 py-1 fixed bottom-0 bg-slate-200">
-      <div className="flex justify-evenly items-center ">
+    <div className="sm:hidden block container mx-auto justify-center items-center gap-4 py-1 fixed bottom-0 bg-slate-200 ">
+      <div className="flex justify-evenly items-center">
         <Link href="/" onClick={() => handleClick(0)}>
           <div className="p-4 rounded-lg">
             <i
