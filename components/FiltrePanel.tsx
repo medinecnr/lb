@@ -6,7 +6,6 @@ import { cars } from "@/components/items/cars";
 import { SearchIcon } from "@/components/icons";
 import { Marka, Jant, Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
 
-
 const RenderSelect = ({ label, value, onChange, options }: { label: string, value: string | null, onChange: (value: string) => void, options: string[] }) => (
   <Select
     variant="flat"
@@ -44,7 +43,6 @@ const FiltrePanel = ({
 }: any) => {
   const selectedCarData = cars.find(car => car.label === selectedCar);
   const selectedCountryData = countries.find(country => country.label === selectedCountry);
-
 
   return (
     <div className="w-1/4 sm:block hidden">

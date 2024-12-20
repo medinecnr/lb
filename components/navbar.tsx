@@ -10,7 +10,6 @@ import { SearchIcon } from "@/components/icons";
 import { menuItems } from "@/components/items/navbar-menu-items";
 import { useState, useRef, useEffect } from "react";
 
-
 export const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);

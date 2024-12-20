@@ -16,7 +16,6 @@ export const Marka = () => (
             <Checkbox value="toyo">Toyo</Checkbox>
             <Checkbox value="falken">Falken</Checkbox>
             <Checkbox value="kumho">Kumho</Checkbox>
-
         </CheckboxGroup>
     </div>
 );

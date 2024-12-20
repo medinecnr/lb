@@ -57,7 +57,7 @@ function Page({}: Props) {
             </Link>
           </div>
 
-          <p className="text-sm text-gray-600 my-6">veya hesap Oluştur</p>
+          <p className="text-sm text-gray-600 my-6">veya Hesap Oluştur</p>
 
           <div className="space-y-4 w-full max-w-xs">
             <Link href="/create-acount">

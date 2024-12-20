@@ -19,7 +19,6 @@ export const carouselItems = [
     },
   ];
 
-
 export const selectOptions = {
   carBrand: [
     { value: "1", label: "Audi" },
@@ -71,9 +70,6 @@ export const renderOptions = (options) => {
   ));
 };
 
-
-
-  
 export const cardData = [
   {
     id: 1,
@@ -100,7 +96,6 @@ export const cardData = [
     description: '7/24 aktif destek hizmetimizle her zaman yanınızdayız.'
   }
 ];
-
   
 export const tireProducts = [
     {
@@ -254,8 +249,6 @@ export const brandLogos = [
   { id: 11, name: 'Bridgestone', imageUrl: './images/bridgestone.png', url: '#' },
   { id: 12, name: 'Lassa', imageUrl: './images/lassa.png', url: '#' },
 ];
-
-
 
 export const tireCategories = [
   { id: "yazLastigi", name: "Yaz Lastikleri", icon: "fa-solid fa-sun" },
