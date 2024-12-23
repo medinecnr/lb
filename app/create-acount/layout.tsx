@@ -15,13 +15,11 @@ export default function CreateAcountLayout({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [loading, setLoading] = useState(true); 
   const totalItems = slides.length;
 
   useEffect(() => {
     setIsClient(true); 
-    setLoading(false);  
-  }, []);
+    }, []);
 
   useEffect(() => {
     if (isClient) {
@@ -36,17 +34,8 @@ export default function CreateAcountLayout({
     setCurrentIndex(index);
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="Loading..." />      
-      </div>
-    );
-  }
-
   return (
     <>
-
       <section className="flex h-screen overflow-hidden">
         {/* Sol Panel */}
         <div

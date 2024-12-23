@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Head from 'next/head';
@@ -20,11 +19,6 @@ const categories = [
 
 export default function LastikPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);
@@ -33,14 +27,6 @@ export default function LastikPage() {
   const handleBackClick = () => {
     router.back();
   };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" />
-      </div>
-    );
-  }
 
   return (
     <>

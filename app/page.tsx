@@ -15,7 +15,6 @@ import Enalt from "@/components/enalt";
 import Altpanel from "@/components/altpanel";
 import { Spinner } from "@nextui-org/react";
 
-
 export default function Home() {
   const [activeTab, setActiveTab] = useState("lastik");
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");
@@ -44,13 +43,9 @@ export default function Home() {
     const intervalId = setInterval(() => {
       scrollCarousel(250);
     }, 5000);
-    const loadingTimer = setTimeout(() => {
-      setLoading(false); 
-    }, ); 
 
     return () => {
       clearInterval(intervalId);
-      clearTimeout(loadingTimer); 
     };
   }, []);
 
@@ -70,13 +65,6 @@ export default function Home() {
         return [];
     }
   };
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="Yükleniyor..." />
-      </div>
-    );
-  }
 
   const renderCard = (product: any) => (
     <div

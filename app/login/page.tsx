@@ -8,7 +8,6 @@ import Altpanel from '@/components/altpanel';
 
 export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   const togglePasswordVisibility = () => {
@@ -16,18 +15,6 @@ export default function Page() {
   };
 
   const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
-   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 0); 
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" label="Yükleniyor..." />
-      </div>
-    );
-  }
 
   return (
     <>

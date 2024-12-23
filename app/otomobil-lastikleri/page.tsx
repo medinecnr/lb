@@ -8,12 +8,6 @@ import Altpanel from '@/components/altpanel';
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 0); 
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);  
@@ -22,14 +16,6 @@ export default function OtomobilLastikPage() {
   const handleBackClick = () => {
     router.back();  
   };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" />
-      </div>
-    );
-  }
 
   return (
     <>

@@ -35,7 +35,7 @@ export const menuItems = [
 
           <div className="flex justify-between items-start gap-x-4 pt-4">
             <div>
-              <h6 className="font-semibold text-lg">Popüler Markalar</h6>
+              <h6 className="font-semibold">Popüler Markalar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -52,7 +52,7 @@ export const menuItems = [
             </div>
 
             <div>
-              <h6 className="font-semibold text-lg">Popüler Ebatlar</h6>
+              <h6 className="font-semibold">Popüler Ebatlar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -105,7 +105,7 @@ export const menuItems = [
 
           <div className="flex justify-center items-start gap-6">
             <div>
-              <h6 className="font-semibold text-lg pt-4">Popüler Markalar</h6>
+              <h6 className="font-semibold pt-4">Popüler Markalar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -116,7 +116,7 @@ export const menuItems = [
             </div>
 
             <div>
-              <h6 className="font-semibold text-lg pt-4">Popüler Ebatlar</h6>
+              <h6 className="font-semibold pt-4">Popüler Ebatlar</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
               <ul className="flex flex-col">
                 {generateListItems([
@@ -165,7 +165,7 @@ export const menuItems = [
           <div className="py-4">
             <div className="flex justify-between items-start gap-6">
               <div>
-                <h6 className="font-semibold text-lg">Markalar</h6>
+                <h6 className="font-semibold">Markalar</h6>
                 <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
 
                 <ul className="flex flex-col">
@@ -177,7 +177,7 @@ export const menuItems = [
               </div>
 
               <div>
-                <h6 className="font-semibold text-lg">Özellik</h6>
+                <h6 className="font-semibold">Özellik</h6>
                 <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
                   <ul className="flex flex-col">
                     {generateListItems([
@@ -190,7 +190,7 @@ export const menuItems = [
             </div>
 
             <div className="mt-4">
-              <h6 className="font-semibold text-lg flex justify-center items-center">Kapasite</h6>
+              <h6 className="font-semibold flex justify-center items-center">Kapasite</h6>
               <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
 
               <ul className="flex flex-wrap gap-6">
@@ -241,7 +241,7 @@ export const menuItems = [
 
         <div className="flex-2 space-y-2 py-4">
           <div>
-            <h6 className="font-semibold text-lg"></h6>
+            <h6 className="font-semibold"></h6>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-1 sm:gap-x-1 md:gap-x-2 lg:gap-x-4 sm:gap-y-1 md:gap-y-1 lg:gap-y-1">
               {generateListItems([
                 { label: "", href: "#" },
@@ -257,7 +257,7 @@ export const menuItems = [
           </div>
 
           <div>
-            <h6 className="font-semibold text-lg"></h6>
+            <h6 className="font-semibold"></h6>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-1 sm:gap-x-1 md:gap-x-2 lg:gap-x-4 sm:gap-y-1 md:gap-y-1 lg:gap-y-1">
               {generateListItems([
                 { label: "", href: "#" },
@@ -268,7 +268,7 @@ export const menuItems = [
           </div>
 
           <div>
-            <h6 className="font-semibold text-lg"></h6>
+            <h6 className="font-semibold"></h6>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-1 sm:gap-x-1 md:gap-x-2 lg:gap-x-4 sm:gap-y-1 md:gap-y-1 lg:gap-y-1">
               {generateListItems([
                 { label: "", href: "#" },
@@ -358,11 +358,7 @@ export const menuItems = [
 
       <div className="flex-1 hidden lg:flex">
         <div className="w-full h-96 relative overflow-hidden">
-          <img
-            src="/images/marka-aku.jpg"
-            alt="Lastik"
-            className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
-          />
+          
         </div>
       </div>
     </div>
@@ -428,11 +424,7 @@ export const menuItems = [
 
       <div className="flex-1 hidden lg:flex">
         <div className="w-full h-96 relative overflow-hidden">
-          <img
-            src="/images/marka-aku.jpg"
-            alt="Lastik"
-            className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
-          />
+          
         </div>
       </div>
     </div>

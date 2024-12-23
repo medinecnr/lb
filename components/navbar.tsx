@@ -198,9 +198,9 @@ export const Navbar = () => {
         {activeMenu && (
           <div
             ref={menuRef}
-            className="absolute w-full bg-gray-100 shadow-md z-40 rounded-b-xl "
+            className="absolute w-full bg-gray-100 shadow-md z-10 rounded-b-xl "
           >
-            <div className="">
+            <div>
               {menuItems.find((menu) => menu.id === activeMenu)?.content}
             </div>
           </div>

@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { SearchIcon } from "@/components/icons";
@@ -8,20 +7,6 @@ import Altpanel from '@/components/altpanel';
 import { Spinner } from "@nextui-org/react";
 
 export default function SearchPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), ); 
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning"/>
-      </div>
-    );
-  }
 
   return (
     <>

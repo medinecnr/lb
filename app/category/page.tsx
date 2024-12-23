@@ -17,23 +17,10 @@ const categories = [
 
 export default function CategoryPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);
   };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning" />
-      </div>
-    );
-  }
 
   return (
     <div>

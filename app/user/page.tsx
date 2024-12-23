@@ -11,11 +11,6 @@ type Props = {};
 
 function Page({}: Props) {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);
@@ -24,14 +19,6 @@ function Page({}: Props) {
   const handleBackClick = () => {
     router.back();
   };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner size="lg" color="warning" />
-      </div>
-    );
-  }
 
   return (
     <>

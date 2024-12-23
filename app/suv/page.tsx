@@ -5,16 +5,32 @@ import Dowloand from '@/components/dowloand';
 import Footer from '@/components/footer';
 import Enalt from '@/components/enalt';
 import Altpanel from '@/components/altpanel';
-import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import FiltrePanel from '@/components/FiltrePanel'; 
-import { Select, SelectItem } from "@nextui-org/react"; 
+import FiltrePanel from '@/components/FiltrePanel';  
 import { products } from '@/components/items/SUVurunler'; 
 import React, { useState, useEffect } from 'react';
-import { Pagination } from '@nextui-org/react';
+import { Breadcrumbs, BreadcrumbItem, Select, SelectItem, Pagination, Spinner,  Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, Button, useDisclosure, Checkbox, Accordion, AccordionItem, ScrollShadow, } from '@nextui-org/react';
 import Link from 'next/link'; 
 import { useRouter } from 'next/navigation';
-import { Spinner } from "@nextui-org/react";
 import Head from 'next/head';
+import { Metadata } from 'next';
+import { countries } from "@/components/items/countries";
+import { Marka, Jant, Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
+
+const RenderSelect = ({ label, value, onChange, options }: { label: string, value: string | null, onChange: (value: string) => void, options: string[] }) => (
+  <Select
+    variant="flat"
+    label={label}
+    value={value || ''}
+    onChange={e => onChange(e.target.value)}
+    className="max-w-xs mt-4"
+  >
+    {options.map((option) => (
+      <SelectItem key={option} value={option}>
+        {option}
+      </SelectItem>
+    ))}
+  </Select>
+);
 
 function Page() {
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
@@ -63,6 +79,16 @@ function Page() {
 
   const totalPages = Math.ceil(products.length / productsPerPage);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = useState<"full">("full");
+  const sizes: Array<"full"> = [
+    "full",
+  ];
+  const handleOpen = (selectedSize: typeof size) => {
+    setSize(selectedSize);
+    onOpen();
+  };
+
   // Pagination 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -73,24 +99,13 @@ function Page() {
   }, [currentPage]); // currentPage değiştiğinde çalışır
 
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  const selectedCountryData = countries.find(country => country.label === selectedCountry);
 
   const handleCategoryClick = (slug: string) => {
     router.push(`/${slug}`);
   };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spinner color="warning"/>
-      </div>
-    );
-  }
-
+  
   return (
     <section>
       <Head>
@@ -133,24 +148,140 @@ function Page() {
 
           {/* Sağ Kısım Ürün Listesi */}
           <div className="rounded-xl w-full sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 p-2">
-            <div className="flex justify-between items-center w-full">
-              <h1 className="text-xl font-semibold">SUV 4x4 Lastikleri</h1>
-              <div className="flex justify-end min-w-[120px]">
+          <div className="flex flex-col sm:flex-row justify-between w-full">
+            <h1 className="text-xl font-semibold flex items-center">SUV 4x4 Lastikleri</h1>
+            <div className="flex justify-between items-center gap-2">
+              {/* Drawer ve Ürün Listesi */}
+              <div className="py-4 block sm:hidden w-full">
+                <div className="rounded-xl w-full p-2">
+                  <div className="flex flex-wrap gap-3 w-full">
+                    {sizes.map((drawerSize) => (
+                      <Button
+                        key={drawerSize}
+                        onPress={() => handleOpen(drawerSize)}
+                        className="w-full max-w-[200px] bg-[#F4F4F5] py-7 justify-between text-gray-500" 
+                      >
+                        Filtrele
+                        <i className="fa-solid fa-list"></i>
+                      </Button>
+                    ))}
+                  </div>
+
+                  <Drawer isOpen={isOpen} size={size} onClose={onClose}>
+                    <DrawerContent>
+                      {(onClose) => (
+                        <>
+                          <DrawerHeader className="flex items-center gap-1 px-4 py-2">
+                            <p>Filtrele</p>
+                            <Button color="warning" variant="light" onPress={onClose}>
+                              Temizle<i className="fa-solid fa-times"></i>
+                            </Button>
+                          </DrawerHeader>
+                          <div className="border-b-1 border-gray-200 w-full"></div>
+                          <DrawerBody className='p-4'>
+                            <div className='flex justify-start items-center gap-4'>
+                              <div className="flex justify-between items-center border p-2 rounded-lg">
+                                <Checkbox color="warning" checked={false} />
+                                <p className="text-sm">24 Saatte Kargoda</p>
+                              </div>
+                              <div className="flex justify-between items-center border p-2 rounded-lg">
+                                <Checkbox color="warning" checked={false} />
+                                <p className="text-sm">4 Adet ve Üzeri</p>
+                              </div>
+                            </div>
+                            <div className="border-1 rounded-xl">
+                              <div className="p-2">
+                                <div className="flex justify-between items-center">
+                                  <h6 className="text-[#FA8728]">120 Dakikada Teslimat</h6>
+                                  <Checkbox color="warning" checked={false} />
+                                </div>
+                                <span className="text-xs leading-[0.7]">Seçtiğiniz konuma 120 dakikada teslim edilebilecek ürünleri gösterir.</span>
+                              </div>
+                                    
+                              {/* Konum Seçin */}
+                              <div className="p-2">
+                                <h6 className="text-gray-500"> <i className="fa-solid fa-location-dot mr-2 "></i> Konum Seçin</h6>
+                                <RenderSelect
+                                  label="Ülke Seçin"
+                                  value={selectedCountry}
+                                  onChange={(value: string) => {
+                                    setSelectedCountry(value);
+                                    setSelectedDistrict(null);
+                                  }}
+                                  options={countries.map(country => country.label)}
+                                />
+                            
+                                {selectedCountry && selectedCountryData?.districts?.length && (
+                                  <RenderSelect
+                                    label="İlçe Seçin"
+                                    value={selectedDistrict}
+                                    onChange={(value: string) => setSelectedDistrict(value)}
+                                    options={selectedCountryData.districts}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                            <Accordion selectionMode="multiple">
+                              <AccordionItem key="1" aria-label="kesitOrani" title="Marka">
+                                <ScrollShadow className="w-full h-[120px]">
+                                  <p>Marka İçeriği</p>
+                                </ScrollShadow>
+                              </AccordionItem>
+                              <AccordionItem key="2" aria-label="kesitOrani" title="Jant Çapı">
+                                <ScrollShadow className="w-full h-[120px]">
+                                  <p>Jant Çapı İçeriği</p>
+                                </ScrollShadow>
+                              </AccordionItem>
+                              <AccordionItem key="3" aria-label="kesitOrani" title="Kesit Oranı">
+                                <ScrollShadow className="w-full h-[120px]">
+                                  <KesitOrani />
+                                </ScrollShadow>
+                              </AccordionItem>
+                              <AccordionItem key="4" aria-label="Mevsim" title="Mevsim">
+                                <ScrollShadow className="w-full h-[120px]">
+                                  <Mevsim />
+                                </ScrollShadow>
+                              </AccordionItem>
+                              <AccordionItem key="5" aria-label="UretimYili" title="Üretim Yılı">
+                                <ScrollShadow className="w-full h-[120px]">
+                                  <UretimYili />
+                                </ScrollShadow>
+                              </AccordionItem>
+                              <AccordionItem key="6" aria-label="UretimYili" title="Araç Türü">
+                                <ScrollShadow className="w-full h-[120px]">
+                                <p>Araç Türü içeriği</p>
+                                </ScrollShadow>
+                              </AccordionItem>
+                            </Accordion>
+                          </DrawerBody>
+                          <DrawerFooter className="flex justify-center items-center gap-2 p-2 bg-[#FA8728]">
+                            <Button className='bg-transparent text-white font-semibold' onPress={onClose}>
+                              Ürünleri Gör
+                            </Button>
+                          </DrawerFooter>
+                        </>
+                      )}
+                    </DrawerContent>
+                  </Drawer>
+                </div>
+              </div>
+
+              <div className="flex min-w-[120px] w-full gap-2">
                 <Select
-                  variant="bordered"
                   label="Sırala"
                   value={selectedCar || ''}
                   onChange={e => handleCarChange(e.target.value)}
-                  className="w-full max-w-[200px]"
+                  className="w-full max-w-[200px] "
                 >
                   <SelectItem key="1" value="1">Artan</SelectItem>
                   <SelectItem key="2" value="2">Azalan</SelectItem>
                 </Select>
               </div>
             </div>
+          </div>
 
             {/* Marka Kaydırılabilir Kısım */}
-            <div className="border-1 rounded-xl mt-5 p-4">
+            <div className="border-1 rounded-xl mt-5 p-4 sm:block hidden">
               <div className="flex items-center gap-12">
                 <h6 className="text-gray-600 whitespace-nowrap">Marka</h6>
                 <div className="relative flex-1 overflow-hidden">

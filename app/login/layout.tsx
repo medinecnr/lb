@@ -2,11 +2,9 @@
 import { ReactNode } from 'react';
 import NextLink from "next/link";
 
-
 export default function LoginLayout({ children }: { children: ReactNode }) {
   return (
     <>
-
       <section
         className="relative flex flex-col w-full overflow-y-auto h-screen"
         style={{
