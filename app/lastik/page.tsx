@@ -40,6 +40,7 @@ export default function LastikPage() {
           name="keywords"
           content="lastik çeşitleri, otomobil lastikleri, SUV lastikleri, ticari araç lastikleri, iş makinası lastikleri, yaz lastiği, kış lastiği"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div>
@@ -50,7 +51,7 @@ export default function LastikPage() {
               onClick={handleBackClick}
               aria-label="Geri Dön"
             ></i>
-            <h2 className="p-4 font-bold">Lastik</h2>
+            <h1 className="p-4 text-[20px]">Lastik</h1>
           </div>
           <div className="border-b-2 border-gray-200"></div>
         </div>

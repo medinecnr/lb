@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import { Spinner } from "@nextui-org/react";
@@ -20,7 +20,7 @@ export default function OtomobilLastikPage() {
   return (
     <>
       <Head>
-        <title>Otomobil Lastikleri | Lastik Borsası</title>
+        <title>Otomobil Lastikleri – Popüler Markalar ve Ebatlar | Lastik Borsası</title>
         <meta
           name="description"
           content="Otomobil lastiklerini keşfedin. Popüler markalar ve ebat seçenekleri ile en uygun lastik modelleri burada!"
@@ -39,7 +39,7 @@ export default function OtomobilLastikPage() {
               onClick={handleBackClick}
               aria-label="Geri dön"
             ></i>
-            <h1 className="p-4 font-bold text-xl">Otomobil Lastikleri</h1>
+            <h1 className="py-4 text-[20px]">Otomobil Lastikleri</h1>
           </div>
           <div className="border-b-2 border-gray-200"></div>
         </div>
@@ -52,9 +52,11 @@ export default function OtomobilLastikPage() {
                 key={category.slug}
                 className="flex justify-between items-center p-2 cursor-pointer"
                 onClick={() => handleCategoryClick(category.slug)} 
+                role="link"
+                aria-label={`Kategori: ${category.name}`}
               >
                 <span>{category.name}</span>
-                <i className="fa-solid fa-chevron-right text-gray-600"></i>
+                <i className="fa-solid fa-chevron-right text-gray-600" aria-hidden="true"></i>
               </li>
             ))}
           </ul>
@@ -68,9 +70,11 @@ export default function OtomobilLastikPage() {
                 key={category.slug}
                 className="flex justify-between items-center p-2 cursor-pointer"
                 onClick={() => handleCategoryClick(category.slug)}  
+                role="link"
+                aria-label={`Kategori: ${category.name}`}
               >
                 <span>{category.name}</span>
-                <i className="fa-solid fa-chevron-right text-gray-600"></i>
+                <i className="fa-solid fa-chevron-right text-gray-600" aria-hidden="true"></i>
               </li>
             ))}
           </ul>

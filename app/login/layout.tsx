@@ -1,10 +1,25 @@
 "use client";
 import { ReactNode } from 'react';
 import NextLink from "next/link";
+import Head from 'next/head';
 
 export default function LoginLayout({ children }: { children: ReactNode }) {
   return (
     <>
+      <Head>
+        <title>Giriş Yap | Lastik Borsası</title>
+        <meta
+          name="description"
+          content="Lastik Borsası'na giriş yaparak ürünleri keşfedin ve ihtiyaçlarınıza en uygun lastiği bulun."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Giriş Yap | Lastik Borsası" />
+        <meta
+          property="og:description"
+          content="Lastik Borsası'na giriş yaparak ürünleri keşfedin ve ihtiyaçlarınıza en uygun lastiği bulun."
+        />
+      </Head>
+
       <section
         className="relative flex flex-col w-full overflow-y-auto h-screen"
         style={{

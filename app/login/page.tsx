@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import NextLink from "next/link";
 import Head from "next/head";
 import { Spinner } from "@nextui-org/react";
@@ -19,8 +19,8 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Giriş Yap | Lastik Borsası</title>
-        <meta
+      <title>Giriş Yap | Lastik Borsası</title>
+      <meta
           name="description"
           content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Güvenli bir şekilde giriş yaparak lastik çeşitlerini keşfedin."
         />
@@ -61,7 +61,7 @@ export default function Page() {
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#FA8728] transition-colors"
                 aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
               >
-                <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`} aria-hidden="true"></i>
               </button>
             </div>
 
@@ -75,14 +75,14 @@ export default function Page() {
 
             <div className="mt-5 text-center">
               <NextLink href="#" className="text-[#FA8728]" aria-label="Şifremi unuttum">
-                <i className="fa-solid fa-lock me-2"></i> Şifremi Unuttum
+                <i className="fa-solid fa-lock me-2" aria-hidden="true"></i> Şifremi Unuttum
               </NextLink>
             </div>
           </div>
 
           <div className="mt-6">
             <NextLink href="/create-acount" className="font-bold" aria-label="Hesap Oluştur">
-              <i className="fa-solid fa-user-plus me-2"></i> Hesap Oluştur
+              <i className="fa-solid fa-user-plus me-2" aria-hidden="true"></i> Hesap Oluştur
             </NextLink>
           </div>
         </div>

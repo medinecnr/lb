@@ -46,10 +46,12 @@ function CreateAcountPage() {
         <title>Yeni Hesap Oluştur | Lastik Borsası</title>
         <meta
           name="description"
-          content="Lastik Borsası'nda yeni hesap oluşturun. Avantajlardan yararlanın ve hızlı bir şekilde kayıt olun."
+          content="Lastik Borsası'nda yeni hesap oluşturun. Avantajlardan yararlanın ve hızlı bir şekilde kayıt olun. Bireysel, bayi veya filo seçenekleriyle kaydolun."
         />
-        <meta name="keywords" content="hesap oluştur, lastik borsası kayıt, bireysel kayıt, bayi kayıt, filo kayıt" />
+        <meta name="keywords" content="hesap oluştur, lastik borsası, üyelik kaydı, bireysel kayıt, bayi kayıt, filo kayıt, lastik ticareti, yeni hesap oluşturma" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Yeni Hesap Oluştur | Lastik Borsası" />
+        <meta property="og:description" content="Lastik Borsası'nda hesap oluşturun ve avantajlardan yararlanın. Bireysel, bayi ya da filo seçenekleriyle kaydolun." />
       </Head>
       <div className="container flex-grow">
         <div className="flex flex-col justify-center items-center py-4">
@@ -192,8 +194,21 @@ function CreateAcountPage() {
                   <input type="text" className={inputClass} placeholder="Vergi Dairesi" />
                   <input type="text" className={inputClass} placeholder="Vergi Numarası" />
                 </div>
-                <div className="mb-4">
-                  <input type="password" className={inputClass} placeholder="Şifre" />
+                <div className="mb-4 relative">
+                  <input
+                    type={passwordVisible ? 'text' : 'password'}
+                    className={inputClass}
+                    placeholder="Şifre"
+                    aria-label="Şifre"
+                  />
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    aria-label={passwordVisible ? "Şifreyi gizle" : "Şifreyi göster"}
+                  >
+                    <i className={`fa-regular ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                  </button>
                 </div>
                 <div className="mb-4">
                   <input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" />

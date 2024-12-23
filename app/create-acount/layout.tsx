@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import { ReactNode, useState, useEffect } from 'react';
+import { ReactNode, useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { slides } from "@/components/items/signup";
 import Altpanel from "@/components/altpanel";
 import { Spinner } from "@nextui-org/react";
+import Head from "next/head";
 
 export default function CreateAcountLayout({
   children,
@@ -18,9 +19,10 @@ export default function CreateAcountLayout({
   const totalItems = slides.length;
 
   useEffect(() => {
-    setIsClient(true); 
-    }, []);
+    setIsClient(true);
+  }, []);
 
+  // Slaytların otomatik döngüsü
   useEffect(() => {
     if (isClient) {
       const interval = setInterval(() => {
@@ -30,19 +32,37 @@ export default function CreateAcountLayout({
     }
   }, [isClient, totalItems]);
 
+  // Slayt noktalarına tıklama işlemi
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
   };
 
   return (
     <>
+      {/* SEO için meta bilgiler */}
+      <Head>
+        <title>Hesap Oluştur - Lastik Borsası</title>
+        <meta
+          name="description"
+          content="Lastik Borsası üzerinden kolayca hesap oluşturun ve avantajlardan yararlanın. Üyelik işlemleriniz hızlı ve güvenli bir şekilde gerçekleşir."
+        />
+        <meta
+          name="keywords"
+          content="Lastik Borsası, hesap oluştur, üyelik, lastik, jant, araç parçaları"
+        />
+        <meta name="author" content="Lastik Borsası" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+      </Head>
+
+      {/* Sayfa yapısı */}
       <section className="flex h-screen overflow-hidden">
         {/* Sol Panel */}
         <div
           className="relative flex flex-col w-full sm:w-1/2 bg-white overflow-y-auto h-screen"
           style={{
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#FA8728 #f1f1f1',
+            scrollbarWidth: "thin",
+            scrollbarColor: "#FA8728 #f1f1f1",
           }}
         >
           <div className="flex justify-between items-center bg-white px-4 py-2 border-b">
@@ -68,11 +88,11 @@ export default function CreateAcountLayout({
             {children}
           </main>
 
-          <div className="flex flex-col justify-center items-center py-6 bg-[#FAFAFA]">
+          <footer className="flex flex-col justify-center items-center py-6 bg-[#FAFAFA]">
             <p className="text-[14px] text-gray-500">
               2024 © Lastik Borsası. Tüm haklar saklıdır.
             </p>
-          </div>
+          </footer>
         </div>
 
         {/* Sağ Panel: Slaytlar */}
@@ -92,12 +112,16 @@ export default function CreateAcountLayout({
                 </div>
               </div>
 
-              {/* Dairelere Tıklama */}
+              {/* Slayt Noktaları */}
               <div className="flex gap-2 mt-4">
                 {[...Array(totalItems)].map((_, index) => (
                   <div
                     key={index}
-                    className={`w-3 h-3 rounded-full cursor-pointer ${currentIndex === index ? 'bg-[#FA8728]' : 'bg-white opacity-50'}`}
+                    className={`w-3 h-3 rounded-full cursor-pointer ${
+                      currentIndex === index
+                        ? "bg-[#FA8728]"
+                        : "bg-white opacity-50"
+                    }`}
                     onClick={() => handleDotClick(index)}
                     aria-label={`Slayt ${index + 1} seç`}
                   ></div>
