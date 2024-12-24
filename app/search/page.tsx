@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { SearchIcon } from "@/components/icons";
 import { Input } from "@nextui-org/input";
@@ -11,10 +11,10 @@ export default function SearchPage() {
   return (
     <>
       <Head>
-        <title>Ürün Arama | Lastik Borsası</title>
+      <title>Ürün Arama | Lastik Borsası</title>
         <meta
           name="description"
-          content="Aradığınız ürünleri kolayca bulmak için ürün arama sayfasını kullanın. Lastik modellerini ve daha fazlasını keşfedin."
+          content="Aradığınız lastik modelleri ve diğer ürünleri kolayca bulmak için arama yapın. Lastik fiyatları ve seçeneklerini keşfedin."
         />
         <meta
           name="keywords"
@@ -24,7 +24,7 @@ export default function SearchPage() {
 
       <div>
         <div>
-          <h2 className="font-bold p-4">Ürün Arama</h2>
+          <h1 className="text-[20px] p-4">Ürün Arama</h1>
           <div className="border-b-1 border-gray-200"></div>
         </div>
 
