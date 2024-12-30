@@ -50,7 +50,7 @@ export const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 w-full bg-white">
-      <NextUINavbar maxWidth="xl">
+      <NextUINavbar maxWidth="full" className="container mx-auto">
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="max-w-fit">
             <NextLink className="flex justify-start items-center" href="/">

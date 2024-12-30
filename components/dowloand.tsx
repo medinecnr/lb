@@ -3,7 +3,7 @@ import React from 'react'
 function dowloand() {
   return (
     <div className="resimm p-2">
-    <div className="container mx-auto py-20 ">
+    <div className="container mx-auto pt-20 ">
       <h3 className="text-white text-2xl font-bold mt-20">
         Sektörün Lider Pazar Yeri Platformu
       </h3>

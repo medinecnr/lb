@@ -12,7 +12,7 @@ function Ustpanel() {
 
   return (
     <div className="bg-[#053C50]">
-    <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto max-w-7xl">
+    <div className="flex flex-col sm:flex-row justify-between items-center container mx-auto">
       <div className="hidden lg:flex justify-between items-center py-2 ">
         <ul className="flex space-x-2 text-white text-sm font gap-2">
           <li>

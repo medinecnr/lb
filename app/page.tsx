@@ -323,7 +323,7 @@ export default function Home() {
       </div>
 
       {/* Çok Satanlar */}
-      <div className="container mx-auto p-6 flex-grow ">
+      <div className="container mx-auto pt-6 flex-grow ">
         <div className="flex flex-col justify-center items-center py-8">
           <h2 className="text-2xl font-bold text-center relative group text-black">
             Çok Satanar
@@ -445,8 +445,8 @@ export default function Home() {
       </div>
 
       {/* Hakkımızda (HALLEDİLDİ)*/}
-      <div className="container mx-auto flex-grow flex flex-col md:flex-row gap-6 py-3">
-        <div className="flex-1 p-4">
+      <div className="container mx-auto flex-grow flex flex-col md:flex-row gap-6 pt-10">
+        <div className="flex-1 ">
           <div>
             <img
               src="https://via.placeholder.com/200x100"
@@ -482,7 +482,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-1 p-4">
+        <div className="flex-1">
           <div className="flex flex-col mb-6">
             <h3 className="text-2xl font-bold text-center relative group text-black">
               Sık Sorulanlar

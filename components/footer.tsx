@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <div className="bg-[#053C50] text-white py-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start max-w-7xl">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start">
         <div className="flex-1 p-4 mb-6 md:mb-0 md:w-1/3">
           <h3 className="text-2xl mb-6">Lastik Borsası</h3>
           <ul className="space-y-2">
