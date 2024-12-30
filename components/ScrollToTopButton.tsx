@@ -28,7 +28,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 py-2 px-4 bg-black text-white rounded-full shadow-lg sm:block hidden transition-opacity ${
+      className={`fixed bottom-4 right-4 py-2 px-4 bg-black text-white rounded-full shadow-lg sm:block hidden hover:scale-105 transition-opacity ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       aria-label="Yukarı Çık"
