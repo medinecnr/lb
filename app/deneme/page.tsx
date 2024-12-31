@@ -17,10 +17,10 @@ const Footer = () => {
       <Navbar />
       <div className="border py-20 md:py-72"></div>
       <div className="bg-[#053C50] text-white py-8">
-        <div className="container mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+        <div className="container mx-auto max-w-screen-xl px-4 flex flex-col md:flex-row md:justify-between md:items-start gap-6 overflow-hidden">
           
           {/* Lastik Borsası Bilgileri */}
-          <div className="flex-1 mb-6 md:mb-0 md:w-1/3">
+          <div className="flex-1 mb-6 md:mb-0">
             <h3 className="font-bold mb-4">Lastik Borsası</h3>
             <ul className="space-y-2">
               {[
@@ -33,8 +33,8 @@ const Footer = () => {
                 'Üyelik Sözleşmesi',
                 'Blog',
               ].map((item) => (
-                <li key={item}>
-                  <a href="#" className={hoverText}>
+                <li key={item} className="truncate">
+                  <a href="#" className={`${hoverText} whitespace-nowrap overflow-hidden text-ellipsis`}>
                     {item}
                   </a>
                 </li>
@@ -77,18 +77,18 @@ const Footer = () => {
           </div>
 
           {/* Popüler Lastik Ebatları */}
-          <div className="w-full md:w-1/3 flex flex-col md:items-start">
+          <div className="flex-1 md:w-1/3">
             <h3
-              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-xs"
+              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
               onClick={() => setIsSizeOpen(!isSizeOpen)}
             >
               Popüler Lastik Ebatları
               <i className={`ml-2 fa-solid ${isSizeOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
             </h3>
-            <ul className={`space-y-2 ${isSizeOpen ? '' : 'hidden'}`}>
+            <ul className={`space-y-2 ${isSizeOpen ? '' : 'hidden'} md:block`}>
               {tireSizes.map((size) => (
-                <li key={size.size}>
-                  <a href={size.url} className={hoverText}>
+                <li key={size.size} className="truncate">
+                  <a href={size.url} className={`${hoverText} whitespace-nowrap overflow-hidden text-ellipsis`}>
                     {size.size}
                   </a>
                 </li>
@@ -97,18 +97,18 @@ const Footer = () => {
           </div>
 
           {/* Popüler Markalar */}
-          <div className="w-full md:w-1/3 flex flex-col md:items-start">
+          <div className="flex-1 md:w-1/3">
             <h3
-              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-xs"
+              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
               onClick={() => setIsBrandOpen(!isBrandOpen)}
             >
               Popüler Markalar
               <i className={`ml-2 fa-solid ${isBrandOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
             </h3>
-            <ul className={`space-y-2 ${isBrandOpen ? '' : 'hidden'}`}>
+            <ul className={`space-y-2 ${isBrandOpen ? '' : 'hidden'} md:block`}>
               {brands.map((brand) => (
-                <li key={brand.brand}>
-                  <a href={brand.url} className={hoverText}>
+                <li key={brand.brand} className="truncate">
+                  <a href={brand.url} className={`${hoverText} whitespace-nowrap overflow-hidden text-ellipsis`}>
                     {brand.brand}
                   </a>
                 </li>
@@ -117,18 +117,18 @@ const Footer = () => {
           </div>
 
           {/* Kategoriler */}
-          <div className="w-full sm:w-1/3 flex flex-col sm:items-start">
+          <div className="flex-1 md:w-1/3">
             <h3
-              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-xs"
+              className="font-bold mb-4 flex items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
               onClick={() => setIsCategoryOpen(!isCategoryOpen)}
             >
               Kategoriler
               <i className={`ml-2 fa-solid ${isCategoryOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
             </h3>
-            <ul className={`space-y-2 ${isCategoryOpen ? '' : 'hidden'}`}>
+            <ul className={`space-y-2 ${isCategoryOpen ? '' : 'hidden'} md:block`}>
               {categories.map((category) => (
-                <li key={category.name}>
-                  <a href={category.url} className={hoverText}>
+                <li key={category.name} className="truncate">
+                  <a href={category.url} className={`${hoverText} `}>
                     {category.name}
                   </a>
                 </li>
