@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { categories, tireSizes, brands } from "@/components/items/footeritems";
 
-const hoverText = 'hover:text-[#FFB45F]';
-const btnPhone = 'bg-transparent border text-white hover:border-[#FFB45F] min-w-[185px] text-start w-full flex justify-start items-center p-1';
+const hoverText = 'hover:text-[#FFB45F] flex ';
+const btnPhone = 'bg-transparent border text-white hover:border-[#FFB45F] text-start';
 
 const Footer = () => {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -15,8 +15,8 @@ const Footer = () => {
     <div className="bg-[#053C50] text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start">
         <div className="flex-1 p-4 mb-6 md:mb-0 md:w-1/3">
-          <h3 className="text-2xl mb-6">Lastik Borsası</h3>
-          <ul className="space-y-2">
+          <h3 className="font-bold mb-4">Lastik Borsası</h3>
+          <ul className="space-y-1">
             <li><a href="#" className={hoverText}>Hakkımızda</a></li>
             <li><a href="#" className={hoverText}>İletişim</a></li>
             <li><a href="#" className={hoverText}>Yardım Merkezi</a></li>
@@ -26,9 +26,9 @@ const Footer = () => {
             <li><a href="#" className={hoverText}>Üyelik Sözleşmesi</a></li>
             <li><a href="#" className={hoverText}>Blog</a></li>
           </ul>
-          <div className="mt-16">
-            <h3 className="text-xl">Bize Ulaşın</h3>
-            <div className="flex flex-col gap-2 mt-4">
+          <div className="mt-10">
+            <h3 className="font-bold">Bize Ulaşın</h3>
+            <div className="flex flex-col items-start gap-2 mt-4">
               <Button radius="sm" className={btnPhone}><i className="fa-solid fa-phone mr-0"></i> 444 06 52</Button>
               <Button radius="sm" className={btnPhone}><i className="fa-solid fa-phone mr-0"></i> 0850 441 46 52</Button>
               <Button radius="sm" className={btnPhone}><i className="fa-solid fa-envelope mr-0"></i> info@lastikborsasi.com</Button>
@@ -47,11 +47,11 @@ const Footer = () => {
         </div>
 
         <div className="w-full md:w-1/3 p-4 flex flex-col md:items-start">
-          <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsSizeOpen(!isSizeOpen)}>
+          <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsSizeOpen(!isSizeOpen)}>
             Popüler Lastik Ebatları
             <i className={`ml-2 fa-solid ${isSizeOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
           </h3>
-          <ul className={`space-y-2 ${isSizeOpen ? '' : 'hidden'} md:block`}>
+          <ul className={`space-y-1 ${isSizeOpen ? '' : 'hidden'} md:block`}>
             {tireSizes.map((size) => (
               <li key={size.size}><a href={size.url} className={hoverText}>{size.size}</a></li>
             ))}
@@ -59,11 +59,11 @@ const Footer = () => {
         </div>
 
         <div className="w-full md:w-1/3 p-4 flex flex-col  md:items-start">
-          <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsBrandOpen(!isBrandOpen)}>
+          <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsBrandOpen(!isBrandOpen)}>
             Popüler Markalar
             <i className={`ml-2 fa-solid ${isBrandOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
           </h3>
-          <ul className={`space-y-2 ${isBrandOpen ? '' : 'hidden'} md:block`}>
+          <ul className={`space-y-1 ${isBrandOpen ? '' : 'hidden'} md:block`}>
             {brands.map((brand) => (
               <li key={brand.brand}><a href={brand.url} className={hoverText}>{brand.brand}</a></li>
             ))}
@@ -71,11 +71,11 @@ const Footer = () => {
         </div>
 
         <div className="w-full sm:w-1/3 p-4 flex flex-col  sm:items-start">
-          <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
+          <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
             Kategoriler
             <i className={`ml-2 fa-solid ${isCategoryOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
           </h3>
-          <ul className={`space-y-2 ${isCategoryOpen ? '' : 'hidden'} md:block`}>
+          <ul className={`space-y-1 ${isCategoryOpen ? '' : 'hidden'} md:block`}>
             {categories.map((category) => (
               <li key={category.name}><a href={category.url} className={hoverText}>{category.name}</a></li>
             ))}
