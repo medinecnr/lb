@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-1/3 p-4 flex flex-col items-center md:items-start">
+        <div className="w-full md:w-1/3 p-4 flex flex-col md:items-start">
           <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsSizeOpen(!isSizeOpen)}>
             Popüler Lastik Ebatları
             <i className={`ml-2 fa-solid ${isSizeOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
@@ -58,7 +58,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full md:w-1/3 p-4 flex flex-col items-center md:items-start">
+        <div className="w-full md:w-1/3 p-4 flex flex-col  md:items-start">
           <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsBrandOpen(!isBrandOpen)}>
             Popüler Markalar
             <i className={`ml-2 fa-solid ${isBrandOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
@@ -70,7 +70,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full md:w-1/3 p-4 flex flex-col items-center md:items-start">
+        <div className="w-full sm:w-1/3 p-4 flex flex-col  sm:items-start">
           <h3 className="text-2xl mb-6 flex items-center cursor-pointer" onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
             Kategoriler
             <i className={`ml-2 fa-solid ${isCategoryOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
@@ -87,3 +87,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

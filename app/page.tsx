@@ -122,7 +122,7 @@ export default function Home() {
                 className="flex flex-col md:flex-row items-center justify-center w-full h-full "
               >
                 <div className="flex-1 text-white p-8 text-center md:text-left flex flex-col justify-center h-full gap-4">
-                  <h2 className=" text-2xl md:text-3xl">{item.title}</h2>
+                  <h2 className="text-2xl md:text-3xl">{item.title}</h2>
                   <p className="">{item.description}</p>
                   <a href="#">
                     <Button
@@ -152,7 +152,7 @@ export default function Home() {
       <Hizmetler />
 
       {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
-      <div className="container mx-auto p-7 flex-grow bg-[#FA8728] rounded-lg text-white">
+      <div className="container mx-auto p-5 flex-grow bg-[#FA8728] rounded-lg text-white">
         <div>
           <h2 className="font-bold text-2xl">Aracınıza En Uygun Lastiği Bulun!</h2>
           <p className="text-lg">
