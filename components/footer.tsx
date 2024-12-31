@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div className="bg-[#053C50] text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start">
-        <div className="flex-1 p-4 mb-6 md:mb-0 md:w-1/3">
+        <div className="flex-1 mb-6 md:mb-0 md:w-1/3 pe-4">
           <h3 className="font-bold mb-4">Lastik Borsası</h3>
           <ul className="space-y-1">
             <li><a href="#" className={hoverText}>Hakkımızda</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-1/3 p-4 flex flex-col md:items-start">
+        <div className="w-full md:w-1/3 flex flex-col md:items-start">
           <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsSizeOpen(!isSizeOpen)}>
             Popüler Lastik Ebatları
             <i className={`ml-2 fa-solid ${isSizeOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
@@ -58,11 +58,11 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full md:w-1/3 p-4 flex flex-col  md:items-start">
+        <div className="w-full md:w-1/3 flex flex-col  md:items-start">
           <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsBrandOpen(!isBrandOpen)}>
             Popüler Markalar
-            <i className={`ml-2 fa-solid ${isBrandOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
-          </h3>
+            <i className={`ml-2 fa-solid ${isBrandOpen ? 'fa-chevron-up' : 'fa-chevron-down'} block md:hidden lg:hidden`}></i>
+            </h3>
           <ul className={`space-y-1 ${isBrandOpen ? '' : 'hidden'} md:block`}>
             {brands.map((brand) => (
               <li key={brand.brand}><a href={brand.url} className={hoverText}>{brand.brand}</a></li>
@@ -70,7 +70,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full sm:w-1/3 p-4 flex flex-col  sm:items-start">
+        <div className="w-full sm:w-1/3 flex flex-col  sm:items-start">
           <h3 className="font-bold mb-4 flex items-center cursor-pointer" onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
             Kategoriler
             <i className={`ml-2 fa-solid ${isCategoryOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
