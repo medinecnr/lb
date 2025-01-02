@@ -44,15 +44,20 @@ function CreateAcountPage() {
   return (
     <>
       <Head>
-        <title>Yeni Hesap Oluştur | Lastik Borsası</title>
+        <title>Yeni Hesap Oluştur | Lastik Borsası - Güvenli ve Kolay Kayıt</title>
         <meta
           name="description"
-          content="Lastik Borsası'nda yeni hesap oluşturun. Avantajlardan yararlanın ve hızlı bir şekilde kayıt olun. Bireysel, bayi veya filo seçenekleriyle kaydolun."
+          content="Lastik Borsası'nda hızlı ve güvenli şekilde yeni hesap oluşturun. Bireysel, bayi veya filo seçenekleriyle kaydolun ve avantajlardan yararlanın."
         />
-        <meta name="keywords" content="hesap oluştur, lastik borsası, üyelik kaydı, bireysel kayıt, bayi kayıt, filo kayıt, lastik ticareti, yeni hesap oluşturma" />
+        <meta name="keywords"content="hesap oluştur, lastik borsası, üyelik kaydı, bireysel kayıt, bayi kayıt, filo kayıt, lastik ticareti, yeni hesap oluşturma, e-posta kaydı"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Yeni Hesap Oluştur | Lastik Borsası" />
-        <meta property="og:description" content="Lastik Borsası'nda hesap oluşturun ve avantajlardan yararlanın. Bireysel, bayi ya da filo seçenekleriyle kaydolun." />
+      
+        <meta property="og:title" content="Yeni Hesap Oluştur | Lastik Borsası - Güvenli ve Kolay Kayıt" />
+        <meta
+          property="og:description"
+          content="Lastik Borsası'nda hızlı ve güvenli bir şekilde yeni hesap oluşturun. Bireysel, bayi veya filo seçenekleriyle kaydolun ve avantajlardan yararlanın."
+        />
       </Head>
       <div className="container flex-grow">
         <div className="flex flex-col justify-center items-center py-4">
@@ -91,14 +96,13 @@ function CreateAcountPage() {
             {activeButton === 'bireysel' && (
               <div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")}
-                  />
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")} />
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")} />
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4 relative">
                   <Input
@@ -106,6 +110,7 @@ function CreateAcountPage() {
                     className={inputClass}
                     placeholder="Şifre"
                     aria-label="Şifre"
+                    required
                   />
                   <button
                     type="button"
@@ -122,27 +127,27 @@ function CreateAcountPage() {
             {activeButton === 'bayi' && (
               <div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")} />
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")} />
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")} />
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Unvan" onClear={() => console.log("input cleared")} />
+                  <Input type="text" className={inputClass} placeholder="Unvan" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <Input type="text" className={inputClass} placeholder="İl" onClear={() => console.log("input cleared")}/>
-                  <Input type="text" className={inputClass} placeholder="İlçe" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İl" required onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İlçe" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Adres" onClear={() => console.log("input cleared")} />
+                  <Input type="text" className={inputClass} placeholder="Adres" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" onClear={() => console.log("input cleared")}/>
-                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" required onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4 relative">
                   <Input
@@ -150,6 +155,7 @@ function CreateAcountPage() {
                     className={inputClass}
                     placeholder="Şifre"
                     aria-label="Şifre"
+                    required
                   />
                   <button
                     type="button"
@@ -174,27 +180,27 @@ function CreateAcountPage() {
                   </span>
                 </div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")}/>
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")}/>
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Firma Unvanı" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Firma Unvanı" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <Input type="text" className={inputClass} placeholder="İl" onClear={() => console.log("input cleared")}/>
-                  <Input type="text" className={inputClass} placeholder="İlçe" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İl" required onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İlçe" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <Input type="text" className={inputClass} placeholder="Adres" />
+                  <Input type="text" className={inputClass} placeholder="Adres" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" onClear={() => console.log("input cleared")}/>
-                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" required onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" required onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4 relative">
                   <Input
@@ -202,6 +208,7 @@ function CreateAcountPage() {
                     className={inputClass}
                     placeholder="Şifre"
                     aria-label="Şifre"
+                    required
                   />
                   <button
                     type="button"

@@ -5,8 +5,7 @@ import Head from "next/head";
 import { Spinner } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import Altpanel from '@/components/altpanel';
-import {Input} from "@nextui-org/react";
-
+import { Input } from "@nextui-org/react";
 
 export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -21,14 +20,14 @@ export default function Page() {
   return (
     <>
       <Head>
-      <title>Giriş Yap | Lastik Borsası</title>
-      <meta
+        <title>Giriş Yap | Lastik Borsası - Lastik Alışverişi İçin Güvenli Giriş</title>
+        <meta
           name="description"
-          content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Güvenli bir şekilde giriş yaparak lastik çeşitlerini keşfedin."
+          content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Güvenli bir şekilde giriş yaparak, lastik çeşitlerini ve uygun fiyatları keşfedin."
         />
         <meta
           name="keywords"
-          content="lastik borsası, giriş yap, lastik fiyatları, online lastik alışverişi"
+          content="lastik borsası, giriş yap, lastik fiyatları, lastik alışverişi, online lastik alışverişi, lastik hesabı"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -40,7 +39,7 @@ export default function Page() {
             <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
           </h1>
 
-          <div className="w-full bg-white p-6 gap-4 rounded-2xl border-small border-gray-100 mt-5">
+          <form className="w-full bg-white p-6 gap-4 rounded-2xl border-small border-gray-100 mt-5">
             <div className="mb-4">
               <Input
                 type="email"
@@ -48,6 +47,7 @@ export default function Page() {
                 placeholder="E-Posta Adresi"
                 aria-label="E-Posta Adresi"
                 onClear={() => console.log("input cleared")}
+                required
               />
             </div>
 
@@ -57,6 +57,7 @@ export default function Page() {
                 className={inputClass}
                 placeholder="Şifre"
                 aria-label="Şifre"
+                required
               />
               <button
                 type="button"
@@ -81,7 +82,7 @@ export default function Page() {
                 <i className="fa-solid fa-lock me-2" aria-hidden="true"></i> Şifremi Unuttum
               </NextLink>
             </div>
-          </div>
+          </form>
 
           <div className="mt-6">
             <NextLink href="/create-acount" className="font-bold" aria-label="Hesap Oluştur">
