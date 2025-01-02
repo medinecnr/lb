@@ -16,18 +16,12 @@ import Altpanel from "@/components/altpanel";
 import EnUygunLastik from "@/components/enUygunLastik";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("lastik");
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-  };
-
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
   };
 
   const scrollCarousel = (scrollAmount: number) => {
