@@ -4,12 +4,12 @@ function dowloand() {
   return (
     <div className="resimm p-2">
     <div className="container mx-auto pt-20 ">
-      <h3 className="text-white text-2xl font-bold mt-20">
+      <h2 className="text-white text-2xl font-bold mt-20">
         Sektörün Lider Pazar Yeri Platformu
-      </h3>
-      <h2 className="text-white   mt-2">
-        Şimdi App Store ve Google Play Store'da!
       </h2>
+      <h3 className="text-white   mt-2">
+        Şimdi App Store ve Google Play Store'da!
+      </h3>
 
       <div className="flex gap-4 pt-3 ">
         <a href="https://apps.apple.com/tr/app/lb-lastik-borsas%C4%B1-sigorta/id1566776050?ign-itscg=30200&ign-itsct=apps_box_badge">
