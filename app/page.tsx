@@ -148,7 +148,6 @@ export default function Home() {
       {/* Aracınıza En Uygun Lastiği Bulun Kısmı */}
       <EnUygunLastik />
       
-
       {/* Çok Satanlar */}
       <div className="container mx-auto pt-6 flex-grow ">
         <div className="flex flex-col justify-center items-center py-8">

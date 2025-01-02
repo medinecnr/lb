@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Checkbox } from "@nextui-org/react";
 import Head from 'next/head';
+import { Input } from '@nextui-org/react';
 
 function CreateAcountPage() {
   const [activeButton, setActiveButton] = useState<'bireysel' | 'bayi' | 'filo'>('bireysel');
@@ -38,7 +39,7 @@ function CreateAcountPage() {
     setPasswordVisible(!passwordVisible);
   };
 
-  const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
+  const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
 
   return (
     <>
@@ -90,16 +91,17 @@ function CreateAcountPage() {
             {activeButton === 'bireysel' && (
               <div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Ad Soyad" />
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")}
+                  />
                 </div>
                 <div className="mb-4">
-                  <input type="email" className={inputClass} placeholder="E-Posta Adresi" />
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="mb-4">
-                  <input type="tel" className={inputClass} placeholder="Telefon Numarası" />
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="mb-4 relative">
-                  <input
+                  <Input
                     type={passwordVisible ? 'text' : 'password'}
                     className={inputClass}
                     placeholder="Şifre"
@@ -120,30 +122,30 @@ function CreateAcountPage() {
             {activeButton === 'bayi' && (
               <div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Ad Soyad" />
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="mb-4">
-                  <input type="email" className={inputClass} placeholder="E-Posta Adresi" />
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="mb-4">
-                  <input type="tel" className={inputClass} placeholder="Telefon Numarası" />
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Unvan" />
+                  <Input type="text" className={inputClass} placeholder="Unvan" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <input type="text" className={inputClass} placeholder="İl" />
-                  <input type="text" className={inputClass} placeholder="İlçe" />
+                  <Input type="text" className={inputClass} placeholder="İl" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İlçe" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Adres" />
+                  <Input type="text" className={inputClass} placeholder="Adres" onClear={() => console.log("input cleared")} />
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <input type="text" className={inputClass} placeholder="Vergi Dairesi" />
-                  <input type="text" className={inputClass} placeholder="Vergi Numarası" />
+                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4 relative">
-                  <input
+                  <Input
                     type={passwordVisible ? 'text' : 'password'}
                     className={inputClass}
                     placeholder="Şifre"
@@ -159,7 +161,7 @@ function CreateAcountPage() {
                   </button>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" />
+                  <Input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" />
                 </div>
               </div>
             )}
@@ -172,30 +174,30 @@ function CreateAcountPage() {
                   </span>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Ad Soyad" />
+                  <Input type="text" className={inputClass} placeholder="Ad Soyad" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <input type="email" className={inputClass} placeholder="E-Posta Adresi" />
+                  <Input type="email" className={inputClass} placeholder="E-Posta Adresi" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <input type="tel" className={inputClass} placeholder="Telefon Numarası" />
+                  <Input type="tel" className={inputClass} placeholder="Telefon Numarası" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Firma Unvanı" />
+                  <Input type="text" className={inputClass} placeholder="Firma Unvanı" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <input type="text" className={inputClass} placeholder="İl" />
-                  <input type="text" className={inputClass} placeholder="İlçe" />
+                  <Input type="text" className={inputClass} placeholder="İl" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="İlçe" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Adres" />
+                  <Input type="text" className={inputClass} placeholder="Adres" />
                 </div>
                 <div className="flex gap-2 mb-4">
-                  <input type="text" className={inputClass} placeholder="Vergi Dairesi" />
-                  <input type="text" className={inputClass} placeholder="Vergi Numarası" />
+                  <Input type="text" className={inputClass} placeholder="Vergi Dairesi" onClear={() => console.log("input cleared")}/>
+                  <Input type="text" className={inputClass} placeholder="Vergi Numarası" onClear={() => console.log("input cleared")}/>
                 </div>
                 <div className="mb-4 relative">
-                  <input
+                  <Input
                     type={passwordVisible ? 'text' : 'password'}
                     className={inputClass}
                     placeholder="Şifre"
@@ -211,7 +213,7 @@ function CreateAcountPage() {
                   </button>
                 </div>
                 <div className="mb-4">
-                  <input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" />
+                  <Input type="text" className={inputClass} placeholder="Referans (Opsiyonel)" onClear={() => console.log("input cleared")}/>
                 </div>
               </div>
             )}

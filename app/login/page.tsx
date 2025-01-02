@@ -5,6 +5,8 @@ import Head from "next/head";
 import { Spinner } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import Altpanel from '@/components/altpanel';
+import {Input} from "@nextui-org/react";
+
 
 export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -14,7 +16,7 @@ export default function Page() {
     setPasswordVisible(!passwordVisible);
   };
 
-  const inputClass = "border border-gray-200 rounded-lg p-2 w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
+  const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
 
   return (
     <>
@@ -40,16 +42,17 @@ export default function Page() {
 
           <div className="w-full bg-white p-6 gap-4 rounded-2xl border-small border-gray-100 mt-5">
             <div className="mb-4">
-              <input
+              <Input
                 type="email"
                 className={inputClass}
                 placeholder="E-Posta Adresi"
                 aria-label="E-Posta Adresi"
+                onClear={() => console.log("input cleared")}
               />
             </div>
 
             <div className="mb-4 relative">
-              <input
+              <Input
                 type={passwordVisible ? 'text' : 'password'}
                 className={inputClass}
                 placeholder="Şifre"
