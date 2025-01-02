@@ -1,5 +1,4 @@
 "use client";
-
 import { ReactNode, useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
@@ -39,7 +38,6 @@ export default function CreateAcountLayout({
 
   return (
     <>
-      {/* SEO için meta bilgiler */}
       <Head>
         <title>Hesap Oluştur - Lastik Borsası</title>
         <meta
@@ -52,10 +50,7 @@ export default function CreateAcountLayout({
         />
         <meta name="author" content="Lastik Borsası" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
       </Head>
-
-      {/* Sayfa yapısı */}
       <section className="flex h-screen overflow-hidden">
         {/* Sol Panel */}
         <div

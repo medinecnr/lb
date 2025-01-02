@@ -118,46 +118,6 @@ function Page() {
                   </div>
                 ))}
               </div>
-              {/* <div className="border rounded-xl mt-6 p-6 hidden sm:block">
-                <div className="overflow-x-auto">
-                  <table className="table-auto w-full border-separate border-spacing-0 ">
-                    <tbody>
-                      <tr>
-                        <td className=" py-2">Mevsim</td>
-                        <td className=" py-2 font-semibold">Yaz</td>
-                      </tr>
-                      <tr>
-                        <td className=" py-2">Jant Çapı</td>
-                        <td className="py-2 font-semibold">16</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">Kesit Oranı</td>
-                        <td className="py-2 font-semibold">55</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">Taban Genişliği</td>
-                        <td className="py-2 font-semibold">205mm</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">Yüz Endeksi</td>
-                        <td className="py-2 font-semibold">91</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">Üretim Yılı</td>
-                        <td className="py-2 font-semibold">2023</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">
-                          <a href="#" className="text-[#FA8728]">
-                            Tüm Özellikler{" "}
-                            <i className="fa-solid fa-chevron-down ms-1 font-mono"></i>
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div> */}
             </div>
           </div>
 
