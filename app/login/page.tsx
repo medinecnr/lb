@@ -1,15 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import NextLink from "next/link";
-import Head from "next/head";
-import { Spinner } from "@nextui-org/react";
-import { useRouter } from 'next/navigation';
 import Altpanel from '@/components/altpanel';
 import { Input } from "@nextui-org/react";
+import { metaData } from "@/config/metaConfig";
 
 export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -17,20 +14,21 @@ export default function Page() {
 
   const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
 
+  const meta = metaData.login;
+
   return (
     <>
-      <Head>
-        <title>Giriş Yap | Lastik Borsası - Lastik Alışverişi İçin Güvenli Giriş</title>
-        <meta
-          name="description"
-          content="Lastikborsasi.com üzerinden hesabınıza giriş yapın. Güvenli bir şekilde giriş yaparak, lastik çeşitlerini ve uygun fiyatları keşfedin."
-        />
-        <meta
-          name="keywords"
-          content="lastik borsası, giriş yap, lastik fiyatları, lastik alışverişi, online lastik alışverişi, lastik hesabı"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
 
       <section className="container flex justify-center items-center bg-[#FAFAFA]">
         <div className="flex flex-col justify-center items-center w-full max-w-md">

@@ -1,12 +1,8 @@
 "use client";
 import { ReactNode, useState, useEffect } from "react";
-import { Button } from "@nextui-org/button";
-import clsx from "clsx";
 import NextLink from "next/link";
 import { slides } from "@/components/items/signup";
 import Altpanel from "@/components/altpanel";
-import { Spinner } from "@nextui-org/react";
-import Head from "next/head";
 
 export default function CreateAcountLayout({
   children,
@@ -38,19 +34,6 @@ export default function CreateAcountLayout({
 
   return (
     <>
-      <Head>
-        <title>Hesap Oluştur - Lastik Borsası</title>
-        <meta
-          name="description"
-          content="Lastik Borsası üzerinden kolayca hesap oluşturun ve avantajlardan yararlanın. Üyelik işlemleriniz hızlı ve güvenli bir şekilde gerçekleşir."
-        />
-        <meta
-          name="keywords"
-          content="Lastik Borsası, hesap oluştur, üyelik, lastik, jant, araç parçaları"
-        />
-        <meta name="author" content="Lastik Borsası" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <section className="flex h-screen overflow-hidden">
         {/* Sol Panel */}
         <div

@@ -8,13 +8,11 @@ import Altpanel from '@/components/altpanel';
 import FiltrePanel from '@/components/FiltrePanel';  
 import { products } from '@/components/items/SUVurunler'; 
 import React, { useState, useEffect } from 'react';
-import { Breadcrumbs, BreadcrumbItem, Select, SelectItem, Pagination, Spinner,  Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, Button, useDisclosure, Checkbox, Accordion, AccordionItem, ScrollShadow, } from '@nextui-org/react';
+import { Breadcrumbs, BreadcrumbItem, Select, SelectItem, Pagination, Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, Button, useDisclosure, Checkbox, Accordion, AccordionItem, ScrollShadow, } from '@nextui-org/react';
 import Link from 'next/link'; 
-import { useRouter } from 'next/navigation';
-import Head from 'next/head';
-import { Metadata } from 'next';
 import { countries } from "@/components/items/countries";
-import { Marka, Jant, Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
+import { Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
+import { metaData } from "@/config/metaConfig";
 
 const RenderSelect = ({ label, value, onChange, options }: { label: string, value: string | null, onChange: (value: string) => void, options: string[] }) => (
   <Select
@@ -98,22 +96,22 @@ function Page() {
     window.scrollTo(0, 0); // Sayfa üstüne kaydır
   }, [currentPage]); // currentPage değiştiğinde çalışır
 
-  const router = useRouter();
-
   const selectedCountryData = countries.find(country => country.label === selectedCountry);
 
-  const handleCategoryClick = (slug: string) => {
-    router.push(`/${slug}`);
-  };
-  
+  const meta = metaData.suv;
   return (
     <section>
-      <Head>
-        <title>SUV 4x4 Lastikleri | Lastik Borsası</title>
-        <meta name="description" content="SUV 4x4 lastikleri kategorisindeki çeşitli ürünleri keşfedin. Fiyatları karşılaştırın, indirimli ürünleri görün ve sepete ekleyin." />
-        <meta property="og:title" content="SUV 4x4 Lastikleri - Ürün Listesi" />
-        <meta property="og:description" content="SUV 4x4 lastikleri kategorisindeki çeşitli ürünleri keşfedin. Fiyatları karşılaştırın, indirimli ürünleri görün ve sepete ekleyin." />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto pb-10">

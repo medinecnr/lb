@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import { Checkbox } from "@nextui-org/react";
-import Head from 'next/head';
 import { Input } from '@nextui-org/react';
+import { metaData } from "@/config/metaConfig";
 
 function CreateAcountPage() {
   const [activeButton, setActiveButton] = useState<'bireysel' | 'bayi' | 'filo'>('bireysel');
@@ -41,24 +41,21 @@ function CreateAcountPage() {
 
   const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
 
+  const meta = metaData.createAccount;
+
   return (
     <>
-      <Head>
-        <title>Yeni Hesap Oluştur | Lastik Borsası - Güvenli ve Kolay Kayıt</title>
-        <meta
-          name="description"
-          content="Lastik Borsası'nda hızlı ve güvenli şekilde yeni hesap oluşturun. Bireysel, bayi veya filo seçenekleriyle kaydolun ve avantajlardan yararlanın."
-        />
-        <meta name="keywords"content="hesap oluştur, lastik borsası, üyelik kaydı, bireysel kayıt, bayi kayıt, filo kayıt, lastik ticareti, yeni hesap oluşturma, e-posta kaydı"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
-        <meta property="og:title" content="Yeni Hesap Oluştur | Lastik Borsası - Güvenli ve Kolay Kayıt" />
-        <meta
-          property="og:description"
-          content="Lastik Borsası'nda hızlı ve güvenli bir şekilde yeni hesap oluşturun. Bireysel, bayi veya filo seçenekleriyle kaydolun ve avantajlardan yararlanın."
-        />
-      </Head>
+     <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
       <div className="container flex-grow">
         <div className="flex flex-col justify-center items-center py-4">
           <h1 className="font-bold text-center relative group text-black">

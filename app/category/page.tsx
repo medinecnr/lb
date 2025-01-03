@@ -1,9 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Altpanel from "@/components/altpanel";
-import { Spinner } from "@nextui-org/react";
-import Head from "next/head";
+import { metaData } from "@/config/metaConfig";
 
 const categories = [
   { name: "Lastik", slug: "lastik" },
@@ -23,21 +21,21 @@ export default function CategoryPage() {
     router.push(`/${slug}`);
   };
 
+  const meta = metaData.category;
+  
   return (
     <>
-      <Head>
-        <title>Kategoriler - Lastik Borsası</title>
-        <meta
-          name="description"
-          content="Sitemizde yer alan tüm kategorileri burada bulabilirsiniz. Lastik, Jant, Akü ve daha fazlası!"
-        />
-        <meta
-          name="keywords"
-          content="Lastik, Jant, Akü, Yağ, İnovasyon Ürünleri, Montaj, Markalar, Kampanyalar"
-        />
-        <meta name="author" content="Lastik Borsası" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
 
       <div>
         <h1 className="p-4 text-[20px]">Kategoriler</h1>
@@ -62,8 +60,6 @@ export default function CategoryPage() {
             ))}
           </ul>
         </div>
-
-        {/* Alt panel */}
         <Altpanel />
       </div>
     </>

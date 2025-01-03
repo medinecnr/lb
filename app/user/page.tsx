@@ -2,32 +2,27 @@
 import Altpanel from "@/components/altpanel";
 import { Navbar } from "@/components/navbar";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
-import { Spinner } from "@nextui-org/react";
-import React, { useState, useEffect } from 'react';
-import Head from "next/head";
+import { metaData } from "@/config/metaConfig";
 
 type Props = {};
 
 function Page({}: Props) {
-  const router = useRouter();
 
-  const handleCategoryClick = (slug: string) => {
-    router.push(`/${slug}`);
-  };
-
-  const handleBackClick = () => {
-    router.back();
-  };
+  const meta = metaData.user;
 
   return (
     <>
-      <Head>
-        <title>Hesap Oluştur | Lastik Borsası</title>
-        <meta name="description" content="Lastik Borsası'nda kişisel, bayi veya filo hesabı oluşturabilirsiniz. Hızlı ve güvenli hesap oluşturma işlemi." />
-        <meta property="og:title" content="Hesap Oluştur | Lastik Borsası" />
-        <meta property="og:description" content="Lastik Borsası'nda hesap oluşturmak için seçeneklerinizi keşfedin: Bireysel, Bayi/B2B, Filo." />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
 
       <div className="relative min-h-screen flex flex-col">
         <Navbar />

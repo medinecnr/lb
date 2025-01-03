@@ -1,9 +1,7 @@
 'use client';
-import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Head from 'next/head';
 import Altpanel from "@/components/altpanel";
-import { Spinner } from "@nextui-org/react";
+import { metaData } from "@/config/metaConfig";
 
 const categories = [
   { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
@@ -28,20 +26,21 @@ export default function LastikPage() {
     router.back();
   };
 
+  const meta = metaData.lastik;
+
   return (
     <>
-      <Head>
-        <title>Lastik Çeşitleri | Lastik Borsası</title>
-        <meta
-          name="description"
-          content="Otomobil, SUV, hafif ticari, otobüs ve iş makinası lastikleri dahil birçok lastik türünü keşfedin. Lastik Borsası ile doğru lastik seçimini yapın."
-        />
-        <meta
-          name="keywords"
-          content="lastik çeşitleri, otomobil lastikleri, SUV lastikleri, ticari araç lastikleri, iş makinası lastikleri, yaz lastiği, kış lastiği"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
 
       <div>
         <div>

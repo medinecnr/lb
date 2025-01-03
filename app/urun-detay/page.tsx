@@ -5,12 +5,11 @@ import Hizmetler from '@/components/hizmetler';
 import Dowload from '@/components/dowloand';
 import Footer from '@/components/footer';
 import Enalt from '@/components/enalt';
-import React, { useState, useEffect } from 'react';
-import { Breadcrumbs, BreadcrumbItem, Tabs, Tab, Card, CardBody, Tooltip, Button } from "@nextui-org/react";
+import React, { useState } from 'react';
+import { Breadcrumbs, BreadcrumbItem, Tabs, Tab, Card, CardBody, Tooltip, } from "@nextui-org/react";
 import Link from 'next/link';
 import { products } from '@/components/items/SUVurunler';
-import { useRouter } from 'next/navigation';
-import {Spinner} from "@nextui-org/react";
+import { metaData } from "@/config/metaConfig";
 
 function Page() {
   const images = [
@@ -51,13 +50,21 @@ function Page() {
     }
   };
 
-  const router = useRouter();
-    const handleCategoryClick = (slug: string) => {
-      router.push(`/${slug}`);
-    };
+  const meta = metaData.urunDetay;
 
   return (
-    <section>
+    <>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto relative ">
@@ -442,14 +449,13 @@ function Page() {
             ))}
           </div>
         </div>
-
       </div>
       
       <Hizmetler />
       <Dowload />
       <Footer />
       <Enalt />
-    </section>
+    </>
   );
 }
 

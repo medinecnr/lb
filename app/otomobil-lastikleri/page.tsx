@@ -1,10 +1,9 @@
 'use client';
 import React from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/navigation';
-import { Spinner } from "@nextui-org/react";
 import { lastikCategories, ebatCategories } from '@/components/items/otomobil-lastikleri';
 import Altpanel from '@/components/altpanel';
+import { metaData } from "@/config/metaConfig";
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
@@ -17,20 +16,21 @@ export default function OtomobilLastikPage() {
     router.back();  
   };
 
+  const meta = metaData.otomobilLastikleri;
+
   return (
     <>
-      <Head>
-        <title>Otomobil Lastikleri – Popüler Markalar ve Ebatlar | Lastik Borsası</title>
-        <meta
-          name="description"
-          content="Otomobil lastiklerini keşfedin. Popüler markalar ve ebat seçenekleri ile en uygun lastik modelleri burada!"
-        />
-        <meta
-          name="keywords"
-          content="otomobil lastikleri, lastik markaları, lastik ebatları, online lastik alışverişi"
-        />
-      </Head>
-
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
       <div>
         <div>
           <div className="flex justify-start items-center px-4 gap-2">
@@ -79,7 +79,6 @@ export default function OtomobilLastikPage() {
             ))}
           </ul>
         </div>
-        
         <Altpanel />
       </div>
     </>

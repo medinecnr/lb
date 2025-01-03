@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import "@/styles/globals.css";
 import { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
@@ -14,6 +13,7 @@ import Footer from "@/components/footer";
 import Enalt from "@/components/enalt";
 import Altpanel from "@/components/altpanel";
 import EnUygunLastik from "@/components/enUygunLastik";
+import { metaData } from "@/config/metaConfig";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");
@@ -85,12 +85,21 @@ export default function Home() {
     </div>
   );
 
+  const meta = metaData.home;
+   
   return (
     <>
-      <Head>
-        <title>Ana Sayfa | Lastik Borsası</title>
-        <meta name="description" content="Ana sayfanın açıklaması" />
-      </Head>
+      <head>
+        <title>{meta.metaTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:url" content={meta.ogUrl} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta name="twitter:title" content={meta.twitterTitle} />
+        <meta name="twitter:description" content={meta.twitterDescription} />
+        <meta name="twitter:image" content={meta.twitterImage} />
+      </head>
       <Ustpanel />
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}
