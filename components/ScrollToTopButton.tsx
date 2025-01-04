@@ -1,21 +1,18 @@
 "use client";
-
 import { useState, useEffect } from "react";
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 300);
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -28,12 +25,12 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 py-2 px-4 bg-black text-white rounded-full shadow-lg sm:block hidden hover:scale-105 transition-opacity ${
-        isVisible ? "opacity-100" : "opacity-0"
+      className={`fixed bottom-4 right-4 py-2 px-4 bg-black text-white rounded-full shadow-lg sm:block hidden hover:scale-105 transition-transform ${
+        isVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
       aria-label="Yukarı Çık"
     >
-      <i className="fa-solid fa-arrow-up text-sm"></i>
+      <i className="fa-solid fa-arrow-up text-sm" aria-hidden="true"></i>
     </button>
   );
 }
