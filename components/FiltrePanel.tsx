@@ -1,6 +1,5 @@
 "use client"
-import React, { useState } from 'react';
-import { Input, Select, SelectItem, Accordion, AccordionItem, Checkbox, CheckboxGroup, ScrollShadow } from "@nextui-org/react";
+import { Input, Select, SelectItem, Accordion, AccordionItem, Checkbox, ScrollShadow } from "@nextui-org/react";
 import { countries } from "@/components/items/countries";
 import { cars } from "@/components/items/cars";
 import { SearchIcon } from "@/components/icons";
@@ -187,7 +186,7 @@ const FiltrePanel = ({
         <div className='m-2'>
           <p>Seçili Filtreler</p>
           <div >
-            {/* g */}
+            {/* seçili filtre kısmı yazacak eklenenler */}
           </div>
         </div>
       </div>
@@ -246,7 +245,6 @@ const FiltrePanel = ({
           </AccordionItem>
         </Accordion>
       </div>
-
 
       <div>
         <div className='flex justify-center items-center mt-4'>
