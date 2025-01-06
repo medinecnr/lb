@@ -10,11 +10,11 @@ interface MetaData {
   twitterImage: string;  
 }
 
-const siteTitle = " | Lastik Borsası";
+const siteTitle = " | Lastikborsasi.com";
 
 export const metaData = {
   home: {
-    metaTitle: `Ana Sayfa${siteTitle}`,
+    metaTitle: `En Uygun Fiyatlı Lastikler (Ücretsiz Montaj)${siteTitle}`,
     description: "Lastik Borsası'na hoş geldiniz! En kaliteli lastikleri keşfedin ve aracınıza en uygun lastiği kolayca satın alın.",
     ogTitle: `Ana Sayfa${siteTitle}`,
     ogDescription: "Lastik Borsası'na hoş geldiniz! En kaliteli lastikleri keşfedin ve aracınıza en uygun lastiği kolayca satın alın.",
@@ -25,7 +25,7 @@ export const metaData = {
     twitterImage: "https://www.lastikborsasi.com/Assets/images/og-image.jpg"  
   },
   suv: {
-    metaTitle: `SUV Araçlar${siteTitle}`,
+    metaTitle: `En İyi SUV & 4x4 Lastik Markaları ve Fiyatları${siteTitle}`,
     description: "SUV araçlar için en kaliteli ve uygun fiyatlı lastikler burada! Araç tipinize özel lastik seçeneklerini inceleyin.",
     ogTitle: `SUV Araçlar${siteTitle}`,
     ogDescription: "SUV araçlar için en kaliteli ve uygun fiyatlı lastikler burada! Araç tipinize özel lastik seçeneklerini inceleyin.",
@@ -58,7 +58,7 @@ export const metaData = {
     twitterImage: ""  
   },
   urunDetay: {
-    metaTitle: `Ürün Detayı${siteTitle}`,
+    metaTitle: `235/65R16C 12PR 121/119N Lassa Wintus 2 M+S${siteTitle}`,
     description: "Ürünle ilgili tüm detaylara ulaşın! Lastiğin teknik özellikleri, fiyatı ve kullanıcı yorumlarıyla bilgi sahibi olun.",
     ogTitle: `Ürün Detayı${siteTitle}`,
     ogDescription: "Ürünle ilgili tüm detaylara ulaşın! Lastiğin teknik özellikleri, fiyatı ve kullanıcı yorumlarıyla bilgi sahibi olun.",

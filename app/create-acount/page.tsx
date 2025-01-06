@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox } from "@nextui-org/react";
 import { Input } from '@nextui-org/react';
 import { metaData } from "@/config/metaConfig";
@@ -42,6 +42,26 @@ function CreateAcountPage() {
   const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-[#FA8728]";
 
   const meta = metaData.createAccount;
+
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>

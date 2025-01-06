@@ -1,13 +1,32 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SearchIcon } from "@/components/icons";
 import { Input } from "@nextui-org/input";
 import Altpanel from '@/components/altpanel';
 import { metaData } from "@/config/metaConfig";
 
 export default function SearchPage() {
-
   const meta = metaData.search;
+
+  useEffect(() => {
+    const baseTitle = `${meta.metaTitle}`;
+    const space = " ".repeat(1);
+    const fullTitle = baseTitle ; 
+    let offset = 0;
+
+    const animateTitle = () => {
+      const titleText = fullTitle;  
+      let newOffset = offset;
+      
+      newOffset = offset;
+      document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+
+      offset = (offset + 1) % baseTitle.length;  
+    };
+
+    const intervalId = setInterval(animateTitle, 250); 
+    return () => clearInterval(intervalId);
+  }, [meta.metaTitle]);
 
   return (
     <>

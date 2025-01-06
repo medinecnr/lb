@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { lastikCategories, ebatCategories } from '@/components/items/otomobil-lastikleri';
 import Altpanel from '@/components/altpanel';
 import { metaData } from "@/config/metaConfig";
+import { useEffect } from 'react';
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
@@ -17,6 +18,26 @@ export default function OtomobilLastikPage() {
   };
 
   const meta = metaData.otomobilLastikleri;
+
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>

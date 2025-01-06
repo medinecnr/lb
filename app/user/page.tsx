@@ -3,12 +3,33 @@ import Altpanel from "@/components/altpanel";
 import { Navbar } from "@/components/navbar";
 import Link from "next/link";
 import { metaData } from "@/config/metaConfig";
+import { useEffect } from "react";
 
 type Props = {};
 
 function Page({}: Props) {
 
   const meta = metaData.user;
+
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>

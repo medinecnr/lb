@@ -5,7 +5,7 @@ import Hizmetler from '@/components/hizmetler';
 import Dowload from '@/components/dowloand';
 import Footer from '@/components/footer';
 import Enalt from '@/components/enalt';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Breadcrumbs, BreadcrumbItem, Tabs, Tab, Card, CardBody, Tooltip, } from "@nextui-org/react";
 import Link from 'next/link';
 import { products } from '@/components/items/SUVurunler';
@@ -51,6 +51,26 @@ function Page() {
   };
 
   const meta = metaData.urunDetay;
+
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>

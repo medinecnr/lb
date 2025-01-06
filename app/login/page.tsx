@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NextLink from "next/link";
 import Altpanel from '@/components/altpanel';
 import { Input } from "@nextui-org/react";
@@ -15,6 +15,26 @@ export default function Page() {
   const inputClass = "border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-1 focus:ring-[#fa8628c6]";
 
   const meta = metaData.login;
+
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>

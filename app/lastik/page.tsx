@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import Altpanel from "@/components/altpanel";
 import { metaData } from "@/config/metaConfig";
+import { useEffect } from "react";
 
 const categories = [
   { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
@@ -27,6 +28,26 @@ export default function LastikPage() {
   };
 
   const meta = metaData.lastik;
+  
+    useEffect(() => {
+      const baseTitle = `${meta.metaTitle}`;
+      const space = " ".repeat(1);
+      const fullTitle = baseTitle ; 
+      let offset = 0;
+  
+      const animateTitle = () => {
+        const titleText = fullTitle;  
+        let newOffset = offset;
+        
+        newOffset = offset;
+        document.title = titleText.substring(newOffset, newOffset + baseTitle.length); 
+  
+        offset = (offset + 1) % baseTitle.length;  
+      };
+  
+      const intervalId = setInterval(animateTitle, 250); 
+      return () => clearInterval(intervalId);
+    }, [meta.metaTitle]);
 
   return (
     <>
