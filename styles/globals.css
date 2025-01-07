@@ -25,9 +25,9 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
+/* h2 {
   font-size: 20px;
-}
+} */
 
 p {
   font-size: 15px;
@@ -53,16 +53,6 @@ p {
   background-repeat: no-repeat; 
   width: 100%; 
   height: auto;
-}
-.resimm a img {
-  width: 160px;   
-  height: 60px;   
-  object-fit: contain; 
-  transition: transform 0.3s ease;
-}
-
-.resimm a img:hover {
-  transform: scale(1.05); 
 }
 
 .px-6 {

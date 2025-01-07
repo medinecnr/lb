@@ -124,7 +124,7 @@ export default function Home() {
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}
       <div className="mb-10">
-        <div className="carousel-container relative w-full bg-[#006969] flex justify-center items-center m-0 py-10">
+        <div className="carousel-container relative w-full bg-[#006969] flex justify-center items-center m-0 py-16">
           <Carousel
             selectedItem={currentIndex}
             onChange={setCurrentIndex}
@@ -145,7 +145,7 @@ export default function Home() {
                 className="flex flex-col md:flex-row items-center justify-center w-full h-full "
               >
                 <div className="flex-1 text-white p-8 text-center md:text-left flex flex-col justify-center h-full gap-4">
-                  <h2 className="text-2xl md:text-3xl">{item.title}</h2>
+                  <h3 className="text-2xl md:text-3xl">{item.title}</h3>
                   <p className="">{item.description}</p>
                   <a href="#">
                     <Button
@@ -180,10 +180,10 @@ export default function Home() {
       {/* Çok Satanlar */}
       <div className="container mx-auto pt-6 flex-grow ">
         <div className="flex flex-col justify-center items-center py-8">
-          <h2 className="text-2xl font-bold text-center relative group text-black">
+          <h3 className="text-2xl font-bold text-center relative group text-black">
             Çok Satanar
             <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
-          </h2>
+          </h3>
         </div>
 
         <div>
@@ -193,6 +193,8 @@ export default function Home() {
               {tireCategories.map((category) => (
                 <Button
                   key={category.id}
+                  variant="faded"
+                  color="warning"
                   onClick={() => handleCategoryClick(category.id)}
                   className={`min-w-[150px] px-5 py-10 rounded-xl cursor-pointer border hover:border-[#FA8728] ${selectedCategory === category.id ? "border-[#FA8728] bg-white" : "bg-white text-black"}`}
                 >
@@ -220,10 +222,10 @@ export default function Home() {
       <div className="bg-[#053C50]">
         <div className="container mx-auto flex-grow rounded-lg pt-16">
           <div className="flex flex-col justify-center items-center py-8">
-            <h2 className="text-2xl font-bold text-center relative group text-white">
+            <h3 className="text-2xl font-bold text-center relative group text-white">
               Popüler Markalar
               <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
-            </h2>
+            </h3>
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-5 mt-6">
@@ -247,22 +249,22 @@ export default function Home() {
       </div>
 
       {/* Popüler Lastik Ebatları (HALLEDİLDİ)*/}
-      <div className=" bg-[#FAFAFA] py-16">
+      <div className=" bg-[#FAFAFA] py-8">
         <div className="container mx-auto flex-grow">
           <div className="flex flex-col justify-center items-center py-8">
-            <h2 className="text-2xl font-bold text-center relative group">
+            <h3 className="text-2xl font-bold text-center relative group">
               Popüler Lastik Ebatları
               <div className="border-t-3 rounded-lg border-[#FA8728] absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 transition-all group-hover:scale-x-100 group-hover:w-full w-20 origin-center"></div>
-            </h2>
+            </h3>
           </div>
 
           <div className="relative">
             <div
               ref={carouselRef}
-              className="flex overflow-x-auto justify-start space-x-4 p-4 scroll-smooth scrollbar-hide"
+              className="flex overflow-x-auto justify-start space-x-3 py-8 scroll-smooth scrollbar-hide"
             >
               {tireSizes.map((tire) => (
-                <div key={tire.id} className="w-[200px] flex-shrink-0">
+                <div key={tire.id} className="w-[175px] flex-shrink-0">
                   <Link href={tire.detailUrl}>
                     <div className="card shadow-md hover:shadow-xl transition-all rounded-lg overflow-hidden">
                       <div className="card-header">
@@ -273,9 +275,9 @@ export default function Home() {
                         />
                       </div>
                       <div className="card-body text-center py-5 px-10">
-                        <h2 className="font-semibold text-gray-800">
+                        <h3 className="font-semibold text-gray-800">
                           {tire.size}
-                        </h2>
+                        </h3>
                       </div>
                     </div>
                   </Link>
@@ -310,7 +312,7 @@ export default function Home() {
             />
           </div>
           <div className="mt-4">
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet.</h3>
             <br />
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -439,7 +441,7 @@ export default function Home() {
 
       {/* Uygulama İndir (RESPONSİVE SIKINTILI) */}
       <Dowloand />
-
+      
       <Footer />
       <Enalt />
       <Altpanel />

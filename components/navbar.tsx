@@ -1,14 +1,10 @@
 "use client";
-import { Navbar as NextUINavbar, NavbarContent, NavbarMenu, NavbarBrand, NavbarItem, NavbarMenuItem, } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
+import { useState, useRef, useEffect } from "react";
+import { Navbar as NextUINavbar, NavbarContent, NavbarMenu, NavbarBrand, NavbarItem, NavbarMenuItem, Button, Link, Input, Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/react";
 import NextLink from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 import { SearchIcon } from "@/components/icons";
 import { menuItems } from "@/components/items/navbar-menu-items";
-import { useState, useRef, useEffect } from "react";
 
 export const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -54,7 +50,7 @@ export const Navbar = () => {
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="max-w-fit">
             <NextLink className="flex justify-start items-center" href="/">
-              <img src="/images/logoLight.jpg" alt="Logo" className="w-28 h-auto" />
+              <img src="/images/denemelogo.png" alt="Logo" className="w-28 h-auto" />
             </NextLink>
           </NavbarBrand>
         </NavbarContent>

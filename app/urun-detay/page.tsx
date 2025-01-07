@@ -219,9 +219,21 @@ function Page() {
                     Satıcı:{" "}
                     <span className="font-semibold text-[#FA8728]">Lastik Borsası</span>
                   </p>
-                  <p className="bg-[#006969] text-sm text-white font-bold px-3 py-1 ms-2 rounded-xl">
-                    9.4
-                  </p>
+                  <Tooltip
+                      showArrow
+                      classNames={{
+                        content: ["py-2 px-4 w-64", "text-black "],
+                      }}
+                      content="Satıcı Puanı Nedir ?
+                        Satıcının siparişleri onaylama, kargoya verme, ürünün doğruluğu ve gelen sipariş adetini onaylama oranına göre hesaplanır.
+
+                        Satıcının puan detayını görüntüle"
+                      placement="bottom"
+                    >
+                      <p className="bg-[#006969] text-sm text-white font-bold px-3 py-1 ms-2 rounded-xl">
+                        9.4
+                      </p>
+                    </Tooltip>
                   <div className="flex flex-wrap md:inline-grid md:grid-cols-3 gap-4">
                     <Tooltip
                       showArrow

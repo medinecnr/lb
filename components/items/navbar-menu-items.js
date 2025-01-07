@@ -15,73 +15,72 @@ export const menuItems = [
     label: "LASTİK",
     content: (
       <div className="flex justify-between items-start space-x-6">
-        <div className="flex justify-between items-start space-x-10 ps-20 ">
-          <div className="flex py-4 ">
-            <ul className="space-y-1">
+      <div className="flex flex-1 justify-between items-start px-4 ps-20">
+        <div className="flex py-4 w-full">
+          <ul className="space-y-1">
+            {generateListItems([
+              { label: "Otomobil Lastikleri", href: "#" },
+              { label: "SUV 4x4 Lastikleri", href: "suv" },
+              { label: "Hafif Ticari Araç Lastikleri", href: "#" },
+              { label: "Otobüs, Kamyon Lastikleri", href: "#" },
+              { label: "Motosiklet Lastikleri", href: "#" },
+              { label: "İş Makinası Lastikleri", href: "#" },
+              { label: "Yaz Lastiği", href: "#" },
+              { label: "Kış Lastiği", href: "#" },
+              { label: "4 Mevsim Lastik", href: "#" },
+              { label: "Diğer Lastikler", href: "#" }
+            ])}
+          </ul>
+        </div>
+    
+        <div className="flex justify-between items-start gap-x-6 w-full pt-4">
+          <div className="flex-1">
+            <h6 className="font-semibold">Popüler Markalar</h6>
+            <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
+            <ul className="flex flex-col">
               {generateListItems([
-                { label: "Otomobil Lastikleri", href: "#" },
-                { label: "SUV 4x4 Lastikleri", href: "suv" },
-                { label: "Hafif Ticari Araç Lastikleri", href: "#" },
-                { label: "Otobüs, Kamyon Lastikleri", href: "#" },
-                { label: "Motosiklet Lastikleri", href: "#" },
-                { label: "İş Makinası Lastikleri", href: "#" },
-                { label: "Yaz Lastiği", href: "#" },
-                { label: "Kış Lastiği", href: "#" },
-                { label: "4 Mevsim Lastik", href: "#" },
-                { label: "Diğer Lastikler", href: "#" }
+                { label: "Bridgestone", href: "#" },
+                { label: "Continental", href: "#" },
+                { label: "Michelin", href: "#" },
+                { label: "Pirelli", href: "#" },
+                { label: "Goodyear", href: "#" },
+                { label: "Yokohama", href: "#" },
+                { label: "Dunlop", href: "#" },
+                { label: "Nokian", href: "#" },
               ])}
             </ul>
           </div>
-
-          <div className="flex justify-between items-start gap-x-4 pt-4">
-            <div>
-              <h6 className="font-semibold">Popüler Markalar</h6>
-              <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
-              <ul className="flex flex-col">
-                {generateListItems([
-                  { label: "Bridgestone", href: "#" },
-                  { label: "Continental", href: "#" },
-                  { label: "Michelin", href: "#" },
-                  { label: "Pirelli", href: "#" },
-                  { label: "Goodyear", href: "#" },
-                  { label: "Yokohama", href: "#" },
-                  { label: "Dunlop", href: "#" },
-                  { label: "Nokian", href: "#" },
-                ])}
-              </ul>
-            </div>
-
-            <div>
-              <h6 className="font-semibold">Popüler Ebatlar</h6>
-              <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
-              <ul className="flex flex-col">
-                {generateListItems([
-                  { label: "185 65 r15", href: "#" },
-                  { label: "205 55 r16", href: "#" },
-                  { label: "195 65 r15", href: "#" },
-                  { label: "225 45 r17", href: "#" },
-                  { label: "215 55 r16", href: "#" },
-                  { label: "195 55 r16", href: "#" },
-                  { label: "205 60 r16", href: "#" },
-                  { label: "215 60 r17", href: "#" },
-                  { label: "225 40 r18", href: "#" }
-                ])}
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="flex-1 hidden lg:flex">
-          <div className="w-full h-96 relative overflow-hidden">
-            <img
-              src="/images/marka-lastik.jpg"
-              alt="Lastik"
-              className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
-            />
+    
+          <div className="flex-1">
+            <h6 className="font-semibold">Popüler Ebatlar</h6>
+            <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
+            <ul className="flex flex-col">
+              {generateListItems([
+                { label: "185 65 r15", href: "#" },
+                { label: "205 55 r16", href: "#" },
+                { label: "195 65 r15", href: "#" },
+                { label: "225 45 r17", href: "#" },
+                { label: "215 55 r16", href: "#" },
+                { label: "195 55 r16", href: "#" },
+                { label: "205 60 r16", href: "#" },
+                { label: "215 60 r17", href: "#" },
+                { label: "225 40 r18", href: "#" }
+              ])}
+            </ul>
           </div>
         </div>
       </div>
+    
+      <div className="flex-1 hidden lg:flex">
+        <div className="w-full h-96 relative overflow-hidden">
+          <img
+            src="/images/marka-lastik.jpg"
+            alt="Lastik"
+            className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
+          />
+        </div>
+      </div>
+    </div>
     ),
   },
 //   2. Kategori
@@ -90,58 +89,57 @@ export const menuItems = [
     label: "JANT",
     content: (
       <div className="flex justify-between items-start space-x-6">
-        <div className="flex justify-between items-start space-x-10 ps-20">
-          <div className="flex py-4">
-            <ul className="space-y-1">
-              {generateListItems([
-                { label: "Otomobil Jantı", href: "#" },
-                { label: "Ağır Vasıta Jantı", href: "#" },
-                { label: "SUV 4x4 Jantı", href: "#" },
-                { label: "Zirai Jantı", href: "#" },
-                { label: "Motosiklet Jantı", href: "#" },
-              ])}
-            </ul>
-          </div>
+  <div className="flex flex-1 justify-between items-start ps-20">
+    <div className="flex py-4 w-full">
+      <ul className="space-y-1">
+        {generateListItems([
+          { label: "Otomobil Jantı", href: "#" },
+          { label: "Ağır Vasıta Jantı", href: "#" },
+          { label: "SUV 4x4 Jantı", href: "#" },
+          { label: "Zirai Jantı", href: "#" },
+          { label: "Motosiklet Jantı", href: "#" },
+        ])}
+      </ul>
+    </div>
 
-          <div className="flex justify-center items-start gap-6">
-            <div>
-              <h6 className="font-semibold pt-4">Popüler Markalar</h6>
-              <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
-              <ul className="flex flex-col">
-                {generateListItems([
-                  { label: "", href: "#" },
-                  { label: "", href: "#" },
-                ])}
-              </ul>
-            </div>
-
-            <div>
-              <h6 className="font-semibold pt-4">Popüler Ebatlar</h6>
-              <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
-              <ul className="flex flex-col">
-                {generateListItems([
-                  { label: "", href: "#" },
-                  { label: "", href: "#" },
-                  { label: "", href: "#" },
-                  { label: "", href: "#" },
-                  { label: "", href: "#" },
-                ])}
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="flex-1 hidden lg:flex">
-          <div className="w-full h-96 relative overflow-hidden">
-            <img
-              src="/images/marka-jant.jpg"
-              alt="Lastik"
-              className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
-            />
-          </div>
-        </div>
+    <div className="flex justify-between items-start gap-6 w-full">
+      <div className="flex-1">
+        <h6 className="font-semibold pt-4">Popüler Markalar</h6>
+        <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
+        <ul className="flex flex-col">
+          {generateListItems([
+            { label: "", href: "#" },
+            { label: "", href: "#" },
+          ])}
+        </ul>
       </div>
+
+      <div className="flex-1">
+        <h6 className="font-semibold pt-4">Popüler Ebatlar</h6>
+        <div className="border-t-1 rounded-lg border-[#FFB45F] mb-1"></div>
+        <ul className="flex flex-col">
+          {generateListItems([
+            { label: "", href: "#" },
+            { label: "", href: "#" },
+            { label: "", href: "#" },
+            { label: "", href: "#" },
+            { label: "", href: "#" },
+          ])}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div className="flex-1 hidden lg:flex">
+    <div className="w-full h-96 relative overflow-hidden">
+      <img
+        src="/images/marka-jant.jpg"
+        alt="Jant"
+        className="absolute top-0 left-0 w-full h-full object-inherit rounded-br-xl"
+      />
+    </div>
+  </div>
+</div>
     ),
   },
 //   3. Kategori

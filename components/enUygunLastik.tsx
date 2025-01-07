@@ -12,8 +12,8 @@ function enUygunLastik() {
   return (
     <div className="container mx-auto p-5 flex-grow bg-[#FA8728] rounded-lg text-white">
         <div>
-          <h2 className="font-bold text-2xl">Aracınıza En Uygun Lastiği Bulun!</h2>
-          <p className="text-lg">
+          <h3 className="font-bold text-xl">Aracınıza En Uygun Lastiği Bulun!</h3>
+          <p className="text-medium">
             Hesaplama aracını kullanarak araç modelinize ya da seçeceğiniz
             lastik ebatlarına göre aracınıza en uygun lastiği bulabilirsiniz.
           </p>
@@ -24,7 +24,7 @@ function enUygunLastik() {
             <li
               key="lastik"
               onClick={() => handleTabClick("lastik")}
-              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              className={`px-3 py-3 rounded-t-lg cursor-pointer ${
                 activeTab === "lastik"
                   ? "bg-white text-black font-bold"
                   : "bg-[#FFB45F] text-white"
@@ -37,7 +37,7 @@ function enUygunLastik() {
             <li
               key="jant"
               onClick={() => handleTabClick("jant")}
-              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              className={`px-3 py-3 rounded-t-lg cursor-pointer ${
                 activeTab === "jant"
                   ? "bg-white text-black font-bold"
                   : "bg-[#FFB45F] text-white"
@@ -50,7 +50,7 @@ function enUygunLastik() {
             <li
               key="aku"
               onClick={() => handleTabClick("aku")}
-              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              className={`px-3 py-3 rounded-t-lg cursor-pointer ${
                 activeTab === "aku"
                   ? "bg-white text-black font-bold"
                   : "bg-[#FFB45F] text-white"
@@ -63,7 +63,7 @@ function enUygunLastik() {
             <li
               key="yag"
               onClick={() => handleTabClick("yag")}
-              className={`px-5 py-3 rounded-t-lg cursor-pointer ${
+              className={`px-3 py-3 rounded-t-lg cursor-pointer ${
                 activeTab === "yag"
                   ? "bg-white text-black font-bold"
                   : "bg-[#FFB45F] text-white"
@@ -76,9 +76,9 @@ function enUygunLastik() {
         </div>
 
         {/* İçerikler */}
-        <div className="bg-white text-black p-10 rounded-b-lg rounded-e-large">
+        <div className="bg-white text-black p-8 rounded-b-lg rounded-e-lg">
           {activeTab === "lastik" && (
-            <div className="flex flex-wrap gap-4 justify-center items-center">
+            <div className="flex flex-wrap gap-3 justify-center items-center">
               <div className="flex-1 min-w-[120px] max-w-[200px] w-full">
                 <select
                   name="carBrand"
@@ -166,7 +166,7 @@ function enUygunLastik() {
               <div className="flex-1 min-w-[120px] max-w-[200px] w-full flex items-end">
                 <Button
                   className="bg-[#FFB45F] text-white w-full md:w-auto"
-                  size="lg"
+                  size="md"
                 >
                   Ara
                 </Button>

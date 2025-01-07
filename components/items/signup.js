@@ -1,32 +1,32 @@
 export const slides = [
     {
-      title: "Filo Üyelik Avantajları Nelerdir ?",
+      title: "Üyelik Avantajları Nelerdir ?",
       icon: "fa-circle-plus",
       subtitle: "Ücretsiz Üyelik",
-      description: "Türkiye'nin dört bir yanındaki tedarikçilerin stoklarına anında ulaşmanızı sağlayan lastikborsasi.com'a ücretsiz üye ol, avantajlardan yararlan."
+      description: "Türkiye’nin dört bir yanındaki tedarikçilerin stoklarına anında ulaşmanızı sağlayan lastikborsasi.com 'a ücretsiz üye ol avantajlardan sen de yararlan."
     },
     {
       title: "Avantaj 2",
-      icon: "fa-circle-check",
-      subtitle: "Daha Hızlı Teslimat",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, voluptate?"
+      icon: "fa-box",
+      subtitle: "Binlerce Ürün",
+      description: "Türkiye’nin dört bir yanındaki tedarikçilerin stoklarını barındıran lastikborsasi.com her marka ve istediğiniz ebat lastiği en uygun fiyatla bulmanıza olanak sağlar."
     },
     {
       title: "Avantaj 3",
-      icon: "fa-car-side",
-      subtitle: "Gelişmiş Araç Takibi",
-      description: "Lorem ipsum dolor sit amet consectetur."
+      icon: "fa-truck-fast",
+      subtitle: "Hızlı Kargo",
+      description: "Saat 16.00'ya kadar vereceğiniz siparişler aynı gün kargoda!"
     },
     {
       title: "Avantaj 4",
-      icon: "fa-truck",
-      subtitle: "Özel Kampanyalar",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+      icon: "fa-rotate-left",
+      subtitle: "Kolay İade",
+      description: "Aldığınız ürünü 7 gün içerisinde ücretsiz iade edebilirsiniz."
     },
     {
       title: "Avantaj 5",
-      icon: "fa-cogs",
-      subtitle: "Teknik Destek",
-      description: "Consectetur adipisicing elit. Vitae, voluptate?"
+      icon: "fa-comments",
+      subtitle: "Canlı Yardım",
+      description: "Lastik, jant, akü alımlarınızda aklınıza takılan tüm sorular için temsilcilerimizden 09.00-18.00 saatleri arasında canlı destekten yardım alabilirsiniz."
     }
   ];

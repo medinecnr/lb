@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <div className="bg-[#053C50] text-white py-8">
-      <div className="container mx-auto max-w-screen-xl flex flex-col md:flex-row md:justify-between md:items-start overflow-hidden">
+      <div className="container mx-auto flex flex-col md:flex-row md:justify-between md:items-start overflow-hidden">
 
         <div className="flex-1 mb-6 md:mb-0 md:w-1/3 pe-2">
           <h3 className="font-bold mb-4">Lastik Borsası</h3>
