@@ -3,19 +3,19 @@ export const carouselItems = [
       title: 'Siparişin 120 Dakikada Kapında!',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://www.lastikborsasi.com/cdn-cgi/image/width=1200,quality=100/Sliders/gece-firsati-web_d_ad5de009_.jpg',
+      image: 'https://via.placeholder.com/200x100',
     },
     {
       title: 'Lorem ipsum dolor sit amet, .',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://www.lastikborsasi.com/cdn-cgi/image/width=1200,quality=100/Sliders/120-dk-banner-web_d_f6565ba7_.jpg',
+      image: 'https://via.placeholder.com/200x100',
     },
     {
       title: 'Siparişin 120 Dakikada Kapında!',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://www.lastikborsasi.com/cdn-cgi/image/width=1200,quality=100/Sliders/2_d_63072b80_.png',
+      image: 'https://via.placeholder.com/200x100',
     },
   ];
 

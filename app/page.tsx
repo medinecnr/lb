@@ -124,7 +124,7 @@ export default function Home() {
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}
       <div className="mb-10">
-        <div className="carousel-container relative w-full bg-[#006969] flex justify-center items-center m-0 py-16">
+        <div className="carousel-container relative w-full bg-[#006969] flex justify-center items-center m-0 py-12 ">
           <Carousel
             selectedItem={currentIndex}
             onChange={setCurrentIndex}
@@ -140,13 +140,10 @@ export default function Home() {
             transitionTime={1000}
           >
             {carouselItems.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col md:flex-row items-center justify-center w-full h-full "
-              >
-                <div className="flex-1 text-white p-8 text-center md:text-left flex flex-col justify-center h-full gap-4">
-                  <h3 className="text-2xl md:text-3xl">{item.title}</h3>
-                  <p className="">{item.description}</p>
+              <div key={index} className="flex flex-col md:flex-row items-center justify-center w-full h-full gap-4 md:gap-0 px-5">
+                <div className="flex-1 text-white text-center md:text-left flex flex-col justify-center h-full gap-4">
+                  <h3 className="text-md sm:text-lg md:text-xl lg:text-2xl font-bold">{item.title}</h3>
+                  <p className="text-sm sm:text-base md:text-md">{item.description}</p>
                   <a href="#">
                     <Button
                       color="primary"
@@ -158,11 +155,11 @@ export default function Home() {
                   </a>
                 </div>
 
-                <div className="flex-1 pl-4 p-8 ">
+                <div className="flex-1">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover rounded-xl "
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
               </div>
@@ -312,31 +309,19 @@ export default function Home() {
             />
           </div>
           <div className="mt-4">
-            <h3>Lorem ipsum dolor sit amet.</h3>
+            <h3 className="font-bold">Lastik Fiyatları</h3>
             <br />
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus quis tenetur pariatur, quas dignissimos animi velit
-              minima. Vero inventore labore neque, nobis pariatur in laborum
-              asperiores provident fugit necessitatibus quis corporis odit?
-              Placeat aperiam atque recusandae, cum porro exercitationem quas
-              alias omnis corrupti a. Saepe voluptatem voluptate voluptas
-              delectus impedit.
-            </p>
-            <br />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
-              cum commodi voluptatem ex tempore autem doloremque consectetur
-              beatae alias nisi eos ut omnis in amet cupiditate saepe quae
-              veritatis quis sapiente harum officia reiciendis, laborum
-              perferendis atque. Saepe temporibus magnam et? Enim assumenda
-              molestiae quis similique dignissimos dolore voluptate optio.
+            Lastik fiyatları; ebatı, mevsimi, kalitesi, lastiğin sahip olduğu etiket değerleri (M+S, 3PMSF, A), girmiş olduğu testler, markası gibi birden fazla etken değerlendirilerek belirlenir. Lastik alırken bulunduğunuz bölgenin mevsim koşullarını göz önünde bulundurmalısınız. Lastik karışımları ilgili mevsimin sıcaklık değerine dayanacak şekilde hazırlanır. Örneğin zorlu kış koşullarına dayanan, off road olarak kullanılabilen, yüksek hızlarda dahi zemin tutuşu sağlam olan lastik fiyatları, sadece şehir içi kullanıma uygun standart lastiklerle karşılaştırıldığında yüksek gelebilir. Bu noktada ürün özellikleri fiyatının karşılığı verecektir. Lastik fiyatına karar verirken güvenliğinizi ön planda tutmayı unutmamalısınız.
+            <br /> <br />
+            Lastikborsasi.com’da Michelin, Bridgestone, Continental, Dayton, Debica, Dunlop, Falken, Goodyear, Hankook, Kormoran, Lassa, Milestone, Nokian, Petlas, Pirelli, Sava, BF Goodrich başta olmak üzere tüm lastik markalarını bulabilirsiniz.
             </p>
             <br />
             <a href="#" className="font-semibold">
               Devamını Göster
             </a>
           </div>
+          
         </div>
 
         <div className="flex-1">
@@ -388,37 +373,30 @@ export default function Home() {
               <AccordionItem
                 key="1"
                 aria-label="Accordion 1"
-                title="Quidem incidunt ullam quasi ipsa nihil inventore?"
+                title="En İyi Motor Yağı Hangisi?"
               >
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                  dolor reiciendis, vel repellendus, incidunt aliquid quas
-                  soluta magni tempore, laboriosam dolores cumque sint? Quidem
-                  incidunt ullam quasi ipsa nihil inventore?
+                Motor yağı araçtan araca farklılık göstermektedir. Yanlış motor yağı kullanımı aracınızın performansının düşmesine ya da mekanik parçaların arızalanmasına neden olabilir. Motor yağları zamanla oksitlenir ve sakızımsı bir hal alır. Uzun süre değiştirilmeyen yağlar mekanik aksamın işleyişine zarar verir. Kullanıma bağlı olarak belli kilometrelerde ya da araç hiç kullanılmasa dahi senede 1 mutlaka değiştirmek gerekir. En iyi motor yağı araç üreticinizin standartta belirlediği viskozite değerine sahip kaliteli marka motor yağıdır.
+                <br /> <br />
+                En kaliteli motor yağı markalarını, binek araç, ağır hizmet ticari araç ve motosiklet motor yağları gibi farklı viskozite ve ACEA değerlerine sahip yağ çeşitlerini lastikborsasi.com’da bulabilirsiniz. Shell motor yağı, Castrol motor yağı, Petrol Ofisi motor yağı, Liqui Moly, Lukoil, Motul yağ markalarına her geçen gün yenileri eklenmektedir. Motor yağları mineral yağlar, tam sentetik motor yağları (full sentetik) ve yarı sentetik motor yağları olarak 3’e ayrılır. Binek araçlarda sıklıkla tercih edilen çeşit full sentetik motor yağıdır.
                 </p>
               </AccordionItem>
               <AccordionItem
                 key="2"
                 aria-label="Accordion 2"
-                title="Culpa sint blanditiis dolorum alias totam voluptatem  consectetur?"
+                title="Motor Yağı Fiyatları"
               >
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Culpa sint blanditiis dolorum alias totam voluptatem
-                  accusantium quibusdam consectetur! Ducimus nobis neque sint
-                  consequatur voluptas nulla dolorum vitae voluptatibus qui
-                  nisi.
+                Motor yağı fiyatları, marka, viskozite değeri, ACEA standardı gibi özelliklere göre değişkenlik göstermektedir. Kaliteli yağ markası ve uygun viskozite değeri ile motorunuzun uzun ömürlü olmasını sağlayabilirsiniz. Binek araçlarda en çok kullanılan viskozite değerleri 5 30 partiküllü motor yağı, 5W-30 motor yağı, 5w 40, 10W-40 motor yağları binek araçlarda en çok kullanılan çeşitlerdir.
                 </p>
               </AccordionItem>
               <AccordionItem
                 key="3"
                 aria-label="Accordion 3"
-                title="Lorem ipsum dolor sit?"
+                title="Lastik Borsası Ürün Çeşitliliği"
               >
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Adipisci, assumenda? Lorem ipsum, dolor sit amet consectetur
-                  adipisicing elit. Quod, maiores.
+                Lastik Borsası üzerinden aracınızın ihtiyacı olan lastik, jant, akü yağ ürünlerini avantajlı fiyatlarla alabilirsiniz. Türkiye’nin her noktasından binlerce tedarikçinin fiyatları karşılaştırılarak en uygun olanlar listelenir, size kalitesini değerlendirip bütçenize en uygun olanı seçmek kalır.
                 </p>
               </AccordionItem>
               <AccordionItem

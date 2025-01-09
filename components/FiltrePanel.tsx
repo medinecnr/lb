@@ -226,7 +226,7 @@ const FiltrePanel = ({
         </ScrollShadow>
       </div>
 
-      <div className='flex flex-col  border '>
+      <div className='flex flex-col  border rounded-b-xl'>
         <Accordion selectionMode="multiple">
           <AccordionItem key="1" aria-label="kesitOrani" title="Kesit Oranı">
             <ScrollShadow className="w-full h-[120px]">

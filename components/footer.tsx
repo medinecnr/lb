@@ -48,7 +48,7 @@ const Footer = () => {
                   radius="sm"
                   className={btnPhone}
                 >
-                  <i className={`fa-solid fa-${contact.icon} mr-2`}></i>
+                  <i className={`fa-solid fa-${contact.icon} mr-2 hover:text-[#FFB45F]`}></i>
                   {contact.text}
                 </Button>
               ))}

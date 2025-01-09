@@ -121,7 +121,7 @@ function Page() {
     }, [meta.metaTitle]);
     
   return (
-    <section>
+    <>
       <head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
@@ -446,7 +446,7 @@ function Page() {
         }
       `}
       </style>
-    </section>
+    </>
   );
 }
 

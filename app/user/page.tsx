@@ -48,7 +48,7 @@ function Page({}: Props) {
       <div className="relative min-h-screen flex flex-col">
         <Navbar />
 
-        <div className="flex flex-col justify-center items-center mt-24">
+        <div className="flex flex-col justify-center items-center mt-12">
           <h1 className="text-3xl font-semibold">Hesap Açma Seçenekleri</h1>
           <p className="text-sm text-gray-600 my-6">Giriş Yapın.</p>
 

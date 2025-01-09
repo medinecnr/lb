@@ -50,7 +50,7 @@ export const Navbar = () => {
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="max-w-fit">
             <NextLink className="flex justify-start items-center" href="/">
-              <img src="/images/denemelogo.png" alt="Logo" className="w-28 h-auto" />
+              <img src="/images/lb-logo.png" alt="Logo"  />
             </NextLink>
           </NavbarBrand>
         </NavbarContent>
@@ -115,7 +115,7 @@ export const Navbar = () => {
               href="/indirme" 
               className="border flex items-center ">
               <img
-                src="./images/dowloandlogo.png"
+                src="/images/metin-logo.png"
                 alt="Indirme Logo"
                 className="w-7 h-7 object-contain"/>
               <span className="text-gray-600 text-xs">Uygulamayı<br />indirin!</span>
