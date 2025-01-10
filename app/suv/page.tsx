@@ -13,6 +13,8 @@ import Link from 'next/link';
 import { countries } from "@/components/items/countries";
 import { Mevsim, KesitOrani, UretimYili } from "@/components/items/filtre-panel-items";
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 const RenderSelect = ({ label, value, onChange, options }: { label: string, value: string | null, onChange: (value: string) => void, options: string[] }) => (
   <Select
@@ -122,7 +124,7 @@ function Page() {
     
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -132,7 +134,7 @@ function Page() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto pb-10">

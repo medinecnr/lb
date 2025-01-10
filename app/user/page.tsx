@@ -4,6 +4,8 @@ import { Navbar } from "@/components/navbar";
 import Link from "next/link";
 import { metaData } from "@/config/metaConfig";
 import { useEffect } from "react";
+import Head from 'next/head';
+
 
 type Props = {};
 
@@ -33,7 +35,7 @@ function Page({}: Props) {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -43,7 +45,7 @@ function Page({}: Props) {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
 
       <div className="relative min-h-screen flex flex-col">
         <Navbar />

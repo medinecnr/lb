@@ -5,6 +5,7 @@ import { lastikCategories, ebatCategories } from '@/components/items/otomobil-la
 import Altpanel from '@/components/altpanel';
 import { metaData } from "@/config/metaConfig";
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 export default function OtomobilLastikPage() {
   const router = useRouter();
@@ -41,7 +42,7 @@ export default function OtomobilLastikPage() {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -51,7 +52,7 @@ export default function OtomobilLastikPage() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
       <div>
         <div>
           <div className="flex justify-start items-center px-4 gap-2">

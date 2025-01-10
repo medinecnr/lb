@@ -4,6 +4,8 @@ import NextLink from "next/link";
 import Altpanel from '@/components/altpanel';
 import { Input } from "@nextui-org/react";
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 export default function Page() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -38,7 +40,7 @@ export default function Page() {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -48,7 +50,7 @@ export default function Page() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
 
       <section className="container flex justify-center items-center bg-[#FAFAFA]">
         <div className="flex flex-col justify-center items-center w-full max-w-md">

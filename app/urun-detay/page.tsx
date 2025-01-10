@@ -10,6 +10,8 @@ import { Breadcrumbs, BreadcrumbItem, Tabs, Tab, Card, CardBody, Tooltip, } from
 import Link from 'next/link';
 import { products } from '@/components/items/SUVurunler';
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 function Page() {
   const images = [
@@ -74,7 +76,7 @@ function Page() {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -84,7 +86,7 @@ function Page() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
       <Ustpanel />
       <Navbar />
       <div className="container mx-auto relative ">

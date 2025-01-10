@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Altpanel from "@/components/altpanel";
 import { metaData } from "@/config/metaConfig";
 import { useEffect } from "react";
+import Head from 'next/head';
 
 const categories = [
   { name: "Lastik", slug: "lastik" },
@@ -46,7 +47,7 @@ export default function CategoryPage() {
   
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -56,7 +57,7 @@ export default function CategoryPage() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
 
       <div>
         <h1 className="p-4 text-[20px]">Kategoriler</h1>

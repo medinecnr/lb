@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import Altpanel from "@/components/altpanel";
 import { metaData } from "@/config/metaConfig";
 import { useEffect } from "react";
+import Head from 'next/head';
+
 
 const categories = [
   { name: "Otomobil Lastikleri", slug: "otomobil-lastikleri" },
@@ -51,7 +53,7 @@ export default function LastikPage() {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -61,7 +63,7 @@ export default function LastikPage() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
 
       <div>
         <div>

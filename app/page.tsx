@@ -14,6 +14,8 @@ import Enalt from "@/components/enalt";
 import Altpanel from "@/components/altpanel";
 import EnUygunLastik from "@/components/enUygunLastik";
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("yazLastigi");
@@ -109,7 +111,7 @@ export default function Home() {
     
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -119,7 +121,7 @@ export default function Home() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
       <Ustpanel />
       <Navbar />
       {/* Carousel (HALLEDİLDİ)*/}
@@ -192,7 +194,7 @@ export default function Home() {
                   key={category.id}
                   variant="faded"
                   color="warning"
-                  onClick={() => handleCategoryClick(category.id)}
+                  onPress={() => handleCategoryClick(category.id)}
                   className={`min-w-[150px] px-5 py-10 rounded-xl cursor-pointer border hover:border-[#FA8728] ${selectedCategory === category.id ? "border-[#FA8728] bg-white" : "bg-white text-black"}`}
                 >
                   <div className="flex flex-col items-center justify-center text-center h-full">

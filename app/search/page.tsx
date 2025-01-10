@@ -4,6 +4,8 @@ import { SearchIcon } from "@/components/icons";
 import { Input } from "@nextui-org/input";
 import Altpanel from '@/components/altpanel';
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 export default function SearchPage() {
   const meta = metaData.search;
@@ -30,7 +32,7 @@ export default function SearchPage() {
 
   return (
     <>
-      <head>
+      <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -40,7 +42,7 @@ export default function SearchPage() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
 
       <div>
         <div>

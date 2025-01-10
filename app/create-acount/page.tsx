@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Checkbox } from "@nextui-org/react";
 import { Input } from '@nextui-org/react';
 import { metaData } from "@/config/metaConfig";
+import Head from 'next/head';
+
 
 function CreateAcountPage() {
   const [activeButton, setActiveButton] = useState<'bireysel' | 'bayi' | 'filo'>('bireysel');
@@ -65,7 +67,7 @@ function CreateAcountPage() {
 
   return (
     <>
-     <head>
+     <Head>
         <title>{meta.metaTitle}</title>
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.ogTitle} />
@@ -75,7 +77,7 @@ function CreateAcountPage() {
         <meta name="twitter:title" content={meta.twitterTitle} />
         <meta name="twitter:description" content={meta.twitterDescription} />
         <meta name="twitter:image" content={meta.twitterImage} />
-      </head>
+      </Head>
       <div className="container flex-grow">
         <div className="flex flex-col justify-center items-center py-4">
           <h1 className="font-bold text-center relative group text-black">

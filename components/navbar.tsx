@@ -84,12 +84,12 @@ export const Navbar = () => {
                 className="p-3"
               >
                 <DropdownSection aria-label="Preferences" showDivider>
-                  <DropdownItem key="login">
+                  <DropdownItem key="login" textValue="Giriş Yap">
                     <NextLink href="/login" className="text-default-600 font-bold">
                       Giriş Yap
                     </NextLink>
                   </DropdownItem>
-                  <DropdownItem key="create-acount">
+                  <DropdownItem key="create-acount" textValue="Hesap Oluştur">
                     <NextLink href="/create-acount" className="text-default-600 font-bold">
                       Hesap Oluştur
                     </NextLink>
@@ -97,7 +97,7 @@ export const Navbar = () => {
                 </DropdownSection>
 
                 <DropdownSection aria-label="Help & Feedback">
-                  <DropdownItem key="wholesaler-login" className="font-bold">
+                  <DropdownItem key="wholesaler-login" className="font-bold" textValue="Bayi Girişi">
                     <NextLink href="#" className="text-default-600">
                       Bayi Girişi
                     </NextLink>

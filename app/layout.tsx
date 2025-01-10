@@ -6,6 +6,7 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ChatButton from "@/components/ChatButton";
 import { Spinner } from "@nextui-org/react";
 
+
 export default function RootLayout({
   children,
 }: {
@@ -32,11 +33,6 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en" className="light">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-        <script src="https://kit.fontawesome.com/fbcb436b89.js" defer></script>
         <link rel="icon" href="/images/favico3.png" />
       </head>
       <body className={clsx("min-h-screen antialiased")}>
