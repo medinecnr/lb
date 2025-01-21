@@ -35,6 +35,8 @@ export default function Home() {
     }
   };
 
+
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       scrollCarousel(250);
@@ -305,7 +307,7 @@ export default function Home() {
         <div className="flex-1 ">
           <div>
             <img
-              src="https://via.placeholder.com/200x100"
+              src="https://picsum.photos/200/100?random=4"
               alt="Image 1"
               className="w-full h-full object-cover rounded-xl"
             />

@@ -1,7 +1,16 @@
 import React from 'react'
-import { selectOptions, renderOptions } from "@/components/items/pageitems";
+import { selectOptions,  } from "@/components/items/pageitems";
 import { Button } from "@nextui-org/react";
 import { useState } from 'react';
+
+
+const renderOptions = (options: { value: string; label: string }[]) => {
+  return options.map((option) => (
+    <option key={option.value} value={option.value}>
+      {option.label}
+    </option>
+  ));
+};
 
 function enUygunLastik() {
     const [activeTab, setActiveTab] = useState("lastik");

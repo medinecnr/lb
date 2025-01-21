@@ -3,19 +3,19 @@ export const carouselItems = [
       title: 'Siparişin 120 Dakikada Kapında!',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://via.placeholder.com/200x100',
+      image: 'https://picsum.photos/200/100?random=1',
     },
     {
       title: 'Lorem ipsum dolor sit amet, .',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://via.placeholder.com/200x100',
+      image: 'https://picsum.photos/200/100?random=2',
     },
     {
       title: 'Siparişin 120 Dakikada Kapında!',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor placeat, officia ex tempore sunt odio repellat praesentium officiis hic!',
       buttonText: 'Alışverişe Başla',
-      image: 'https://via.placeholder.com/200x100',
+      image: 'https://picsum.photos/200/100?random=3',
     },
   ];
 
@@ -60,14 +60,6 @@ export const selectOptions = {
     { value: "3", label: "18 inch" },
     { value: "4", label: "19 inch" },
   ],
-};
-
-export const renderOptions = (options) => {
-  return options.map((option) => (
-    <option key={option.value} value={option.value}>
-      {option.label}
-    </option>
-  ));
 };
 
 export const cardData = [

@@ -12,23 +12,23 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 0.1);
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setLoading(false), 0.1);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
-  if (loading) {
-    return (
-      <html lang="en" className="light">
-        <body className="min-h-screen flex justify-center items-center bg-white">
-        <Spinner color="warning"/>
-          {/* <div className="text-orange-500">Yükleniyor..</div> */}
-        </body>
-      </html>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <html lang="en" className="light">
+  //       <body className="min-h-screen flex justify-center items-center bg-white">
+  //       <Spinner color="warning"/>
+  //         {/* <div className="text-orange-500">Yükleniyor..</div> */}
+  //       </body>
+  //     </html>
+  //   );
+  // }
 
   return (
     <html suppressHydrationWarning lang="en" className="light">

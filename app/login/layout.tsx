@@ -15,9 +15,8 @@ export default function LoginLayout({ children }: { children: ReactNode }) {
         <div className="flex justify-center items-center px-4 py-2 border-b">
           <NextLink href="/" className="flex justify-start items-center">
             <img 
-              src="/images/logoLight.jpg" 
-              alt="Lastik Borsası Logo" 
-              className="w-28 h-auto" 
+              src="/images/lb-logo.png" 
+              alt="Lastik Borsası Logo"
             />
           </NextLink>
         </div>

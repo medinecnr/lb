@@ -46,9 +46,8 @@ export default function CreateAcountLayout({
           <div className="flex justify-between items-center bg-white px-4 py-2 border-b">
             <NextLink href="/" passHref>
               <img
-                src="/images/logoLight.jpg"
+                src="/images/lb-logo.png"
                 alt="Lastik Borsası logosu"
-                className="w-28 h-auto"
               />
             </NextLink>
             <NextLink href="/login" passHref>
